@@ -50,10 +50,10 @@ _sections_unfolded = [ "Playback", "playback" ]
 
 [node name="Label" type="Label" parent="."]
 
-margin_left = 100.0
-margin_top = 337.0
-margin_right = 923.0
-margin_bottom = 462.0
+margin_left = 128.0
+margin_top = 341.0
+margin_right = 895.0
+margin_bottom = 458.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2

@@ -20,16 +20,13 @@ func _fixed_process(dt):
 			if not body is beam and not body is ray:
 				if body.has_method("can_be_bombed"):
 					if body.can_be_bombed():
-						pass
+						var pt = point.instance()
+						pt.position = body.position
+						get_node("../..").add_child(pt)
+						body.queue_free()
 					else:
-						return
-			else:
-				return
-			if point:
-				var pt = point.instance()
-				pt.position = body.position
-				get_node("../..").add_child(pt)
-			body.queue_free()
+						continue
+			
 	if get_overlapping_areas().size():
 		for area in get_overlapping_areas():
 			if area.get("health"):

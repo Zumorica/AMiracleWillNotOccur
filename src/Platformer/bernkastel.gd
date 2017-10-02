@@ -14,7 +14,7 @@ var is_active = true
 export(NodePath) var textbox
 export(NodePath) var background
 
-var health = 150
+var health = 160
 onready var maxhealth = health
 
 signal stopped_moving()
@@ -39,52 +39,65 @@ func trigger():
 	yield(textbox.label, "on_queue_end")
 	yield(get_tree().create_timer(1.5), "timeout")
 	textbox.add_to_queue("Congratulations.\"")
+	yield(textbox.label, "on_queue_end")
 	yield(get_tree().create_timer(4), "timeout")
 	textbox.clear()
 	textbox.add_to_queue("\"Did you enjoy looking exactly like one of my kitties...? *giggle*\"")
+	yield(textbox.label, "on_queue_end")
 	yield(get_tree().create_timer(4), "timeout")
 	textbox.clear()
 	textbox.add_to_queue("\"The only reason you are allowed to be here is because of that, you know.\"")
-	yield(get_tree().create_timer(5), "timeout")
+	yield(textbox.label, "on_queue_end")
+	yield(get_tree().create_timer(4), "timeout")
 	textbox.clear()
 	if miracle.platformer_deaths == 0:
 		textbox.add_to_queue("\"It seems you're really good at this kind of game...\"")
+		yield(textbox.label, "on_queue_end")
 		yield(get_tree().create_timer(4), "timeout")
 		textbox.clear()
 		textbox.add_to_queue("\"You haven't even died once!\"")
+		yield(textbox.label, "on_queue_end")
 		yield(get_tree().create_timer(3), "timeout")
 		textbox.clear()
 		textbox.add_to_queue("\"But anyway...\"")
+		yield(textbox.label, "on_queue_end")
 	elif miracle.platformer_deaths <= 10:
 		textbox.add_to_queue("\"Ah... You've died a few times, eh?\"")
+		yield(textbox.label, "on_queue_end")
 		yield(get_tree().create_timer(3), "timeout")
 		textbox.clear()
 		textbox.add_to_queue("\"I know very well how dying feels.\"")
+		yield(textbox.label, "on_queue_end")
 		yield(get_tree().create_timer(3), "timeout")
 		textbox.clear()
 		textbox.add_to_queue("\"...I threw you into this hell so I could feel......\n Really feel...\n That I escaped my own hell...\"")
+		yield(textbox.label, "on_queue_end")
 		yield(get_tree().create_timer(3), "timeout")
 		textbox.clear()
 		textbox.add_to_queue("\"...\"")
+		yield(textbox.label, "on_queue_end")
 	else:
 		textbox.add_to_queue("\"You've died %s times...\""%miracle.platformer_deaths)
+		yield(textbox.label, "on_queue_end")
 		yield(get_tree().create_timer(3), "timeout")
 		textbox.clear()
 		textbox.add_to_queue("\"Why don't you just give up?\"")
+		yield(textbox.label, "on_queue_end")
 		yield(get_tree().create_timer(3), "timeout")
 		textbox.clear()
 		$CrazyLaugh.play()
 		yield(get_tree().create_timer(1.25), "timeout")
 		textbox.add_to_queue("\"The look on your face is wonderful!\"")
+		yield(textbox.label, "on_queue_end")
 		yield(get_tree().create_timer(3), "timeout")
 		textbox.clear()
 		textbox.add_to_queue("\"But anyway...\"")
-	yield(textbox.label, "on_queue_end")
+		yield(textbox.label, "on_queue_end")
 	yield(get_tree().create_timer(4), "timeout")
 	textbox.clear()
 	textbox.add_to_queue("\"Enough talk. This ends here.\"")
 	yield(textbox.label, "on_queue_end")
-	yield(get_tree().create_timer(5), "timeout")
+	yield(get_tree().create_timer(4), "timeout")
 	textbox.clear()
 	textbox.hide()
 	miracle.game_root.get_node("BGM").volume_db = 0
@@ -228,7 +241,9 @@ func bernkastel_battle():
 			miracle.game_root.player.can_restart = false
 			textbox.show()
 			textbox.set_name("Bernkastel")
+			miracle.game_root.get_node("BGM").volume_db = -50
 			yield(get_tree().create_timer(1.5), "timeout")
+			miracle.game_root.get_node("BGM").stop()
 			if not miracle.asked_for_mercy and not miracle.asked_for_mercy_twice and not miracle.tried_to_run_away\
 			and miracle.defeated_bernkastel_danmaku and miracle.platformer_deaths == 0 and miracle.defeated_bernkastel_rpg:
 				textbox.clear()
@@ -275,7 +290,7 @@ func bernkastel_battle():
 				textbox.set_name("")
 				textbox.clear()
 				textbox.set_color(Color(1, 0, 0, 1))
-				$Redtruth.play()
+				$RedTruth.play()
 				textbox.add_to_queue("TRUE ENDING")
 				miracle.ending = miracle.ending_score.true_ending
 				yield(textbox.label, "on_queue_end")
@@ -304,7 +319,7 @@ func bernkastel_battle():
 				textbox.set_name("")
 				textbox.clear()
 				textbox.set_color(Color(1, 0, 0, 1))
-				$Redtruth.play()
+				$RedTruth.play()
 				textbox.add_to_queue("GOOD ENDING")
 				miracle.ending = miracle.ending_score.good_ending
 				yield(textbox.label, "on_queue_end")
@@ -325,7 +340,7 @@ func bernkastel_battle():
 				textbox.set_name("")
 				textbox.clear()
 				textbox.set_color(Color(1, 0, 0, 1))
-				$Redtruth.play()
+				$RedTruth.play()
 				textbox.add_to_queue("...GOOD ENDING?")
 				miracle.ending = miracle.ending_score.good_ending
 				yield(textbox.label, "on_queue_end")
@@ -353,7 +368,7 @@ func bernkastel_battle():
 				textbox.set_name("")
 				textbox.clear()
 				textbox.set_color(Color(1, 0, 0, 1))
-				$Redtruth.play()
+				$RedTruth.play()
 				textbox.add_to_queue("NEUTRAL ENDING")
 				miracle.ending = miracle.ending_score.neutral_ending
 				yield(textbox.label, "on_queue_end")
@@ -381,7 +396,7 @@ func bernkastel_battle():
 				textbox.set_name("")
 				textbox.clear()
 				textbox.set_color(Color(1, 0, 0, 1))
-				$Redtruth.play()
+				$RedTruth.play()
 				textbox.add_to_queue("...BAD ENDING?")
 				miracle.ending = miracle.ending_score.bad_ending
 				yield(textbox.label, "on_queue_end")
@@ -409,7 +424,7 @@ func bernkastel_battle():
 				textbox.set_name("")
 				textbox.clear()
 				textbox.set_color(Color(1, 0, 0, 1))
-				$Redtruth.play()
+				$RedTruth.play()
 				textbox.add_to_queue("BAD ENDING!")
 				miracle.ending = miracle.ending_score.worst_ending
 				yield(textbox.label, "on_queue_end")
@@ -417,7 +432,10 @@ func bernkastel_battle():
 				$CrazyLaugh.play()
 				yield(get_tree().create_timer(5), "timeout")
 			yield(get_tree().create_timer(4), "timeout")
+			miracle.game_root.player.get_node("Camera2D").active = false
+			miracle.game_root.player.get_node("Camera2D").reset()
 			miracle.load_scene("res://src/Credits.tscn")
+			return
 	else:
 		bernkastel_battle()
 
@@ -429,33 +447,6 @@ func stop():
 func die():
 	if not miracle.game_root.player.is_dead:
 		is_dead = true
-		miracle.game_root.player.can_move = false
-		miracle.game_root.player.can_shoot = false
-		miracle.game_root.player.can_restart = false
-		stop()
-		textbox.clear()
-		textbox.show()
-		var animplayer = miracle.game_root.get_node("AnimationPlayer")
-		animplayer.play("FadeMusic")
-		if miracle.defeated_bernkastel_rpg:
-			textbox.add_to_queue("\"I have lost... again?!\"")
-			yield(textbox.label, "on_queue_end")
-			yield(get_tree().create_timer(4), "timeout")
-			textbox.add_to_queue("\"This is NOT right, NOT RIGHT!\"")
-			yield(textbox.label, "on_queue_end")
-			yield(get_tree().create_timer(4), "timeout")
-		else:
-			textbox.add_to_queue("\"Is this a miracle... or fate?\"")
-			yield(textbox.label, "on_queue_end")
-			yield(get_tree().create_timer(4), "timeout")
-		textbox.clear()
-		textbox.add_to_queue("\"Ugh... We will fight for the last time...\nIn a new fragment.\"")
-		yield(textbox.label, "on_queue_end")
-		yield(get_tree().create_timer(4), "timeout")
-		animplayer.play("ScreenFadeToBlack3")
-		yield(animplayer, "animation_finished")
-		yield(get_tree().create_timer(4), "timeout")
-		miracle.load_scene("res://src/Platformer_title.tscn")
 
 func get_angle_to_player(from=null):
 	if from:

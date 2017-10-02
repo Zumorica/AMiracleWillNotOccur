@@ -30,7 +30,7 @@ func _ready():
 
 func load_scene(path):
 	wait_frames = 1
-	var current_scene = get_tree().get_root().get_child(get_tree().get_root().get_child_count() -1)
+	var current_scene = weakref(get_tree().get_root().get_child(get_tree().get_root().get_child_count() -1))
 	loading_screen.get_node("AnimationPlayer").play("reset")
 	yield(get_tree().create_timer(0.1), "timeout")
 	loading_screen.get_node("Control").show()
@@ -38,14 +38,16 @@ func load_scene(path):
 	if loader == null:
 		raise()
 	set_process(true)
-	if typeof(current_scene) == TYPE_OBJECT:
-		if not current_scene.is_queued_for_deletion():
-			current_scene.queue_free()
+	if current_scene.get_ref():
+		if not current_scene.get_ref().is_queued_for_deletion():
+			current_scene.get_ref().queue_free()
 	loading_screen.get_node("AnimationPlayer").play("anim")
 
 func _process(delta):
 	if loader == null:
 		set_process(false)
+		loading_screen.get_node("AnimationPlayer").play("load_end")
+		loading_screen.get_node("Control").hide()
 		return
 
 	if wait_frames > 0:

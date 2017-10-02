@@ -752,7 +752,7 @@ scale = Vector2( 1, 1 )
 
 position = Vector2( 300, 150 )
 z = 10
-frame = 9
+frame = 6
 _sections_unfolded = [ "Animation", "Material", "Offset", "Transform", "Visibility", "Z" ]
 bulletmanager = NodePath("../BulletManager")
 

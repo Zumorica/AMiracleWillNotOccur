@@ -1,9 +1,13 @@
 config_version=3
 
+config_version=null
+
 [application]
 
 config/name="A Miracle Will Not Occur"
 run/main_scene="res://src/intro.tscn"
+run/disable_stdout=true
+run/disable_stderr=true
 config/icon="res://bernicon.png"
 name="A Miracle Will Not Occur"
 icon="res://bernicon.png"
@@ -14,7 +18,7 @@ miracle="*res://src/miracle.gd"
 
 [debug]
 
-settings/stdout/print_fps=true
+settings/profiler/max_functions=20000
 
 [display]
 
@@ -66,6 +70,11 @@ danmaku_bomb=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_na
 2d_physics/layer_4="Player_bullets"
 2d_physics/layer_5="points"
 2d_physics/layer_6="bomb"
+
+[memory]
+
+limits/multithreaded_server/rid_pool_prealloc=120
+limits/message_queue/max_size_kb=4096
 
 [rendering]
 

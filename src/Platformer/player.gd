@@ -144,9 +144,9 @@ func _fixed_process(delta):
 		if can_restart:
 			miracle.platformer_deaths += 1
 			if miracle.platformer_level == 0:
-				get_tree().change_scene("res://src/Platformer/platformer.tscn")
+				miracle.load_scene("res://src/Platformer/platformer.tscn")
 			elif miracle.platformer_level == 1:
-				get_tree().change_scene("res://src/Platformer/Platformer_Bernkastel.tscn")
+				miracle.load_scene("res://src/Platformer/Platformer_Bernkastel.tscn")
 
 	if (walk_left) and not is_dead:
 		if (velocity.x <= WALK_MIN_SPEED and velocity.x > -WALK_MAX_SPEED):
