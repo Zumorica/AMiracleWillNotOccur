@@ -1,0 +1,621 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://src/Platformer/platformer.gd" type="Script" id=1]
+[ext_resource path="res://src/Save_dialog.tscn" type="PackedScene" id=2]
+[ext_resource path="res://res/spr/platformer/wooden_background.png" type="Texture" id=3]
+[ext_resource path="res://res/spr/platformer/gameover.png" type="Texture" id=4]
+[ext_resource path="res://src/Platformer/map.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Platformer/Save_game.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Platformer/player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Platformer/Trigger.tscn" type="PackedScene" id=8]
+[ext_resource path="res://res/snd/ahaha.wav" type="AudioStream" id=9]
+[ext_resource path="res://src/Platformer/spike.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Platformer/Save.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/Platformer/Fake_Block.tscn" type="PackedScene" id=12]
+[ext_resource path="res://res/spr/platformer/custom_tileset/tileset.png" type="Texture" id=13]
+[ext_resource path="res://res/snd/glass.wav" type="AudioStream" id=14]
+[ext_resource path="res://src/Danmaku/bulletmanager.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/Platformer/cat_attack/Sorcerer.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/Platformer/portal.tscn" type="PackedScene" id=17]
+[ext_resource path="res://res/snd/reddread.ogg" type="AudioStream" id=18]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 256 )
+
+[sub_resource type="AtlasTexture" id=2]
+
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 64, 64 )
+margin = Rect2( 0, 0, 0, 0 )
+
+[sub_resource type="StreamTexture" id=3]
+
+load_path = ""
+
+[sub_resource type="AtlasTexture" id=4]
+
+atlas = ExtResource( 13 )
+region = Rect2( 0, 128, 64, 64 )
+margin = Rect2( 0, 0, 0, 0 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 128, 96 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 512, 64 )
+
+[sub_resource type="AtlasTexture" id=7]
+
+atlas = ExtResource( 13 )
+region = Rect2( 512, 64, 64, 64 )
+margin = Rect2( 0, 0, 0, 0 )
+
+[sub_resource type="AtlasTexture" id=8]
+
+atlas = ExtResource( 13 )
+region = Rect2( 512, 128, 64, 64 )
+margin = Rect2( 0, 0, 0, 0 )
+
+[sub_resource type="AtlasTexture" id=9]
+
+atlas = ExtResource( 13 )
+region = Rect2( 512, 0, 64, 64 )
+margin = Rect2( 0, 0, 0, 0 )
+
+[sub_resource type="RectangleShape2D" id=12]
+
+custom_solver_bias = 0.0
+extents = Vector2( 525, 330 )
+
+[sub_resource type="Animation" id=10]
+
+resource_name = "FadeMusic"
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("BGM:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 4.43828, 1 ),
+"update": 0,
+"values": [ -10.0, -80.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("BGM")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="Animation" id=11]
+
+resource_name = "FadeMusicIn"
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("BGM:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, -10.0 ]
+}
+
+[node name="Platformer" type="Node2D"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z" ]
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="SaveDialog" parent="CanvasLayer3" instance=ExtResource( 2 )]
+
+visible = false
+margin_left = 256.0
+margin_top = 192.0
+margin_right = 656.0
+margin_bottom = 392.0
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="BG" type="Sprite" parent="CanvasLayer2"]
+
+scale = Vector2( 0.533333, 0.625 )
+texture = ExtResource( 3 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility", "Z" ]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+layer = 2
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+
+visible = false
+position = Vector2( 512, 400 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Offset" ]
+
+[node name="TileMap" parent="." instance=ExtResource( 5 )]
+
+collision_layer = 1024
+collision_mask = 1048575
+tile_data = PoolIntArray( -65537, 536870918, -131072, 536870912, -131071, 536870912, -131070, 536870912, -131069, 536870912, -131068, 536870912, -131067, 536870912, -131066, 536870912, -131065, 536870912, -131064, 536870912, -131063, 536870912, -131062, 536870912, -131061, 536870912, -131060, 536870912, -131059, 536870912, -131058, 536870912, -131057, 536870912, -131056, 536870912, -131055, 536870912, -131054, 536870912, -131053, 536870912, -131052, 536870912, -131051, 536870912, -131050, 536870912, -131049, 536870912, -131048, 536870912, -131047, 536870912, -131046, 536870912, -131045, 536870912, -131044, 536870912, -131043, 536870912, -131042, 536870912, -131041, 6, -131040, 9, -1, 536870919, -65536, 1, -65535, 1, -65534, 1, -65533, 1, -65532, 1, -65531, 1, -65530, 1, -65529, 1, -65528, 1, -65527, 1, -65526, 1, -65525, 1, -65524, 1, -65523, 1, -65522, 1, -65521, 1, -65520, 536870913, -65519, 536870913, -65518, 536870913, -65517, 536870913, -65516, 536870913, -65515, 536870913, -65514, 536870913, -65513, 536870913, -65512, 536870913, -65511, 536870913, -65510, 536870913, -65509, 536870913, -65508, 536870913, -65507, 536870913, -65506, 536870913, -65505, 7, -65504, 10, 65535, 536870919, 0, 536870920, 1, 2, 2, 2, 3, 2, 4, 2, 5, 2, 6, 2, 7, 2, 8, 2, 9, 2, 10, 2, 11, 2, 12, 2, 13, 2, 14, 2, 15, 2, 16, 2, 17, 2, 18, 2, 19, 2, 20, 2, 21, 2, 22, 2, 23, 2, 24, 2, 25, 2, 26, 2, 27, 2, 28, 2, 29, 2, 30, 2, 31, 8, 32, 10, 131071, 10, 65552, 24, 65554, 24, 65558, 24, 65563, 24, 65567, 24, 65568, 10, 196607, 10, 131088, 25, 131090, 25, 131094, 25, 131099, 25, 131103, 25, 131104, 10, 262143, 10, 196624, 25, 196626, 25, 196630, 25, 196635, 25, 196639, 25, 196640, 10, 327679, 10, 262160, 25, 262162, 25, 262164, 42, 262166, 25, 262168, 46, 262171, 25, 262175, 25, 262176, 10, 393215, 10, 327696, 26, 327698, 26, 327702, 26, 327707, 26, 327711, 26, 327712, 10, 458751, 536870922, 393217, 49, 393232, 37, 393233, 28, 393234, 28, 393235, 28, 393236, 28, 393237, 28, 393238, 28, 393239, 28, 393240, 28, 393241, 28, 393242, 28, 393243, 28, 393244, 28, 393245, 28, 393246, 28, 393247, 31, 393248, 10, 524287, 536870922, 458784, 10, 589823, 536870922, 524288, 536870915, 524289, 0, 524290, 0, 524291, 0, 524292, 6, 524293, 28, 524294, 536870918, 524295, 0, 524296, 0, 524297, 0, 524298, 0, 524299, 0, 524300, 0, 524301, 0, 524302, 0, 524303, 0, 524304, 0, 524305, 0, 524306, 0, 524318, 0, 524319, 6, 524320, 10, 655359, 10, 589824, 536870916, 589825, 1, 589826, 1, 589827, 1, 589828, 7, 589830, 536870919, 589831, 1, 589832, 1, 589833, 1, 589834, 1, 589835, 1, 589836, 1, 589837, 1, 589838, 1, 589839, 536870913, 589840, 536870914, 589841, 536870914, 589842, 536870914, 589854, 536870914, 589855, 8, 589856, 10, 720895, 10, 655360, 536870916, 655361, 1, 655362, 1, 655363, 1, 655364, 7, 655366, 536870919, 655367, 1, 655368, 1, 655369, 1, 655370, 1, 655371, 1, 655372, 1, 655373, 1, 655374, 1, 655375, 7, 655392, 10, 786431, 10, 720896, 536870916, 720897, 1, 720898, 1, 720899, 1, 720900, 7, 720902, 536870919, 720903, 1, 720904, 1, 720905, 1, 720906, 1, 720907, 1, 720908, 1, 720909, 1, 720910, 1, 720911, 7, 720928, 10, 851967, 11, 786432, 536870917, 786433, 2, 786434, 2, 786435, 2, 786436, 8, 786437, 536870937, 786438, 536870920, 786439, 2, 786440, 2, 786441, 2, 786442, 2, 786443, 2, 786444, 2, 786445, 2, 786446, 2, 786447, 8, 786464, 536870919, 786465, 536870912, 786466, 536870912, 786467, 536870912, 786468, 536870912, 786469, 536870912, 786470, 536870912, 786471, 536870912, 786472, 536870912, 786473, 536870912, 786474, 536870912, 786475, 536870912, 786476, 536870912, 786477, 536870912, 786478, 536870912, 786479, 6, 851968, 10, 851983, 10, 851985, 44, 851989, 44, 851993, 44, 851995, 44, 851999, 44, 852000, 536870919, 852001, 1, 852002, 1, 852003, 1, 852004, 1, 852005, 1, 852006, 1, 852007, 1, 852008, 1, 852009, 1, 852010, 1, 852011, 1, 852012, 1, 852013, 1, 852014, 1, 852015, 7, 917504, 10, 917505, 13, 917506, 13, 917507, 13, 917508, 13, 917509, 13, 917510, 13, 917511, 13, 917512, 13, 917513, 13, 917514, 13, 917515, 13, 917516, 13, 917517, 13, 917518, 13, 917519, 10, 917520, 46, 917530, 44, 917534, 46, 917536, 536870919, 917537, 536870914, 917538, 536870914, 917539, 536870914, 917540, 536870914, 917541, 536870914, 917542, 536870914, 917543, 536870914, 917544, 536870914, 917545, 536870914, 917546, 536870914, 917547, 536870914, 917548, 536870914, 917549, 536870914, 917550, 536870914, 917551, 7, 983040, 10, 983041, 17, 983042, 17, 983043, 17, 983044, 17, 983045, 17, 983046, 17, 983047, 17, 983048, 15, 983049, 17, 983050, 17, 983051, 17, 983052, 17, 983053, 17, 983054, 17, 983055, 10, 983057, 44, 983063, 44, 983071, 44, 983072, 11, 983082, 536870933, 983083, 15, 983084, 15, 983085, 15, 983086, 21, 983087, 536870922, 1048576, 10, 1048592, 44, 1048594, 46, 1048596, 44, 1048598, 44, 1048600, 46, 1048618, 536870934, 1048619, 16, 1048620, 16, 1048621, 16, 1048622, 22, 1048623, 10, 1114112, 10, 1114135, 42, 1114141, 42, 1114149, 46, 1114151, 45, 1114154, 536870934, 1114155, 16, 1114156, 16, 1114157, 16, 1114158, 22, 1114159, 10, 1179648, 10, 1179664, 44, 1179666, 41, 1179668, 42, 1179674, 42, 1179690, 1610612757, 1179691, 23, 1179692, 23, 1179693, 23, 1179694, 23, 1179695, 10, 1245184, 10, 1245199, 9, 1245211, 44, 1245214, 24, 1245215, 35, 1245216, 536870918, 1245217, 536870912, 1245218, 536870912, 1245219, 536870912, 1245220, 536870912, 1245221, 536870912, 1245222, 536870912, 1245223, 536870912, 1245224, 536870912, 1245225, 536870912, 1245226, 536870912, 1245227, 536870912, 1245228, 536870912, 1245229, 536870912, 1245230, 536870912, 1245231, 6, 1310720, 10, 1310734, 9, 1310735, 10, 1310736, 46, 1310738, 44, 1310742, 42, 1310750, 25, 1310752, 536870919, 1310753, 536870913, 1310754, 536870913, 1310755, 536870913, 1310756, 536870913, 1310757, 536870913, 1310758, 536870913, 1310759, 536870913, 1310760, 536870913, 1310761, 536870913, 1310762, 536870913, 1310763, 536870913, 1310764, 536870913, 1310765, 536870913, 1310766, 536870913, 1310767, 7, 1376256, 10, 1376269, 9, 1376270, 10, 1376271, 10, 1376275, 42, 1376277, 44, 1376286, 25, 1376287, 44, 1376288, 536870919, 1376289, 1, 1376290, 1, 1376291, 1, 1376292, 1, 1376293, 1, 1376294, 1, 1376295, 1, 1376296, 1, 1376297, 1, 1376298, 1, 1376299, 1, 1376300, 1, 1376301, 1, 1376302, 1, 1376303, 7, 1441792, 10, 1441794, 43, 1441804, 9, 1441805, 10, 1441806, 10, 1441807, 10, 1441808, 44, 1441812, 42, 1441814, 44, 1441822, 26, 1441824, 536870919, 1441825, 1, 1441826, 1, 1441827, 1, 1441828, 1, 1441829, 1, 1441830, 1, 1441831, 1, 1441832, 1, 1441833, 1, 1441834, 1, 1441835, 1, 1441836, 1, 1441837, 1, 1441838, 1, 1441839, 7, 1507328, 10, 1507339, 9, 1507340, 10, 1507341, 10, 1507342, 10, 1507343, 10, 1507349, 42, 1507358, 12, 1507359, 42, 1507360, 536870919, 1507361, 1, 1507362, 1, 1507363, 1, 1507364, 1, 1507365, 1, 1507366, 1, 1507367, 1, 1507368, 1, 1507369, 1, 1507370, 1, 1507371, 1, 1507372, 1, 1507373, 1, 1507374, 1, 1507375, 7, 1572864, 10, 1572865, 30, 1572866, 30, 1572867, 30, 1572868, 30, 1572869, 30, 1572870, 30, 1572871, 30, 1572872, 30, 1572873, 30, 1572874, 12, 1572875, 11, 1572876, 11, 1572877, 11, 1572878, 11, 1572879, 11, 1572880, 44, 1572884, 42, 1572890, 44, 1572896, 536870919, 1572897, 536870914, 1572898, 536870914, 1572899, 536870914, 1572900, 536870914, 1572901, 536870914, 1572902, 536870914, 1572903, 536870914, 1572904, 536870914, 1572905, 536870914, 1572906, 536870914, 1572907, 536870914, 1572908, 536870914, 1572909, 536870914, 1572910, 536870914, 1572911, 8, 1638400, 536870918, 1638401, 536870912, 1638402, 536870912, 1638403, 536870912, 1638404, 536870912, 1638405, 536870912, 1638406, 536870912, 1638407, 536870912, 1638408, 536870912, 1638409, 536870912, 1638410, 536870912, 1638411, 536870912, 1638412, 536870912, 1638413, 536870912, 1638414, 0, 1638415, 6, 1638432, 10, 1769471, 9, 1703936, 536870920, 1703937, 2, 1703938, 2, 1703939, 2, 1703940, 2, 1703941, 2, 1703942, 2, 1703943, 2, 1703944, 2, 1703945, 2, 1703946, 2, 1703947, 2, 1703948, 2, 1703949, 2, 1703950, 2, 1703951, 8, 1703967, 24, 1703968, 10, 1835007, 10, 1769500, 44, 1769503, 25, 1769504, 10, 1900543, 10, 1835010, 41, 1835039, 25, 1835040, 10, 1966079, 10, 1900562, 42, 1900575, 25, 1900576, 10, 2031615, 10, 1966111, 25, 1966112, 10, 2097151, 10, 2031647, 25, 2031648, 10, 2162687, 10, 2097183, 25, 2097184, 10, 2228223, 10, 2162719, 25, 2162720, 10, 2293759, 10, 2228255, 25, 2228256, 10, 2359295, 10, 2293779, 44, 2293788, 46, 2293791, 25, 2293792, 10, 2424831, 10, 2359327, 26, 2359328, 10, 2490367, 10, 2424832, 536870918, 2424833, 536870912, 2424834, 536870912, 2424835, 536870912, 2424836, 536870912, 2424837, 536870912, 2424838, 536870912, 2424839, 536870912, 2424840, 536870912, 2424841, 536870912, 2424842, 536870912, 2424843, 536870912, 2424844, 536870912, 2424845, 536870912, 2424846, 536870912, 2424847, 536870912, 2424848, 0, 2424849, 0, 2424850, 0, 2424851, 0, 2424852, 0, 2424853, 0, 2424854, 0, 2424855, 0, 2424856, 0, 2424857, 0, 2424858, 0, 2424859, 0, 2424860, 0, 2424861, 0, 2424862, 0, 2424863, 0, 2424864, 10, 2555903, 11, 2490368, 536870920, 2490369, 2, 2490370, 2, 2490371, 2, 2490372, 2, 2490373, 2, 2490374, 2, 2490375, 2, 2490376, 2, 2490377, 2, 2490378, 2, 2490379, 2, 2490380, 2, 2490381, 2, 2490382, 2, 2490383, 2, 2490384, 2, 2490385, 2, 2490386, 2, 2490387, 2, 2490388, 2, 2490389, 2, 2490390, 2, 2490391, 2, 2490392, 2, 2490393, 2, 2490394, 2, 2490395, 2, 2490396, 2, 2490397, 2, 2490398, 2, 2490399, 2, 2490400, 11 )
+
+[node name="Save3" parent="TileMap" instance=ExtResource( 6 )]
+
+position = Vector2( 704, 2240 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+save_dialog = NodePath("../../CanvasLayer3/SaveDialog")
+
+[node name="Player" parent="TileMap" instance=ExtResource( 7 )]
+
+position = Vector2( 1536, 704 )
+_sections_unfolded = [ "Angular", "Collision", "Linear", "Transform", "Z", "collision" ]
+gameover = NodePath("../../CanvasLayer/Sprite")
+bgm = NodePath("../../BGM")
+save_dialog = NodePath("../../CanvasLayer3/SaveDialog")
+
+[node name="Trigger" parent="TileMap" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+trigger_sound = ExtResource( 9 )
+group = "spike_1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger"]
+
+position = Vector2( 352, 256 )
+shape = SubResource( 1 )
+
+[node name="Spike" parent="TileMap" groups=[
+"spike_1",
+] instance=ExtResource( 10 )]
+
+position = Vector2( 320, 704 )
+velocity = -1000.0
+
+[node name="Spike2" parent="TileMap" groups=[
+"spike_1",
+] instance=ExtResource( 10 )]
+
+position = Vector2( -64, 448 )
+rotation = 1.5708
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Spike4" parent="TileMap" groups=[
+"spike_1",
+] instance=ExtResource( 10 )]
+
+position = Vector2( -64, 320 )
+rotation = 1.5708
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Spike6" parent="TileMap" groups=[
+"spike_1",
+] instance=ExtResource( 10 )]
+
+position = Vector2( -64, 192 )
+rotation = 1.5708
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Spike8" parent="TileMap" groups=[
+"spike_1",
+] instance=ExtResource( 10 )]
+
+position = Vector2( -64, 64 )
+rotation = 1.5708
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Save" parent="TileMap" instance=ExtResource( 11 )]
+
+position = Vector2( 192, 416 )
+
+[node name="Save2" parent="TileMap" instance=ExtResource( 11 )]
+
+position = Vector2( 2464, 1120 )
+
+[node name="Fake_Block" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1408, 512 )
+sprite_default = SubResource( 2 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block17" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1344, 512 )
+sprite_default = SubResource( 2 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block18" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1280, 512 )
+sprite_default = SubResource( 2 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block19" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1216, 512 )
+sprite_default = SubResource( 2 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block2" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1472, 512 )
+sprite_default = SubResource( 2 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block3" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1536, 512 )
+sprite_default = SubResource( 2 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block4" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1600, 512 )
+sprite_default = SubResource( 2 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block5" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1664, 512 )
+sprite_default = SubResource( 2 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block6" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1728, 512 )
+sprite_default = SubResource( 2 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block13" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1792, 512 )
+sprite_default = SubResource( 2 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block14" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1856, 512 )
+sprite_default = SubResource( 2 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block7" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1408, 576 )
+sprite_default = SubResource( 4 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block20" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1344, 576 )
+sprite_default = SubResource( 4 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block21" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1280, 576 )
+sprite_default = SubResource( 4 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block22" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1216, 576 )
+sprite_default = SubResource( 4 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block8" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1472, 576 )
+sprite_default = SubResource( 4 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block9" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1536, 576 )
+sprite_default = SubResource( 4 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block10" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1600, 576 )
+sprite_default = SubResource( 4 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block11" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1664, 576 )
+sprite_default = SubResource( 4 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block12" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1728, 576 )
+sprite_default = SubResource( 4 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block15" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1792, 576 )
+sprite_default = SubResource( 4 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Fake_Block16" parent="TileMap" groups=[
+"fall_1",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1856, 576 )
+sprite_default = SubResource( 4 )
+sprite_triggered = SubResource( 3 )
+
+[node name="Trigger2" parent="TileMap" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+trigger_sound = ExtResource( 14 )
+group = "fall_1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger2"]
+
+position = Vector2( 1600, 480 )
+shape = SubResource( 5 )
+
+[node name="Trigger3" parent="TileMap" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+position = Vector2( 1056, 1632 )
+group = "cat_attack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger3"]
+
+position = Vector2( 480, 32 )
+shape = SubResource( 6 )
+
+[node name="Fake_Block23" parent="TileMap" groups=[
+"cat_defeat",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1024, 1728 )
+sprite_default = SubResource( 7 )
+on_trigger_opacity_change = true
+opacity = 0.0
+
+[node name="Fake_Block24" parent="TileMap" groups=[
+"cat_defeat",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1024, 1792 )
+sprite_default = SubResource( 7 )
+on_trigger_opacity_change = true
+opacity = 0.0
+
+[node name="Fake_Block25" parent="TileMap" groups=[
+"cat_defeat",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1024, 1856 )
+sprite_default = SubResource( 7 )
+on_trigger_opacity_change = true
+opacity = 0.0
+
+[node name="Fake_Block26" parent="TileMap" groups=[
+"cat_defeat",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1024, 1920 )
+sprite_default = SubResource( 7 )
+on_trigger_opacity_change = true
+opacity = 0.0
+
+[node name="Fake_Block27" parent="TileMap" groups=[
+"cat_defeat",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1024, 1984 )
+sprite_default = SubResource( 7 )
+on_trigger_opacity_change = true
+opacity = 0.0
+
+[node name="Fake_Block28" parent="TileMap" groups=[
+"cat_defeat",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1024, 2048 )
+sprite_default = SubResource( 7 )
+on_trigger_opacity_change = true
+opacity = 0.0
+
+[node name="Fake_Block29" parent="TileMap" groups=[
+"cat_defeat",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1024, 2112 )
+sprite_default = SubResource( 7 )
+on_trigger_opacity_change = true
+opacity = 0.0
+
+[node name="Fake_Block30" parent="TileMap" groups=[
+"cat_defeat",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1024, 2176 )
+sprite_default = SubResource( 7 )
+on_trigger_opacity_change = true
+opacity = 0.0
+
+[node name="Fake_Block31" parent="TileMap" groups=[
+"cat_defeat",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1024, 2240 )
+sprite_default = SubResource( 7 )
+on_trigger_opacity_change = true
+opacity = 0.0
+
+[node name="Fake_Block32" parent="TileMap" groups=[
+"cat_defeat",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1024, 2304 )
+sprite_default = SubResource( 8 )
+on_trigger_opacity_change = true
+opacity = 0.0
+
+[node name="Fake_Block33" parent="TileMap" groups=[
+"cat_defeat",
+] instance=ExtResource( 12 )]
+
+position = Vector2( 1024, 1664 )
+sprite_default = SubResource( 9 )
+on_trigger_opacity_change = true
+opacity = 0.0
+
+[node name="BulletManager" parent="TileMap" instance=ExtResource( 15 )]
+
+position = Vector2( 1024, 1600 )
+bernkastel = NodePath("../Sorcerer")
+
+[node name="Sorcerer" parent="TileMap" groups=[
+"cat_attack",
+] instance=ExtResource( 16 )]
+
+position = Vector2( 2272, 1888 )
+frame = 2
+_sections_unfolded = [ "Transform", "Visibility", "Z" ]
+bgm = NodePath("../../BGM")
+animationplayer = NodePath("../../AnimationPlayer")
+bulletmanager = NodePath("../BulletManager")
+player = NodePath("../Player")
+
+[node name="Portal" parent="TileMap" groups=[
+"cat_defeat",
+"portal_trigger",
+] instance=ExtResource( 17 )]
+
+position = Vector2( 256, 2112 )
+
+[node name="Trigger4" parent="TileMap" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+position = Vector2( 1024, 2368 )
+group = "portal_trigger"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger4"]
+
+position = Vector2( -512, -320 )
+shape = SubResource( 12 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+
+visible = false
+show_behind_parent = true
+anchor_right = 1
+anchor_bottom = 1
+margin_left = -1120.0
+margin_right = -3392.0
+margin_bottom = -1088.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.183594, 0.152218, 0.103271, 1 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 18 )
+volume_db = 0.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
+anims/FadeMusic = SubResource( 10 )
+anims/FadeMusicIn = SubResource( 11 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+

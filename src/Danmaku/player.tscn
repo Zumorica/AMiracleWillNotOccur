@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://res/spr/danmaku/danmaku_player.png" type="Texture" id=1]
+[ext_resource path="res://src/Danmaku/player.gd" type="Script" id=2]
+[ext_resource path="res://src/Danmaku/player_bomb.tscn" type="PackedScene" id=3]
+[ext_resource path="res://res/spr/danmaku/hitmarker.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 16.4173
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 3.9386
+
+[node name="Player" type="Sprite"]
+
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Offset" ]
+bomb_scene = ExtResource( 3 )
+
+[node name="CircleArea2D" type="Area2D" parent="."]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 16
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CircleArea2D"]
+
+shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 21
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Pickable" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+position = Vector2( 0.0240765, 0.0738831 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 4 )
+
+[node name="InvincibleTimer" type="Timer" parent="."]
+
+process_mode = 0
+wait_time = 3.0
+one_shot = true
+autostart = false
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+process_mode = 0
+wait_time = 0.1
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="InvincibleTimer" to="." method="set" binds= [ "is_invincible", false ]]
+
+[connection signal="timeout" from="ShootTimer" to="." method="set" binds= [ "can_shoot", true ]]
+
+

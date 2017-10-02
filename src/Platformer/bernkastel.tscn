@@ -1,0 +1,189 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://src/Danmaku/bernkastel_anim.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://src/Platformer/bernkastel.gd" type="Script" id=2]
+[ext_resource path="res://res/spr/effects/00000009.png" type="Texture" id=3]
+[ext_resource path="res://src/Danmaku/magic_circle.gd" type="Script" id=4]
+[ext_resource path="res://res/snd/BernLaugh2.wav" type="AudioStream" id=5]
+[ext_resource path="res://res/snd/redtruth.wav" type="AudioStream" id=6]
+[ext_resource path="res://res/snd/laugh.wav" type="AudioStream" id=7]
+[ext_resource path="res://res/snd/KUSUGA.wav" type="AudioStream" id=8]
+[ext_resource path="res://res/snd/trap.wav" type="AudioStream" id=9]
+[ext_resource path="res://res/snd/giggle.wav" type="AudioStream" id=10]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 50.0
+height = 100.0
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "hit"
+length = 0.25
+loop = false
+step = 0.03
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.12, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Bernkastel" type="AnimatedSprite"]
+
+self_modulate = Color( 1, 0.923077, 0.923077, 1 )
+frames = ExtResource( 1 )
+animation = "idle"
+frame = 6
+playing = true
+script = ExtResource( 2 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Transform", "Visibility", "Z" ]
+bulletmanager = null
+textbox = null
+background = null
+
+[node name="YellowCircle" type="Sprite" parent="."]
+
+visible = false
+show_behind_parent = true
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 217, 220, 234, 224 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Material", "Region", "Transform", "Visibility" ]
+
+[node name="WhiteCircle" type="Sprite" parent="."]
+
+visible = false
+show_behind_parent = true
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 448, 220, 217 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Material", "Region", "Visibility" ]
+
+[node name="GreenCircle" type="Sprite" parent="."]
+
+visible = false
+show_behind_parent = true
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 220, 442, 220, 217 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Material", "Pause", "Region", "Visibility" ]
+
+[node name="BlackCircle" type="Sprite" parent="."]
+
+visible = false
+show_behind_parent = true
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 442, 450, 220, 217 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Material", "Region", "Visibility" ]
+
+[node name="RedCircle" type="Sprite" parent="."]
+
+visible = false
+show_behind_parent = true
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 678, 450, 223, 217 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Material", "Region", "Visibility" ]
+
+[node name="BlueCircle" type="Sprite" parent="."]
+
+visible = false
+show_behind_parent = true
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 678, 225, 223, 217 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Material", "Region", "Visibility" ]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+position = Vector2( 0, -90 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_mask = 10
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+position = Vector2( 0, 90 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CrazyLaugh" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="RedTruth" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 6 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
+anims/hit = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Laugh" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Kusuga" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Trap" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 9 )
+volume_db = -15.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Giggle" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+

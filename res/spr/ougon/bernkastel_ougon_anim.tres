@@ -1,0 +1,165 @@
+[gd_resource type="SpriteFrames" load_steps=104 format=2]
+
+[ext_resource path="res://res/spr/ougon/00000695.png" type="Texture" id=1]
+[ext_resource path="res://res/spr/ougon/00000696.png" type="Texture" id=2]
+[ext_resource path="res://res/spr/ougon/00000697.png" type="Texture" id=3]
+[ext_resource path="res://res/spr/ougon/00000698.png" type="Texture" id=4]
+[ext_resource path="res://res/spr/ougon/00000699.png" type="Texture" id=5]
+[ext_resource path="res://res/spr/ougon/00000700.png" type="Texture" id=6]
+[ext_resource path="res://res/spr/ougon/00000701.png" type="Texture" id=7]
+[ext_resource path="res://res/spr/ougon/00000702.png" type="Texture" id=8]
+[ext_resource path="res://res/spr/ougon/00000703.png" type="Texture" id=9]
+[ext_resource path="res://res/spr/ougon/00000704.png" type="Texture" id=10]
+[ext_resource path="res://res/spr/ougon/00000099.png" type="Texture" id=11]
+[ext_resource path="res://res/spr/ougon/00000100.png" type="Texture" id=12]
+[ext_resource path="res://res/spr/ougon/00000101.png" type="Texture" id=13]
+[ext_resource path="res://res/spr/ougon/00000102.png" type="Texture" id=14]
+[ext_resource path="res://res/spr/ougon/00000103.png" type="Texture" id=15]
+[ext_resource path="res://res/spr/ougon/00000104.png" type="Texture" id=16]
+[ext_resource path="res://res/spr/ougon/00000105.png" type="Texture" id=17]
+[ext_resource path="res://res/spr/ougon/00000106.png" type="Texture" id=18]
+[ext_resource path="res://res/spr/ougon/00000063.png" type="Texture" id=19]
+[ext_resource path="res://res/spr/ougon/00000064.png" type="Texture" id=20]
+[ext_resource path="res://res/spr/ougon/00000065.png" type="Texture" id=21]
+[ext_resource path="res://res/spr/ougon/00000066.png" type="Texture" id=22]
+[ext_resource path="res://res/spr/ougon/00000067.png" type="Texture" id=23]
+[ext_resource path="res://res/spr/ougon/00000068.png" type="Texture" id=24]
+[ext_resource path="res://res/spr/ougon/00000069.png" type="Texture" id=25]
+[ext_resource path="res://res/spr/ougon/00000070.png" type="Texture" id=26]
+[ext_resource path="res://res/spr/ougon/00000491.png" type="Texture" id=27]
+[ext_resource path="res://res/spr/ougon/00000492.png" type="Texture" id=28]
+[ext_resource path="res://res/spr/ougon/00000493.png" type="Texture" id=29]
+[ext_resource path="res://res/spr/ougon/00000494.png" type="Texture" id=30]
+[ext_resource path="res://res/spr/ougon/00000495.png" type="Texture" id=31]
+[ext_resource path="res://res/spr/ougon/00000496.png" type="Texture" id=32]
+[ext_resource path="res://res/spr/ougon/00000497.png" type="Texture" id=33]
+[ext_resource path="res://res/spr/ougon/00000498.png" type="Texture" id=34]
+[ext_resource path="res://res/spr/ougon/00000499.png" type="Texture" id=35]
+[ext_resource path="res://res/spr/ougon/00000500.png" type="Texture" id=36]
+[ext_resource path="res://res/spr/ougon/00000249.png" type="Texture" id=37]
+[ext_resource path="res://res/spr/ougon/00000250.png" type="Texture" id=38]
+[ext_resource path="res://res/spr/ougon/00000251.png" type="Texture" id=39]
+[ext_resource path="res://res/spr/ougon/00000252.png" type="Texture" id=40]
+[ext_resource path="res://res/spr/ougon/00000253.png" type="Texture" id=41]
+[ext_resource path="res://res/spr/ougon/00000254.png" type="Texture" id=42]
+[ext_resource path="res://res/spr/ougon/00000255.png" type="Texture" id=43]
+[ext_resource path="res://res/spr/ougon/00000256.png" type="Texture" id=44]
+[ext_resource path="res://res/spr/ougon/00000257.png" type="Texture" id=45]
+[ext_resource path="res://res/spr/ougon/00000258.png" type="Texture" id=46]
+[ext_resource path="res://res/spr/ougon/00000013.png" type="Texture" id=47]
+[ext_resource path="res://res/spr/ougon/00000014.png" type="Texture" id=48]
+[ext_resource path="res://res/spr/ougon/00000015.png" type="Texture" id=49]
+[ext_resource path="res://res/spr/ougon/00000016.png" type="Texture" id=50]
+[ext_resource path="res://res/spr/ougon/00000017.png" type="Texture" id=51]
+[ext_resource path="res://res/spr/ougon/00000018.png" type="Texture" id=52]
+[ext_resource path="res://res/spr/ougon/00000019.png" type="Texture" id=53]
+[ext_resource path="res://res/spr/ougon/00000020.png" type="Texture" id=54]
+[ext_resource path="res://res/spr/ougon/00000021.png" type="Texture" id=55]
+[ext_resource path="res://res/spr/ougon/00000022.png" type="Texture" id=56]
+[ext_resource path="res://res/spr/ougon/00000023.png" type="Texture" id=57]
+[ext_resource path="res://res/spr/ougon/00000024.png" type="Texture" id=58]
+[ext_resource path="res://res/spr/ougon/00000025.png" type="Texture" id=59]
+[ext_resource path="res://res/spr/ougon/00000026.png" type="Texture" id=60]
+[ext_resource path="res://res/spr/ougon/00000027.png" type="Texture" id=61]
+[ext_resource path="res://res/spr/ougon/00000448.png" type="Texture" id=62]
+[ext_resource path="res://res/spr/ougon/00000449.png" type="Texture" id=63]
+[ext_resource path="res://res/spr/ougon/00000450.png" type="Texture" id=64]
+[ext_resource path="res://res/spr/ougon/00000451.png" type="Texture" id=65]
+[ext_resource path="res://res/spr/ougon/00000452.png" type="Texture" id=66]
+[ext_resource path="res://res/spr/ougon/00000588.png" type="Texture" id=67]
+[ext_resource path="res://res/spr/ougon/00000589.png" type="Texture" id=68]
+[ext_resource path="res://res/spr/ougon/00000590.png" type="Texture" id=69]
+[ext_resource path="res://res/spr/ougon/00000591.png" type="Texture" id=70]
+[ext_resource path="res://res/spr/ougon/00000592.png" type="Texture" id=71]
+[ext_resource path="res://res/spr/ougon/00000593.png" type="Texture" id=72]
+[ext_resource path="res://res/spr/ougon/00000594.png" type="Texture" id=73]
+[ext_resource path="res://res/spr/ougon/00000595.png" type="Texture" id=74]
+[ext_resource path="res://res/spr/ougon/00000596.png" type="Texture" id=75]
+[ext_resource path="res://res/spr/ougon/00000597.png" type="Texture" id=76]
+[ext_resource path="res://res/spr/ougon/00000461.png" type="Texture" id=77]
+[ext_resource path="res://res/spr/ougon/00000462.png" type="Texture" id=78]
+[ext_resource path="res://res/spr/ougon/00000463.png" type="Texture" id=79]
+[ext_resource path="res://res/spr/ougon/00000464.png" type="Texture" id=80]
+[ext_resource path="res://res/spr/ougon/00000465.png" type="Texture" id=81]
+[ext_resource path="res://res/spr/ougon/00000466.png" type="Texture" id=82]
+[ext_resource path="res://res/spr/ougon/00000467.png" type="Texture" id=83]
+[ext_resource path="res://res/spr/ougon/00000468.png" type="Texture" id=84]
+[ext_resource path="res://res/spr/ougon/00000469.png" type="Texture" id=85]
+[ext_resource path="res://res/spr/ougon/00000470.png" type="Texture" id=86]
+[ext_resource path="res://res/spr/ougon/00000471.png" type="Texture" id=87]
+[ext_resource path="res://res/spr/ougon/00000472.png" type="Texture" id=88]
+[ext_resource path="res://res/spr/ougon/00000473.png" type="Texture" id=89]
+[ext_resource path="res://res/spr/ougon/00000474.png" type="Texture" id=90]
+[ext_resource path="res://res/spr/ougon/00000475.png" type="Texture" id=91]
+[ext_resource path="res://res/spr/ougon/00000476.png" type="Texture" id=92]
+[ext_resource path="res://res/spr/ougon/00000477.png" type="Texture" id=93]
+[ext_resource path="res://res/spr/ougon/00000478.png" type="Texture" id=94]
+[ext_resource path="res://res/spr/ougon/00000479.png" type="Texture" id=95]
+[ext_resource path="res://res/spr/ougon/00000480.png" type="Texture" id=96]
+[ext_resource path="res://res/spr/ougon/00000608.png" type="Texture" id=97]
+[ext_resource path="res://res/spr/ougon/00000609.png" type="Texture" id=98]
+[ext_resource path="res://res/spr/ougon/00000610.png" type="Texture" id=99]
+[ext_resource path="res://res/spr/ougon/00000611.png" type="Texture" id=100]
+[ext_resource path="res://res/spr/ougon/00000612.png" type="Texture" id=101]
+[ext_resource path="res://res/spr/ougon/00000613.png" type="Texture" id=102]
+[ext_resource path="res://res/spr/ougon/00000614.png" type="Texture" id=103]
+
+[resource]
+
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "idle",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "move_forwards",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "move_backwards",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ) ],
+"loop": false,
+"name": "hand_unite",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ],
+"loop": false,
+"name": "hand_raise",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ) ],
+"loop": false,
+"name": "sit",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ) ],
+"loop": false,
+"name": "hand_move",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ) ],
+"loop": false,
+"name": "hand_raise2",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ) ],
+"loop": false,
+"name": "faito_oh",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ) ],
+"loop": true,
+"name": "spin",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 97 ), ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 102 ) ],
+"loop": false,
+"name": "laugh",
+"speed": 12.0
+} ]
+

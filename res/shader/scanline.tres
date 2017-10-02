@@ -1,0 +1,60 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+
+code = "shader_type canvas_item;
+
+uniform bool enable_scanline = true;
+uniform bool transparency_to_black = true;
+uniform float blur_modifier_one = 0.5;
+uniform float blur_modifier_two = 0.5;
+uniform float blur_modifier_three = 3.0;
+uniform float blur_modifier_four = 0.05;
+uniform float scanline_modifier = 0.04;
+uniform float color_modifier = 0.5;
+
+void fragment(){
+	if(enable_scanline){
+		float a = COLOR.a;
+		float d = length(UV - vec2(0.5,0.5));
+		float blur = 0.0;
+		blur = (1.0 + sin(TIME*6.0)) * blur_modifier_one;
+		blur *= 1.0 + sin(TIME*16.0) * blur_modifier_two;
+		blur = pow(blur, blur_modifier_three);
+		blur *= blur_modifier_four;
+	
+		blur *= d;
+		
+	    vec3 col;
+	    col.r = texture( TEXTURE, vec2(UV.x+blur,UV.y) ).r;
+	    col.g = texture( TEXTURE, UV ).g;
+	    col.b = texture( TEXTURE, vec2(UV.x-blur,UV.y) ).b;
+		
+		float scanline = sin(UV.y*800.0)*scanline_modifier;
+		col -= scanline;
+		
+		col *= 1.0 - d * color_modifier;
+		
+		if(transparency_to_black)
+	    	COLOR = vec4(col,a);
+		else
+			COLOR = vec4(col,texture( TEXTURE, UV ).a);
+	} else {
+		COLOR = texture(TEXTURE, UV);
+	}
+}
+"
+
+[resource]
+
+shader = SubResource( 1 )
+shader_param/enable_scanline = true
+shader_param/transparency_to_black = false
+shader_param/blur_modifier_one = 1.0
+shader_param/blur_modifier_two = 0.5
+shader_param/blur_modifier_three = 3.0
+shader_param/blur_modifier_four = 0.08
+shader_param/scanline_modifier = 0.0
+shader_param/color_modifier = 0.7
+_sections_unfolded = [ "shader_param" ]
+

@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/Danmaku/bernkastel_bullet.gd" type="Script" id=1]
+[ext_resource path="res://res/spr/danmaku/player_bullet.png" type="Texture" id=2]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
+
+[node name="Player_Bullet" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 8
+collision_mask = 0
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "collision" ]
+direction = 90.0
+velocity = Vector2( 0, -512 )
+acceleration = Vector2( 0, 0 )
+angular_velocity = 0
+rotate_sprite_according_to_direction = false
+foreground_color = Color( 0.639216, 0, 1, 1 )
+background_color = Color( 1, 1, 1, 1 )
+is_player_bullet = true
+
+[node name="Sprite" type="Sprite" parent="."]
+
+z = -1
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Z" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+position = Vector2( 0.0565605, 2.03621 )
+shape = SubResource( 1 )
+
+

@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Danmaku/background/background.gd" type="Script" id=1]
+[ext_resource path="res://res/img/danmaku_scroll.png" type="Texture" id=2]
+
+[node name="Background" type="Node2D"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Material", "Visibility" ]
+camera = NodePath("ParallaxBackground/Camera2D")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = false
+_sections_unfolded = [ "Scroll" ]
+
+[node name="Camera2D" type="Camera2D" parent="ParallaxBackground"]
+
+position = Vector2( 299.2, 359.471 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Smoothing" ]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+motion_scale = Vector2( 1, -1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 0, 11776 )
+_sections_unfolded = [ "Material", "Motion" ]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Material", "Offset", "Visibility" ]
+
+

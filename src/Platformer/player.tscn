@@ -1,0 +1,160 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://src/Platformer/player.gd" type="Script" id=1]
+[ext_resource path="res://src/Platformer/gore_head.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Platformer/gore_arm.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Platformer/gore_leg.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Platformer/gore_blood.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Platformer/Player_bullet.tscn" type="PackedScene" id=6]
+[ext_resource path="res://res/spr/platformer/gameover.png" type="Texture" id=7]
+[ext_resource path="res://res/spr/platformer/player/walking/0.png" type="Texture" id=8]
+[ext_resource path="res://res/spr/platformer/player/walking/1.png" type="Texture" id=9]
+[ext_resource path="res://res/spr/platformer/player/walking/2.png" type="Texture" id=10]
+[ext_resource path="res://res/spr/platformer/player/walking/3.png" type="Texture" id=11]
+[ext_resource path="res://res/spr/platformer/player/walking/4.png" type="Texture" id=12]
+[ext_resource path="res://res/spr/platformer/player/sliding/0.png" type="Texture" id=13]
+[ext_resource path="res://res/spr/platformer/player/sliding/1.png" type="Texture" id=14]
+[ext_resource path="res://res/spr/platformer/player/idling/0.png" type="Texture" id=15]
+[ext_resource path="res://res/spr/platformer/player/idling/1.png" type="Texture" id=16]
+[ext_resource path="res://res/spr/platformer/player/idling/2.png" type="Texture" id=17]
+[ext_resource path="res://res/spr/platformer/player/idling/3.png" type="Texture" id=18]
+[ext_resource path="res://res/spr/platformer/player/falling/0.png" type="Texture" id=19]
+[ext_resource path="res://res/spr/platformer/player/falling/1.png" type="Texture" id=20]
+[ext_resource path="res://res/spr/platformer/player/jumping/0.png" type="Texture" id=21]
+[ext_resource path="res://res/spr/platformer/player/jumping/1.png" type="Texture" id=22]
+[ext_resource path="res://src/Platformer/camera2d.gd" type="Script" id=23]
+[ext_resource path="res://res/snd/platformer_jump.wav" type="AudioStream" id=24]
+[ext_resource path="res://res/snd/platformer_doublejump.wav" type="AudioStream" id=25]
+[ext_resource path="res://res/snd/gameover.wav" type="AudioStream" id=26]
+[ext_resource path="res://res/snd/laser.wav" type="AudioStream" id=27]
+[ext_resource path="res://res/snd/ahaha.wav" type="AudioStream" id=28]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "walking",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "sliding",
+"speed": 100.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "idling",
+"speed": 5.0
+}, {
+"frames": [ null ],
+"loop": false,
+"name": "ded",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "falling",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "jumping",
+"speed": 1.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 5, 9 )
+
+[node name="Player" type="KinematicBody2D"]
+
+scale = Vector2( 2, 2 )
+input_pickable = false
+collision_layer = 2
+collision_mask = 53
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Angular", "Collision", "Linear", "Transform", "Z" ]
+head = ExtResource( 2 )
+arm = ExtResource( 3 )
+leg = ExtResource( 4 )
+blood = ExtResource( 5 )
+bullet = ExtResource( 6 )
+gameover = NodePath("CanvasLayer/Sprite")
+bgm = null
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+editor/display_folded = true
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+
+visible = false
+position = Vector2( 512, 400 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 7 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+
+frames = SubResource( 1 )
+animation = "idling"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+position = Vector2( 0, 1.28355 )
+scale = Vector2( 1, 1.10919 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Node2D" parent="."]
+
+position = Vector2( 0.760154, -0.0691051 )
+script = ExtResource( 23 )
+_sections_unfolded = [ "Drag Margin", "Editor", "Limit" ]
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 24 )
+volume_db = -15.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="DoubleJump" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 25 )
+volume_db = -15.0
+autoplay = false
+mix_target = 2
+bus = "Master"
+
+[node name="Gameover" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 26 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="ShootPistol" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 27 )
+volume_db = -15.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="ahaha" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 28 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+

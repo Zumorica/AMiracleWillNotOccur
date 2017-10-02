@@ -1,0 +1,115 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/Textbox/Textbox.gd" type="Script" id=1]
+[ext_resource path="res://res/fnt/sazanami.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/utils/richtextutils.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 22
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[node name="Textbox" type="Panel"]
+
+self_modulate = Color( 1, 1, 1, 0.392157 )
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+margin_top = 760.0
+margin_right = 50.0
+margin_bottom = 535.0
+rect_min_size = Vector2( 974, 225 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="Dialogue" type="Panel" parent="."]
+
+self_modulate = Color( 0, 0, 0, 0.784314 )
+anchor_right = 1
+anchor_bottom = 1
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 10.0
+margin_bottom = 10.0
+grow_horizontal = 0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Grow Direction", "Margin", "Material" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Text" type="RichTextLabel" parent="Dialogue"]
+
+anchor_right = 1
+anchor_bottom = 1
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 5.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 583, 160 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+size_flags_horizontal = 0
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Anchor", "BBCode", "Grow Direction", "Hint", "Margin", "Rect", "Size Flags", "custom_constants" ]
+
+[node name="Name" type="Panel" parent="."]
+
+visible = false
+self_modulate = Color( 1, 1, 1, 0.627451 )
+anchor_right = 1
+anchor_bottom = 1
+margin_top = -40.0
+margin_right = 674.0
+margin_bottom = 225.0
+rect_min_size = Vector2( 300, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Material", "Rect", "Visibility", "custom_styles" ]
+
+[node name="Name" type="Label" parent="Name"]
+
+anchor_right = 1
+anchor_bottom = 1
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "BBCode", "Focus", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+

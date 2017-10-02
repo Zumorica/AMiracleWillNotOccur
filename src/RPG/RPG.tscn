@@ -1,0 +1,944 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://res/spr/BG/different_spiral_1a.png" type="Texture" id=1]
+[ext_resource path="res://src/RPG/RPG.gd" type="Script" id=2]
+[ext_resource path="res://res/spr/effects/00000007.png" type="Texture" id=3]
+[ext_resource path="res://src/Bernkastel_fullbody/Bernkastel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://res/fnt/Sazanami22.tres" type="DynamicFont" id=5]
+[ext_resource path="res://res/snd/redtruth.wav" type="AudioStream" id=6]
+[ext_resource path="res://res/snd/glass.wav" type="AudioStream" id=7]
+[ext_resource path="res://res/snd/giggle.wav" type="AudioStream" id=8]
+[ext_resource path="res://res/snd/flange.wav" type="AudioStream" id=9]
+[ext_resource path="res://res/snd/blood.wav" type="AudioStream" id=10]
+[ext_resource path="res://res/snd/ahaha.wav" type="AudioStream" id=11]
+[ext_resource path="res://res/snd/wind.wav" type="AudioStream" id=12]
+[ext_resource path="res://res/snd/boom.wav" type="AudioStream" id=13]
+[ext_resource path="res://res/snd/cat.wav" type="AudioStream" id=14]
+[ext_resource path="res://res/snd/roundabout.ogg" type="AudioStream" id=15]
+[ext_resource path="res://res/snd/roundabout_shorter.ogg" type="AudioStream" id=16]
+[ext_resource path="res://res/snd/magic.wav" type="AudioStream" id=17]
+[ext_resource path="res://res/snd/executioner.ogg" type="AudioStream" id=18]
+[ext_resource path="res://res/spr/effects/00000003.png" type="Texture" id=19]
+[ext_resource path="res://src/Textbox/Textbox.tscn" type="PackedScene" id=20]
+
+[sub_resource type="AtlasTexture" id=1]
+
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 508, 546 )
+margin = Rect2( 0, 0, 0, 0 )
+
+[sub_resource type="AtlasTexture" id=2]
+
+atlas = ExtResource( 19 )
+region = Rect2( 0, 508, 770, 445 )
+margin = Rect2( 0, 0, 0, 0 )
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "BernAttacked"
+length = 0.25
+loop = false
+step = 0.06
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bernkastel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.12, 0.24 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bernkastel:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 115, -225 ), Vector2( 115, -210 ), Vector2( 115, -225 ), Vector2( 115, -240 ), Vector2( 115, -225 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bernkastel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
+length = 5.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("CatTexture:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cat:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "FadeMusic"
+length = 1.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 4, 1 ),
+"update": 0,
+"values": [ -10.0, -40.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Music:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+
+length = 3.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+
+length = 5.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+
+resource_name = "ScreenGreen"
+length = 0.25
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.53186, 1, 0.492188, 1 ), Color( 0.265381, 1, 0.203125, 1 ), Color( 0.387817, 1, 0.335938, 1 ), Color( 0.510254, 1, 0.46875, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+
+length = 0.3
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -15, 0 ), Vector2( 15, 0 ), Vector2( 0, 0 ) ]
+}
+
+[node name="RPG" type="TextureRect"]
+
+anchor_right = 1
+anchor_bottom = 1
+rect_min_size = Vector2( 1024, 800 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 0
+script = ExtResource( 2 )
+_sections_unfolded = [ "Margin", "Rect", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+bernkastel_texture = NodePath("Bernkastel")
+textbox = NodePath("Textbox")
+gamepanel = NodePath("GamePanel")
+hp_label = NodePath("GamePanel/HBoxContainer/Container/VBoxContainer/HP")
+mp_label = NodePath("GamePanel/HBoxContainer/Container/VBoxContainer/MP")
+status_label = NodePath("GamePanel/HBoxContainer/Container/VBoxContainer/Status")
+bhp_label = NodePath("GamePanel/HBoxContainer/Container/VBoxContainer/BHP")
+bmp_label = NodePath("GamePanel/HBoxContainer/Container/VBoxContainer/BMP")
+bstatus_label = NodePath("GamePanel/HBoxContainer/Container/VBoxContainer/BStatus")
+attack_button = NodePath("GamePanel/HBoxContainer/Panel/Actions/Attack")
+defend_button = NodePath("GamePanel/HBoxContainer/Panel/Actions/Defend")
+magic_button = NodePath("GamePanel/HBoxContainer/Panel/Actions/Magic")
+acknowledge_button = NodePath("GamePanel/HBoxContainer/Panel/Actions/Acknowledge")
+mercy_button = NodePath("GamePanel/HBoxContainer/Panel/Actions/Mercy")
+runaway_button = NodePath("GamePanel/HBoxContainer/Panel/Actions/Runaway")
+minorheal_button = NodePath("GamePanel/HBoxContainer/Panel/Magic/MinorHeal")
+magicmissile_button = NodePath("GamePanel/HBoxContainer/Panel/Magic/MagicMissile")
+magicpunch_button = NodePath("GamePanel/HBoxContainer/Panel/Magic/MagicPunch")
+back_button = NodePath("GamePanel/HBoxContainer/Panel/Magic/Back")
+
+[node name="BernkastelOugon" type="TextureRect" parent="."]
+
+visible = false
+anchor_right = 1
+anchor_bottom = 1
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 6
+_sections_unfolded = [ "Margin" ]
+
+[node name="Bernkastel" parent="." instance=ExtResource( 4 )]
+
+rect_pivot_offset = Vector2( 0, 0 )
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="FullBody" parent="Bernkastel"]
+
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="HalfBody" parent="Bernkastel"]
+
+rect_pivot_offset = Vector2( 0, 0 )
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="GamePanel" type="Panel" parent="."]
+
+self_modulate = Color( 1, 1, 1, 0.882353 )
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+margin_top = 256.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Margin", "Material", "Visibility" ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GamePanel"]
+
+anchor_right = 1
+anchor_bottom = 1
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Panel" type="TabContainer" parent="GamePanel/HBoxContainer"]
+
+self_modulate = Color( 0.609375, 0.609375, 0.609375, 0.882353 )
+margin_right = 508.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 508, 256 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+tab_align = 1
+tabs_visible = false
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="Actions" type="VBoxContainer" parent="GamePanel/HBoxContainer/Panel"]
+
+editor/display_folded = true
+anchor_right = 1
+anchor_bottom = 1
+margin_left = 4.0
+margin_top = 8.0
+margin_right = 4.0
+margin_bottom = 4.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+_sections_unfolded = [ "Margin" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Attack" type="Button" parent="GamePanel/HBoxContainer/Panel/Actions"]
+
+margin_top = 13.0
+margin_right = 500.0
+margin_bottom = 46.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Attack"
+flat = false
+
+[node name="Defend" type="Button" parent="GamePanel/HBoxContainer/Panel/Actions"]
+
+margin_top = 50.0
+margin_right = 500.0
+margin_bottom = 83.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Defend"
+flat = false
+
+[node name="Magic" type="Button" parent="GamePanel/HBoxContainer/Panel/Actions"]
+
+margin_top = 87.0
+margin_right = 500.0
+margin_bottom = 120.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Magic"
+flat = false
+
+[node name="Acknowledge" type="Button" parent="GamePanel/HBoxContainer/Panel/Actions"]
+
+margin_top = 124.0
+margin_right = 500.0
+margin_bottom = 157.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Acknowledge magic"
+flat = false
+
+[node name="Mercy" type="Button" parent="GamePanel/HBoxContainer/Panel/Actions"]
+
+margin_top = 161.0
+margin_right = 500.0
+margin_bottom = 194.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Request mercy"
+flat = false
+_sections_unfolded = [ "custom_constants", "custom_fonts" ]
+
+[node name="Runaway" type="Button" parent="GamePanel/HBoxContainer/Panel/Actions"]
+
+margin_top = 198.0
+margin_right = 500.0
+margin_bottom = 231.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Run away"
+flat = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Magic" type="VBoxContainer" parent="GamePanel/HBoxContainer/Panel"]
+
+editor/display_folded = true
+visible = false
+anchor_right = 1
+anchor_bottom = 1
+margin_left = 4.0
+margin_top = 8.0
+margin_right = 4.0
+margin_bottom = 4.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+
+[node name="MinorHeal" type="Button" parent="GamePanel/HBoxContainer/Panel/Magic"]
+
+margin_top = 50.0
+margin_right = 500.0
+margin_bottom = 83.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Minor heal (2 MP)"
+flat = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="MagicMissile" type="Button" parent="GamePanel/HBoxContainer/Panel/Magic"]
+
+margin_top = 87.0
+margin_right = 500.0
+margin_bottom = 120.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Magic missile (5 MP)"
+flat = false
+
+[node name="MagicPunch" type="Button" parent="GamePanel/HBoxContainer/Panel/Magic"]
+
+margin_top = 124.0
+margin_right = 500.0
+margin_bottom = 157.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "MAGIC PUNCH! (15 MP)"
+flat = false
+
+[node name="Back" type="Button" parent="GamePanel/HBoxContainer/Panel/Magic"]
+
+margin_top = 161.0
+margin_right = 500.0
+margin_bottom = 194.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Back"
+flat = false
+
+[node name="Container" type="Container" parent="GamePanel/HBoxContainer"]
+
+margin_left = 512.0
+margin_right = 1020.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 508, 256 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GamePanel/HBoxContainer/Container"]
+
+editor/display_folded = true
+anchor_right = 1
+anchor_bottom = 1
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Margin" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="You" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer"]
+
+margin_right = 508.0
+margin_bottom = 27.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "  You:"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="HP" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer"]
+
+margin_top = 31.0
+margin_right = 508.0
+margin_bottom = 58.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "HP 100/100"
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="MP" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer"]
+
+margin_top = 62.0
+margin_right = 508.0
+margin_bottom = 89.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "MP 0/15"
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="Status" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer"]
+
+margin_top = 93.0
+margin_right = 508.0
+margin_bottom = 120.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "no status"
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="Bernkastel" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer"]
+
+margin_top = 124.0
+margin_right = 508.0
+margin_bottom = 151.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "  Bernkastel:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="BHP" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer"]
+
+margin_top = 155.0
+margin_right = 508.0
+margin_bottom = 182.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "HP 100/100"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="BMP" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer"]
+
+margin_top = 186.0
+margin_right = 508.0
+margin_bottom = 213.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "MP ???/???"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="BStatus" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer"]
+
+margin_top = 217.0
+margin_right = 508.0
+margin_bottom = 244.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "no status"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="Redtruth" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 6 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Glassbreak" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Giggle" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Flange" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 9 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Blood" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Ahaha" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 11 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Wind" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 12 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Boom" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 13 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Cat" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 14 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Roundabout" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 15 )
+volume_db = -10.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Roundabout2" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 16 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Magic" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 17 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 18 )
+volume_db = -10.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+
+anchor_right = 1
+anchor_bottom = 1
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 0 )
+_sections_unfolded = [ "Margin", "Material", "Mouse", "Size Flags", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CatTexture" type="TextureRect" parent="."]
+
+modulate = Color( 0, 0, 0, 0 )
+anchor_right = 1
+anchor_bottom = 1
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = SubResource( 2 )
+expand = true
+stretch_mode = 6
+_sections_unfolded = [ "Margin", "Mouse", "Rect", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Textbox" parent="." instance=ExtResource( 20 )]
+
+visible = false
+anchor_left = 2
+anchor_right = 2
+margin_left = 488.0
+margin_top = 241.0
+margin_right = -488.0
+margin_bottom = 16.0
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback_process_mode = 0
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
+anims/BernAttacked = SubResource( 3 )
+anims/BernBlack = SubResource( 4 )
+anims/CatDeath = SubResource( 5 )
+anims/FadeMusic = SubResource( 6 )
+anims/FadeToBlack3 = SubResource( 7 )
+anims/FadeToBlack5 = SubResource( 8 )
+anims/ScreenGreen = SubResource( 9 )
+anims/Shake = SubResource( 10 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+_sections_unfolded = [ "Playback", "playback" ]
+
+[connection signal="pressed" from="GamePanel/HBoxContainer/Panel/Actions/Attack" to="." method="_on_Attack_pressed"]
+
+[connection signal="pressed" from="GamePanel/HBoxContainer/Panel/Actions/Defend" to="." method="_on_Defend_pressed"]
+
+[connection signal="pressed" from="GamePanel/HBoxContainer/Panel/Actions/Magic" to="." method="_on_Magic_pressed"]
+
+[connection signal="pressed" from="GamePanel/HBoxContainer/Panel/Actions/Acknowledge" to="." method="_on_Acknowledge_pressed"]
+
+[connection signal="pressed" from="GamePanel/HBoxContainer/Panel/Actions/Mercy" to="." method="_on_Mercy_pressed"]
+
+[connection signal="pressed" from="GamePanel/HBoxContainer/Panel/Actions/Runaway" to="." method="_on_Runaway_pressed"]
+
+[connection signal="pressed" from="GamePanel/HBoxContainer/Panel/Magic/MinorHeal" to="." method="_on_MinorHeal_pressed"]
+
+[connection signal="pressed" from="GamePanel/HBoxContainer/Panel/Magic/MagicMissile" to="." method="_on_MagicMissile_pressed"]
+
+[connection signal="pressed" from="GamePanel/HBoxContainer/Panel/Magic/MagicPunch" to="." method="_on_MagicPunch_pressed"]
+
+[connection signal="pressed" from="GamePanel/HBoxContainer/Panel/Magic/Back" to="." method="_on_Back_pressed"]
+
+
+[editable path="Bernkastel"]

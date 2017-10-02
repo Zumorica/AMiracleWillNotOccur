@@ -1,0 +1,488 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://res/spr/static/rgb.png" type="Texture" id=1]
+[ext_resource path="res://res/spr/CG/brc_ag.png" type="Texture" id=2]
+[ext_resource path="res://src/title.gd" type="Script" id=3]
+[ext_resource path="res://res/spr/CG/brc_bg.png" type="Texture" id=4]
+[ext_resource path="res://res/spr/static/0.png" type="Texture" id=5]
+[ext_resource path="res://res/spr/static/1.png" type="Texture" id=6]
+[ext_resource path="res://res/spr/static/2.png" type="Texture" id=7]
+[ext_resource path="res://res/spr/static/3.png" type="Texture" id=8]
+[ext_resource path="res://res/spr/static/4.png" type="Texture" id=9]
+[ext_resource path="res://res/spr/static/5.png" type="Texture" id=10]
+[ext_resource path="res://res/spr/static/6.png" type="Texture" id=11]
+[ext_resource path="res://res/spr/static/7.png" type="Texture" id=12]
+[ext_resource path="res://res/spr/static/8.png" type="Texture" id=13]
+[ext_resource path="res://res/spr/static/9.png" type="Texture" id=14]
+[ext_resource path="res://res/fnt/Sazanami64.tres" type="DynamicFont" id=15]
+[ext_resource path="res://res/fnt/Sazanami22.tres" type="DynamicFont" id=16]
+[ext_resource path="res://res/fnt/Sazanami32.tres" type="DynamicFont" id=17]
+[ext_resource path="res://res/snd/clock.ogg" type="AudioStream" id=18]
+[ext_resource path="res://res/snd/clock2.wav" type="AudioStream" id=19]
+[ext_resource path="res://res/snd/horror_atmosphere.ogg" type="AudioStream" id=20]
+[ext_resource path="res://src/Load_dialog.tscn" type="PackedScene" id=21]
+
+[sub_resource type="Shader" id=1]
+
+code = "shader_type canvas_item;
+
+uniform bool enable_glitch = true;
+uniform bool transparency_to_black = true;
+uniform float block_thresh_modifier = 0.2;
+uniform float line_thresh_modifier = 0.7;
+uniform float block_dist_modifier = 0.35;
+uniform sampler2D iChannel1;
+
+void fragment(){
+	if (enable_glitch){
+		vec2 uv = UV.xy;
+		vec2 block = floor(FRAGCOORD.xy / vec2(16));
+		vec2 uv_noise = block / vec2(64);
+		uv_noise += floor(vec2(TIME) * vec2(1234.0, 3543.0)) / vec2(64);
+		
+		float block_thresh = pow(fract(TIME * 1236.0453), 2.0) * block_thresh_modifier;
+		float line_thresh = pow(fract(TIME * 2236.0453), 3.0) * line_thresh_modifier;
+		
+		vec2 uv_r = uv, uv_g = uv, uv_b = uv;
+	
+		// glitch some blocks and lines
+		if (texture(iChannel1, uv_noise).r < block_thresh ||
+			texture(iChannel1, vec2(uv_noise.y, 0.0)).g < line_thresh) {
+	
+			vec2 dist = (fract(uv_noise) - 0.5) * block_dist_modifier;
+			uv_r += dist * 0.1;
+			uv_g += dist * 0.2;
+			uv_b += dist * 0.125;
+		}
+	
+		COLOR.r = texture(TEXTURE, uv_r).r;
+		COLOR.g = texture(TEXTURE, uv_g).g;
+		COLOR.b = texture(TEXTURE, uv_b).b;
+	
+		// loose luma for some blocks
+		if (texture(iChannel1, uv_noise).g < block_thresh)
+			COLOR.rgb = COLOR.ggg;
+	
+		// discolor block lines
+		if (texture(iChannel1, vec2(uv_noise.y, 0.0)).b * 3.5 < line_thresh)
+			COLOR.rgb = vec3(0.0, dot(COLOR.rgb, vec3(1.0)), 0.0);
+	
+		// interleave lines in some blocks
+		if (texture(iChannel1, uv_noise).g * 1.5 < block_thresh ||
+			texture(iChannel1, vec2(uv_noise.y, 0.0)).g * 2.5 < line_thresh) {
+			float line = fract(FRAGCOORD.y / 3.0);
+			vec3 mask = vec3(3.0, 0.0, 0.0);
+			if (line > 0.333)
+				mask = vec3(0.0, 3.0, 0.0);
+			if (line > 0.666)
+				mask = vec3(0.0, 0.0, 3.0);
+			
+			COLOR.xyz *= mask;
+			
+		}
+		if(!transparency_to_black)
+			COLOR.a = texture(TEXTURE, UV).a;
+	} else {
+		COLOR = texture(TEXTURE, UV);
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+
+shader = SubResource( 1 )
+shader_param/enable_glitch = true
+shader_param/transparency_to_black = false
+shader_param/block_thresh_modifier = 0.25
+shader_param/line_thresh_modifier = 0.45
+shader_param/block_dist_modifier = 0.35
+shader_param/iChannel1 = ExtResource( 1 )
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="Animation" id=3]
+
+length = 12.0
+loop = false
+step = 0.5
+tracks/0/type = "method"
+tracks/0/path = NodePath("Clock")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("ClockSE")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/keys = {
+"times": PoolRealArray( 8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("VBoxContainer/Label:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = false
+tracks/2/imported = false
+tracks/2/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 0.466517, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Shader" id=4]
+
+code = "shader_type canvas_item;
+
+uniform bool enable_scanline = true;
+uniform bool transparency_to_black = true;
+uniform float blur_modifier_one = 0.5;
+uniform float blur_modifier_two = 0.5;
+uniform float blur_modifier_three = 3.0;
+uniform float blur_modifier_four = 0.05;
+uniform float scanline_modifier = 0.04;
+uniform float color_modifier = 0.5;
+
+void fragment(){
+	if(enable_scanline){
+		float a = COLOR.a;
+		float d = length(UV - vec2(0.5,0.5));
+		float blur = 0.0;
+		blur = (1.0 + sin(TIME*6.0)) * blur_modifier_one;
+		blur *= 1.0 + sin(TIME*16.0) * blur_modifier_two;
+		blur = pow(blur, blur_modifier_three);
+		blur *= blur_modifier_four;
+	
+		blur *= d;
+		
+	    vec3 col;
+	    col.r = texture( TEXTURE, vec2(UV.x+blur,UV.y) ).r;
+	    col.g = texture( TEXTURE, UV ).g;
+	    col.b = texture( TEXTURE, vec2(UV.x-blur,UV.y) ).b;
+		
+		float scanline = sin(UV.y*800.0)*scanline_modifier;
+		col -= scanline;
+		
+		col *= 1.0 - d * color_modifier;
+		
+		if(transparency_to_black)
+	    	COLOR = vec4(col,a);
+		else
+			COLOR = vec4(col,texture( TEXTURE, UV ).a);
+	} else {
+		COLOR = texture(TEXTURE, UV);
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id=5]
+
+shader = SubResource( 4 )
+shader_param/enable_scanline = true
+shader_param/transparency_to_black = false
+shader_param/blur_modifier_one = 1.0
+shader_param/blur_modifier_two = 0.5
+shader_param/blur_modifier_three = 3.0
+shader_param/blur_modifier_four = 0.08
+shader_param/scanline_modifier = 1.0
+shader_param/color_modifier = 0.5
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="SpriteFrames" id=6]
+
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[node name="Title" type="TextureRect"]
+
+material = SubResource( 2 )
+use_parent_material = true
+anchor_right = 1
+anchor_bottom = 1
+rect_min_size = Vector2( 1024, 800 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 7
+script = ExtResource( 3 )
+_sections_unfolded = [ "Material", "Rect", "Visibility" ]
+normal_texture = ExtResource( 2 )
+other_texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
+anims/clock = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+_sections_unfolded = [ "Playback", "playback" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
+self_modulate = Color( 1, 1, 1, 0.3 )
+material = SubResource( 5 )
+frames = SubResource( 6 )
+animation = "default"
+frame = 7
+playing = true
+centered = false
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+
+anchor_right = 1
+anchor_bottom = 1
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+
+margin_right = 1024.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+
+margin_top = 44.0
+margin_right = 1024.0
+margin_bottom = 121.0
+rect_min_size = Vector2( 1024, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 15 )
+custom_colors/font_color = Color( 1, 0, 0.05, 1 )
+custom_colors/font_color_shadow = Color( 1, 0.304688, 0.304688, 1 )
+custom_constants/shadow_offset_x = -1
+custom_constants/line_spacing = 0
+custom_constants/shadow_offset_y = -1
+text = "A Miracle Will Not Occur"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Material", "Rect" ]
+
+[node name="Spacer2" type="Control" parent="VBoxContainer"]
+
+margin_top = 125.0
+margin_right = 1024.0
+margin_bottom = 525.0
+rect_min_size = Vector2( 0, 400 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+
+margin_top = 529.0
+margin_right = 1024.0
+margin_bottom = 761.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Spacer" type="Control" parent="VBoxContainer/HBoxContainer"]
+
+margin_right = 75.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 75, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+
+margin_left = 79.0
+margin_right = 219.0
+margin_bottom = 232.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 24
+alignment = 0
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+
+margin_right = 140.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 140, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 16 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "New game"
+flat = false
+_sections_unfolded = [ "Rect" ]
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+
+margin_top = 64.0
+margin_right = 140.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 140, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 16 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Load game"
+flat = false
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+
+margin_top = 128.0
+margin_right = 140.0
+margin_bottom = 168.0
+rect_min_size = Vector2( 140, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 16 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Website"
+flat = false
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+
+margin_top = 192.0
+margin_right = 140.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 140, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 16 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Exit"
+flat = false
+_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+
+margin_top = 765.0
+margin_right = 1024.0
+margin_bottom = 804.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 17 )
+text = "v1.0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="ClockSE" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 18 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Clock" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 19 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="atmosphere" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 20 )
+volume_db = -15.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[node name="LoadDialog" parent="." instance=ExtResource( 21 )]
+
+visible = false
+margin_left = 305.0
+margin_top = 289.0
+margin_right = 705.0
+margin_bottom = 489.0
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button" to="." method="new_game"]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button2" to="LoadDialog" method="popup"]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button4" to="." method="website"]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button3" to="." method="_on_Button3_pressed"]
+
+

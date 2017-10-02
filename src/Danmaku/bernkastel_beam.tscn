@@ -1,0 +1,111 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/Danmaku/bernkastel_beam.gd" type="Script" id=1]
+[ext_resource path="res://res/spr/danmaku/ray_start_part.png" type="Texture" id=2]
+[ext_resource path="res://res/spr/danmaku/ray_start_base.png" type="Texture" id=3]
+
+[sub_resource type="ParticlesMaterial" id=1]
+
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 32.0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 180.0
+angular_velocity_random = 0.0
+orbit_velocity = 180.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 25.0
+radial_accel_random = 0.0
+tangential_accel = 100.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 3.0
+scale_random = 0.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Orbit Velocity", "Radial Accel", "Scale", "Spread", "Tangential Accel" ]
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 32.0
+
+[node name="Bernkastel_Beam" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 4
+collision_mask = 0
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibility", "Z", "collision" ]
+direction = 360
+velocity = Vector2( 0, 0 )
+acceleration = Vector2( 0, 0 )
+angular_velocity = 0
+time_before_rays = 0
+time_between_rays = 0.25
+time_before_deleting = 30.0
+rotate_sprite_according_to_direction = true
+max_rays_created = 30
+foreground_color = Color( 0.639216, 0, 1, 1 )
+background_color = Color( 1, 1, 1, 1 )
+direction_affects_velocity = true
+destroy_if_offscreen = true
+
+[node name="Particles2D" type="Particles2D" parent="."]
+
+show_behind_parent = true
+z = -10
+emitting = true
+amount = 32
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 1 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Time", "Transform", "Visibility", "Z" ]
+
+[node name="Foreground" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+[node name="Background" type="Sprite" parent="."]
+
+z = -1
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Animation", "Region", "Transform", "Z" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 2 )
+
+

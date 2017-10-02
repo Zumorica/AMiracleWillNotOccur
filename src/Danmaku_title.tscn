@@ -1,0 +1,614 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://res/shader/transparency_hole.tres" type="Material" id=1]
+[ext_resource path="res://res/spr/VN/Ep5_1_ber_EP5_1_ber.png" type="Texture" id=2]
+[ext_resource path="res://src/Danmaku_title.gd" type="Script" id=3]
+[ext_resource path="res://res/spr/BG/different_space_2b.png" type="Texture" id=4]
+[ext_resource path="res://res/spr/static/0.png" type="Texture" id=5]
+[ext_resource path="res://res/spr/static/1.png" type="Texture" id=6]
+[ext_resource path="res://res/spr/static/2.png" type="Texture" id=7]
+[ext_resource path="res://res/spr/static/3.png" type="Texture" id=8]
+[ext_resource path="res://res/spr/static/4.png" type="Texture" id=9]
+[ext_resource path="res://res/spr/static/5.png" type="Texture" id=10]
+[ext_resource path="res://res/spr/static/6.png" type="Texture" id=11]
+[ext_resource path="res://res/spr/static/7.png" type="Texture" id=12]
+[ext_resource path="res://res/spr/static/8.png" type="Texture" id=13]
+[ext_resource path="res://res/spr/static/9.png" type="Texture" id=14]
+[ext_resource path="res://res/fnt/Sazanami64.tres" type="DynamicFont" id=15]
+[ext_resource path="res://res/fnt/Sazanami22.tres" type="DynamicFont" id=16]
+[ext_resource path="res://src/Load_dialog.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/Save_dialog.tscn" type="PackedScene" id=18]
+[ext_resource path="res://res/snd/thunder.wav" type="AudioStream" id=19]
+[ext_resource path="res://res/snd/revelations.ogg" type="AudioStream" id=20]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "start"
+length = 9.0
+loop = false
+step = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath("thunder")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 25.1066, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("BGM")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Shader" id=2]
+
+code = "shader_type canvas_item;
+
+uniform bool enable_scanline = true;
+uniform bool transparency_to_black = true;
+uniform float blur_modifier_one = 0.5;
+uniform float blur_modifier_two = 0.5;
+uniform float blur_modifier_three = 3.0;
+uniform float blur_modifier_four = 0.05;
+uniform float scanline_modifier = 0.04;
+uniform float color_modifier = 0.5;
+
+void fragment(){
+	if(enable_scanline){
+		float a = COLOR.a;
+		float d = length(UV - vec2(0.5,0.5));
+		float blur = 0.0;
+		blur = (1.0 + sin(TIME*6.0)) * blur_modifier_one;
+		blur *= 1.0 + sin(TIME*16.0) * blur_modifier_two;
+		blur = pow(blur, blur_modifier_three);
+		blur *= blur_modifier_four;
+	
+		blur *= d;
+		
+	    vec3 col;
+	    col.r = texture( TEXTURE, vec2(UV.x+blur,UV.y) ).r;
+	    col.g = texture( TEXTURE, UV ).g;
+	    col.b = texture( TEXTURE, vec2(UV.x-blur,UV.y) ).b;
+		
+		float scanline = sin(UV.y*800.0)*scanline_modifier;
+		col -= scanline;
+		
+		col *= 1.0 - d * color_modifier;
+		
+		if(transparency_to_black)
+	    	COLOR = vec4(col,a);
+		else
+			COLOR = vec4(col,texture( TEXTURE, UV ).a);
+	} else {
+		COLOR = texture(TEXTURE, UV);
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id=3]
+
+shader = SubResource( 2 )
+shader_param/enable_scanline = true
+shader_param/transparency_to_black = false
+shader_param/blur_modifier_one = 1.0
+shader_param/blur_modifier_two = 0.5
+shader_param/blur_modifier_three = 0.2
+shader_param/blur_modifier_four = 0.04
+shader_param/scanline_modifier = 0.025
+shader_param/color_modifier = 0.7
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="Shader" id=4]
+
+code = "shader_type canvas_item;
+
+uniform bool enable_scanline = true;
+uniform bool transparency_to_black = true;
+uniform float blur_modifier_one = 0.5;
+uniform float blur_modifier_two = 0.5;
+uniform float blur_modifier_three = 3.0;
+uniform float blur_modifier_four = 0.05;
+uniform float scanline_modifier = 0.04;
+uniform float color_modifier = 0.5;
+
+void fragment(){
+	if(enable_scanline){
+		float a = COLOR.a;
+		float d = length(UV - vec2(0.5,0.5));
+		float blur = 0.0;
+		blur = (1.0 + sin(TIME*6.0)) * blur_modifier_one;
+		blur *= 1.0 + sin(TIME*16.0) * blur_modifier_two;
+		blur = pow(blur, blur_modifier_three);
+		blur *= blur_modifier_four;
+	
+		blur *= d;
+		
+	    vec3 col;
+	    col.r = texture( TEXTURE, vec2(UV.x+blur,UV.y) ).r;
+	    col.g = texture( TEXTURE, UV ).g;
+	    col.b = texture( TEXTURE, vec2(UV.x-blur,UV.y) ).b;
+		
+		float scanline = sin(UV.y*800.0)*scanline_modifier;
+		col -= scanline;
+		
+		col *= 1.0 - d * color_modifier;
+		
+		if(transparency_to_black)
+	    	COLOR = vec4(col,a);
+		else
+			COLOR = vec4(col,texture( TEXTURE, UV ).a);
+	} else {
+		COLOR = texture(TEXTURE, UV);
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id=5]
+
+shader = SubResource( 4 )
+shader_param/enable_scanline = true
+shader_param/transparency_to_black = false
+shader_param/blur_modifier_one = 1.0
+shader_param/blur_modifier_two = 0.5
+shader_param/blur_modifier_three = 3.0
+shader_param/blur_modifier_four = 0.08
+shader_param/scanline_modifier = 0.04
+shader_param/color_modifier = 0.5
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="SpriteFrames" id=6]
+
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[sub_resource type="ParticlesMaterial" id=7]
+
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 128.0
+flag_align_y = false
+flag_rotate_y = true
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 200, 0 )
+initial_velocity = 100.0
+initial_velocity_random = 0.0
+angular_velocity = 100.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 2.0
+scale_random = 1.0
+color = Color( 1, 0, 0, 1 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Animation", "Color", "Emission Shape", "Flags", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Scale", "Spread", "Tangential Accel", "Trail" ]
+
+[node name="Title" type="TextureRect"]
+
+modulate = Color( 0, 0, 0, 1 )
+material = ExtResource( 1 )
+anchor_right = 1
+anchor_bottom = 1
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+script = ExtResource( 3 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
+anims/start = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="BG" type="TextureRect" parent="."]
+
+show_behind_parent = true
+material = SubResource( 3 )
+anchor_right = 1
+anchor_bottom = 1
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Material", "Rect", "Visibility" ]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+
+margin_right = 253.0
+margin_bottom = 801.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+
+margin_left = 770.0
+margin_top = 1.0
+margin_right = 1023.0
+margin_bottom = 802.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
+self_modulate = Color( 1, 1, 1, 0.490196 )
+show_behind_parent = true
+material = SubResource( 5 )
+frames = SubResource( 6 )
+animation = "default"
+playing = true
+centered = false
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z" ]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+
+self_modulate = Color( 1, 1, 1, 0.412706 )
+show_behind_parent = true
+position = Vector2( 512.391, 252.345 )
+emitting = true
+amount = 256
+lifetime = 2.0
+one_shot = false
+preprocess = 1.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -200, -200, 400, 400 )
+local_coords = true
+draw_order = 426230256
+process_material = SubResource( 7 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Visibility" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+
+margin_right = 1024.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+
+margin_top = 44.0
+margin_right = 1024.0
+margin_bottom = 121.0
+rect_min_size = Vector2( 1024, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 15 )
+custom_colors/font_color = Color( 1, 0, 0.05, 1 )
+custom_colors/font_color_shadow = Color( 1, 0.304688, 0.304688, 1 )
+custom_constants/shadow_offset_x = -1
+custom_constants/line_spacing = 0
+custom_constants/shadow_offset_y = -1
+text = "A Miracle Will Not Occur 2"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="Label2" type="Label" parent="VBoxContainer/Label"]
+
+margin_top = 81.0
+margin_right = 1024.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 1024, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color = Color( 0, 0.507812, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.261719, 0.273254, 1, 1 )
+custom_constants/shadow_offset_x = -1
+custom_constants/line_spacing = 0
+custom_constants/shadow_offset_y = -1
+text = "~ Danmaku in the Sea of Fragments"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+
+margin_top = 125.0
+margin_right = 1024.0
+margin_bottom = 525.0
+rect_min_size = Vector2( 0, 400 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+
+margin_top = 529.0
+margin_right = 1024.0
+margin_bottom = 761.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+
+margin_right = 75.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 75, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+
+margin_left = 79.0
+margin_right = 219.0
+margin_bottom = 232.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 24
+alignment = 0
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+
+margin_right = 140.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 140, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 16 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Start"
+flat = false
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+
+margin_top = 64.0
+margin_right = 140.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 140, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 16 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Save game"
+flat = false
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+
+margin_top = 128.0
+margin_right = 140.0
+margin_bottom = 168.0
+rect_min_size = Vector2( 140, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 16 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Load game"
+flat = false
+
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+
+margin_top = 192.0
+margin_right = 140.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 140, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 16 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "How to play"
+flat = false
+
+[node name="LoadDialog" parent="." instance=ExtResource( 17 )]
+
+visible = false
+margin_left = 316.0
+margin_top = 305.0
+margin_right = 716.0
+margin_bottom = 505.0
+
+[node name="SaveDialog" parent="." instance=ExtResource( 18 )]
+
+visible = false
+margin_left = 318.0
+margin_top = 307.0
+margin_right = 718.0
+margin_bottom = 507.0
+
+[node name="thunder" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 19 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 20 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="WindowDialog" type="WindowDialog" parent="."]
+
+visible = false
+margin_left = 314.0
+margin_top = 231.0
+margin_right = 714.0
+margin_bottom = 431.0
+rect_min_size = Vector2( 400, 200 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+window_title = ""
+resizable = false
+_sections_unfolded = [ "Rect" ]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="WindowDialog"]
+
+anchor_right = 1
+anchor_bottom = 1
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = "---
+SHIFT to focus your bullets and move slower
+Z to shoot
+X to use a bomb
+Arrow keys to control your character
+---
+The Witch of Miracles has finally decided the location for your second battle.
+The Sea of Fragments. A normal human can't exist there, so instead you'll
+control a small sphere made out of your soul's energy.
+Evade one of her spellcards (attacks) perfectly and there's a chance you'll be granted a small miracle."
+visible_characters = -1
+percent_visible = 1.0
+_sections_unfolded = [ "BBCode" ]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button" to="." method="start"]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button2" to="SaveDialog" method="popup"]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button3" to="LoadDialog" method="popup"]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button4" to="WindowDialog" method="popup"]
+
+

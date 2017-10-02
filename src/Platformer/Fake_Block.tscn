@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/Platformer/Fake_Block.gd" type="Script" id=1]
+[ext_resource path="res://res/spr/platformer/custom_tileset/fake_block.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[node name="Fake_Block" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1024
+collision_mask = 1048575
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+sprite_default = null
+sprite_triggered = null
+on_trigger_opacity_change = false
+opacity = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+position = Vector2( 32, 32 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+

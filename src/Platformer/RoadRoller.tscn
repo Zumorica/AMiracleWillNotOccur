@@ -1,0 +1,130 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/Platformer/RoadRoller.gd" type="Script" id=1]
+[ext_resource path="res://res/spr/platformer/road_roller.png" type="Texture" id=2]
+[ext_resource path="res://res/spr/platformer/explosion.png" type="Texture" id=3]
+[ext_resource path="res://res/snd/wryy.wav" type="AudioStream" id=4]
+[ext_resource path="res://res/snd/metal_crash.wav" type="AudioStream" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 156.486, 75.1483 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 100.0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 0.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 360.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 1.0
+linear_accel_random = 0.0
+radial_accel = 2.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 2.0
+scale_random = 0.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Scale", "Spread", "Trail" ]
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 164.51
+
+[node name="RoadRoller" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1026
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "collision" ]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Z" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+position = Vector2( 8.45439, 1.32686 )
+scale = Vector2( 0.940068, 1 )
+shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+
+emitting = false
+amount = 10
+lifetime = 2.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 1.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 994888708
+process_material = SubResource( 2 )
+texture = ExtResource( 3 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+shape = SubResource( 3 )
+
+[node name="Wry" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 4 )
+volume_db = -5.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Crash" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 5 )
+volume_db = -13.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+

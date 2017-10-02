@@ -1,0 +1,429 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://res/fnt/Sazanami64.tres" type="DynamicFont" id=1]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "anim"
+length = 6.0
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/VBoxContainer/CenterContainer/VBoxContainer/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0.5, 1, 1.05, 1.6, 1.65 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "Loading...", "...gnidaoL", "Loading...", "...gnidaoL", "Loading..." ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/VBoxContainer/HBoxContainer/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 1.2, 1.35, 1.45, 1.55, 2.15, 2.25, 2.55, 2.65, 2.8, 2.9, 3.1, 3.2, 5.95 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "", "\"Let me tell you what! I guess you didn't know, but I'm an avid gamer too...\"", "\"And if you'd care to take a dare, I'll make a bet with you.\"", "", "\"You play games pretty well, human... But give the witch of miracles her due!\"", "\"I bet a miracle against your soul, because I think I'm better than you!\"", "", "\"Arrogant words from a small being. Do you not fear death, perhaps?\"", "", "\"Then, as the witch of miracles.......\"", "", "\"I hereby declare that a miracle will not occur!\"", "", "\"Now that I've said that, you cannot escape from me. Do NOT disappoint me, or I'll make you wish you could die.\"", "", "" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/VBoxContainer/HBoxContainer/Label:custom_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2, 1.55, 2.8, 2.95 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.445312, 0.445312, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/VBoxContainer/HBoxContainer2/Label:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.9, 2, 2.35, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "", "\"This might be a sin, but I'll take your bet and you're gonna regret because I play videogames better than anyone else!\"", "", "\"That's not it. I'm pretty certain I'd win.\"", "" ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Control:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "load_end"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/VBoxContainer/HBoxContainer/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/VBoxContainer/CenterContainer/VBoxContainer/Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Loading..." ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/VBoxContainer/HBoxContainer2/Label:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "" ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Control/ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Control:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=3]
+
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/VBoxContainer/HBoxContainer/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/VBoxContainer/CenterContainer/VBoxContainer/Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Loading..." ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/VBoxContainer/HBoxContainer2/Label:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "" ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Control/ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="ColorRect" type="CanvasLayer"]
+
+layer = 128
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Control" type="Control" parent="."]
+
+anchor_right = 1
+anchor_bottom = 1
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Mouse", "Visibility" ]
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+
+anchor_right = 1
+anchor_bottom = 1
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "Mouse" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+
+anchor_right = 1
+anchor_bottom = 1
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+
+editor/display_folded = true
+margin_right = 1024.0
+margin_bottom = 266.66
+rect_min_size = Vector2( 0, 266.66 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Spacer" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+
+margin_right = 32.0
+margin_bottom = 266.0
+rect_min_size = Vector2( 32, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Rect" ]
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+
+margin_left = 36.0
+margin_top = 126.0
+margin_right = 36.0
+margin_bottom = 140.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors" ]
+
+[node name="Spacer2" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+
+margin_left = 40.0
+margin_right = 72.0
+margin_bottom = 266.0
+rect_min_size = Vector2( 32, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/VBoxContainer"]
+
+margin_top = 270.0
+margin_right = 1024.0
+margin_bottom = 536.66
+rect_min_size = Vector2( 0, 266.66 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+_sections_unfolded = [ "Rect" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/CenterContainer"]
+
+margin_left = 351.0
+margin_top = 76.0
+margin_right = 673.0
+margin_bottom = 189.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/CenterContainer/VBoxContainer"]
+
+margin_right = 322.0
+margin_bottom = 77.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 1 )
+text = "Loading..."
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/VBoxContainer/CenterContainer/VBoxContainer"]
+
+margin_top = 81.0
+margin_right = 322.0
+margin_bottom = 113.0
+rect_min_size = Vector2( 322, 32 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 100.0
+step = 0.5
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+percent_visible = true
+_sections_unfolded = [ "Percent", "Rect" ]
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
+
+margin_top = 540.0
+margin_right = 1024.0
+margin_bottom = 806.66
+rect_min_size = Vector2( 0, 266.66 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Spacer" type="Control" parent="Control/VBoxContainer/HBoxContainer2"]
+
+margin_right = 32.0
+margin_bottom = 266.0
+rect_min_size = Vector2( 32, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
+
+margin_left = 36.0
+margin_top = 126.0
+margin_right = 36.0
+margin_bottom = 140.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Spacer2" type="Control" parent="Control/VBoxContainer/HBoxContainer2"]
+
+margin_left = 40.0
+margin_right = 72.0
+margin_bottom = 266.0
+rect_min_size = Vector2( 32, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
+anims/anim = SubResource( 1 )
+anims/load_end = SubResource( 2 )
+anims/reset = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+

@@ -1,0 +1,265 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://src/Platformer/background.gd" type="Script" id=1]
+[ext_resource path="res://res/spr/platformer/city of books/4.png" type="Texture" id=2]
+[ext_resource path="res://res/spr/BG/different_spiral_1a.png" type="Texture" id=3]
+[ext_resource path="res://res/spr/platformer/city of books/3.png" type="Texture" id=4]
+[ext_resource path="res://res/spr/platformer/city of books/2.png" type="Texture" id=5]
+[ext_resource path="res://res/spr/platformer/city of books/1.png" type="Texture" id=6]
+[ext_resource path="res://res/spr/platformer/city of books/0.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "FadeToBlack3"
+length = 3.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "LowestShake"
+length = 0.5
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("low/lowest:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 795.01, 584.566 ), Vector2( 776.922, 584.566 ), Vector2( 808.576, 583.059 ), Vector2( 787.473, 583.561 ), Vector2( 799.532, 583.059 ), Vector2( 795.01, 584.566 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "LowestSpin"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("low/lowest:rotation_deg")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+
+length = 6.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("low/lowest:texture")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("low/lowest:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 795.01, 584.566 ), Vector2( 828.172, 578.537 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("low/lowest:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.9, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "SlowlyAppear"
+length = 7.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("low/lowest:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6, 7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("low/low:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("middle/middle:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/keys = {
+"times": PoolRealArray( 0, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("high/high:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("highest/highest:modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+
+[node name="Background" type="Node2D"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Scroll", "Transform", "Z" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback_process_mode = 0
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
+anims/FadeToBlack3 = SubResource( 1 )
+anims/LowestShake = SubResource( 2 )
+anims/LowestSpin = SubResource( 3 )
+anims/LowestSpiral = SubResource( 4 )
+anims/SlowlyAppear = SubResource( 5 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+_sections_unfolded = [ "Playback", "playback" ]
+
+[node name="low" type="Node2D" parent="."]
+
+_sections_unfolded = [ "Motion", "Scroll", "Visibility" ]
+
+[node name="lowest" type="Sprite" parent="low"]
+
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 795.01, 584.566 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="low" type="Sprite" parent="low"]
+
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 823.403, 537.801 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="middle" type="Node2D" parent="."]
+
+_sections_unfolded = [ "Motion", "Scroll" ]
+
+[node name="middle" type="Sprite" parent="middle"]
+
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 737.67, 400.968 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="high" type="Node2D" parent="."]
+
+_sections_unfolded = [ "Motion", "Scroll" ]
+
+[node name="high" type="Sprite" parent="high"]
+
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 695.987, 400.968 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="highest" type="Node2D" parent="."]
+
+_sections_unfolded = [ "Motion" ]
+
+[node name="highest" type="Sprite" parent="highest"]
+
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 800, 400 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility" ]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+
+visible = false
+show_behind_parent = true
+anchor_right = 1
+anchor_bottom = 1
+margin_right = 64.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 0 )
+_sections_unfolded = [ "Material", "Rect", "Visibility" ]
+
+

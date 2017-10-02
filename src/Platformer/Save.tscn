@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/Platformer/Save.gd" type="Script" id=1]
+[ext_resource path="res://res/spr/platformer/save_0.png" type="Texture" id=2]
+[ext_resource path="res://res/spr/platformer/save_1.png" type="Texture" id=3]
+[ext_resource path="res://src/Platformer/Player_bullet.gd" type="Script" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 9.75814
+height = 41.7535
+
+[node name="Save" type="Area2D"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+sprite_off = ExtResource( 2 )
+sprite_on = ExtResource( 3 )
+bullet = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+
+

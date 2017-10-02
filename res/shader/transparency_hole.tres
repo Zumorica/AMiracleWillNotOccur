@@ -1,0 +1,23 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+
+code = "shader_type canvas_item;
+
+uniform vec3 color = vec3(0.0, 0.0, 0.0);
+
+void fragment() {
+	if (texture(TEXTURE, UV).a != 0.0){
+		COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
+	} else {
+		COLOR.rgb = color;
+		COLOR.a = 1.0;
+	}
+}"
+
+[resource]
+
+shader = SubResource( 1 )
+shader_param/color = Plane( 0, 0, 0, 1 )
+_sections_unfolded = [ "shader_param" ]
+

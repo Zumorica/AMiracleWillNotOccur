@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Danmaku/bernkastel_bullet.gd" type="Script" id=1]
+[ext_resource path="res://res/spr/danmaku/yellow_star_bullet_0.png" type="Texture" id=2]
+
+[node name="Bernkastel_Star_Bullet" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 4
+collision_mask = 0
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+direction = 360
+velocity = Vector2( 8, 8 )
+acceleration = Vector2( 0, 0 )
+angular_velocity = 0
+rotate_sprite_according_to_direction = true
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+position = Vector2( 0.208328, -0.416658 )
+build_mode = 1
+polygon = PoolVector2Array( 0, -7, 9, 0, 5, 4, 5, 10, 0, 6, -5, 10, -5, 4, -9, 0 )
+
+

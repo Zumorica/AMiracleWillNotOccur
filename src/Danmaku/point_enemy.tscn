@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/Danmaku/point_enemy.gd" type="Script" id=1]
+[ext_resource path="res://res/spr/danmaku/point_enemy.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=2]
+
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+void fragment(){
+
+}"
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="ShaderMaterial" id=3]
+
+shader = SubResource( 2 )
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 15.1983, 15.1633 )
+
+[node name="Point" type="KinematicBody2D"]
+
+scale = Vector2( 0.75, 0.75 )
+input_pickable = false
+collision_layer = 16
+collision_mask = 0
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+material = SubResource( 3 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+
+

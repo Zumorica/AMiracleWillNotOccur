@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/Danmaku/bernkastel_bullet.gd" type="Script" id=1]
+[ext_resource path="res://res/spr/danmaku/bullet_part.png" type="Texture" id=2]
+[ext_resource path="res://res/spr/danmaku/bullet_base.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 11.0221
+
+[node name="Bernkastel_Bullet" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 4
+collision_mask = 0
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Pickable", "collision" ]
+direction = 360
+velocity = Vector2( 8, 8 )
+acceleration = Vector2( 0, 0 )
+angular_velocity = 0
+rotate_sprite_according_to_direction = true
+foreground_color = Color( 0.5003, 0.286285, 0.621094, 1 )
+background_color = Color( 1, 1, 1, 1 )
+is_player_bullet = false
+direction_affects_velocity = true
+destroy_if_offscreen = true
+
+[node name="Foreground" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Visibility", "Z" ]
+
+[node name="Background" type="Sprite" parent="."]
+
+z = -1
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Z" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+
+
