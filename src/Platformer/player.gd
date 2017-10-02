@@ -95,6 +95,7 @@ func die():
 		if randf() > 0.5:
 			$ahaha.play()
 		is_dead = true
+		miracle.platformer_deaths += 1
 		var b = blood.instance()
 		var h = head.instance()
 		var a = arm.instance()
@@ -142,7 +143,6 @@ func _fixed_process(delta):
 
 	if is_restart_pressed:
 		if can_restart:
-			miracle.platformer_deaths += 1
 			if miracle.platformer_level == 0:
 				miracle.load_scene("res://src/Platformer/platformer.tscn")
 			elif miracle.platformer_level == 1:
