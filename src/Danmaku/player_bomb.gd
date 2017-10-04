@@ -7,12 +7,12 @@ export(Script) var beam
 export(Script) var ray
 
 func _ready():
-	set_fixed_process(true)
+	set_physics_process(true)
 	yield(get_tree().create_timer(time_alive), "timeout")
 	get_parent().is_invincible = false
 	queue_free()
 	
-func _fixed_process(dt):
+func _physics_process(dt):
 	get_tree().set_group("point", "follow_player", true)
 	get_tree().set_group("power", "follow_player", true)
 	if get_overlapping_bodies().size():

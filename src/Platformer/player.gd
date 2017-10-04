@@ -125,7 +125,7 @@ func die():
 		yield(get_tree().create_timer(2), "timeout")
 		get_node(gameover).show()
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	var force = Vector2(0, GRAVITY)
 
 	var walk_left = Input.is_action_pressed("platformer_left")
@@ -178,10 +178,10 @@ func _fixed_process(delta):
 	#velocity = move_and_slide(velocity,Vector2(0,-1))
 	# We have to do this fucking bullshit until I find a better way to get collisions. god fucking dammit
 	var old_pos = position
-	collision = move(velocity)
+	collision = move_and_collide(velocity)
 	position = old_pos
 	velocity = move_and_slide(velocity,Vector2(0,-1))
-	if not collision.empty():
+	if collision:
 		if not collision.collider is TileMap and collision.position.distance_to(position) < 30:
 			if collision.collider.get("is_deadly"):
 				if collision.collider.is_deadly:

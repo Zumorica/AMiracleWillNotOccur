@@ -44,3 +44,4 @@ godot.exe
 *.flags
 
 export/
+logs/

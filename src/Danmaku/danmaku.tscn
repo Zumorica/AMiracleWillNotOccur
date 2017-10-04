@@ -345,8 +345,10 @@ tracks/0/keys = {
 
 [node name="Danmaku" type="TextureRect"]
 
-anchor_right = 1
-anchor_bottom = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -400,7 +402,10 @@ autoplay = ""
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 
-editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 666.0
 margin_bottom = 768.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -413,6 +418,10 @@ _sections_unfolded = [ "Anchor", "custom_constants" ]
 
 [node name="Filler" type="Control" parent="HBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 28.0
 margin_bottom = 768.0
 rect_min_size = Vector2( 28, 32 )
@@ -425,6 +434,10 @@ _sections_unfolded = [ "Margin", "Rect" ]
 
 [node name="Game" type="VBoxContainer" parent="HBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 32.0
 margin_right = 630.0
 margin_bottom = 768.0
@@ -438,6 +451,10 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
 [node name="Filler" type="Control" parent="HBoxContainer/Game"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 598.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 0, 28 )
@@ -450,6 +467,10 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 [node name="ViewportContainer" type="ViewportContainer" parent="HBoxContainer/Game"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 32.0
 margin_right = 598.0
 margin_bottom = 768.0
@@ -467,6 +488,7 @@ __meta__ = {
 
 [node name="Viewport" type="Viewport" parent="HBoxContainer/Game/ViewportContainer"]
 
+arvr = false
 size = Vector2( 598, 736 )
 own_world = true
 world = null
@@ -477,12 +499,13 @@ disable_3d = true
 usage = 0
 debug_draw = 0
 render_target_v_flip = false
-render_target_clear_on_new_frame = true
+render_target_clear_mode = 0
 render_target_update_mode = 3
 audio_listener_enable_2d = false
 audio_listener_enable_3d = false
 physics_object_picking = false
 gui_disable_input = false
+gui_snap_controls_to_pixels = true
 shadow_atlas_size = 0
 shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
@@ -506,8 +529,10 @@ scale = Vector2( 1, 1 )
 [node name="Sprite" type="TextureRect" parent="HBoxContainer/Game/ViewportContainer/Viewport/OverlayBackgroundLayer"]
 
 visible = false
-anchor_right = 1
-anchor_bottom = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -521,8 +546,10 @@ _sections_unfolded = [ "Anchor", "Animation", "Margin", "Offset", "Rect", "Visib
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer/Game/ViewportContainer/Viewport/OverlayBackgroundLayer"]
 
 self_modulate = Color( 1, 1, 1, 0 )
-anchor_right = 1
-anchor_bottom = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -543,6 +570,10 @@ scale = Vector2( 1, 1 )
 
 editor/display_folded = true
 visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 165.0
 margin_top = 150.0
 margin_right = 442.0
@@ -568,8 +599,10 @@ _sections_unfolded = [ "Margin", "Rect", "custom_colors", "custom_constants", "c
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/spellcardbonus"]
 
 editor/display_folded = true
-anchor_right = 1
-anchor_bottom = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_top = 40.0
 margin_bottom = -40.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -582,6 +615,10 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 [node name="points" type="Label" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/spellcardbonus/CenterContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 131.0
 margin_right = 146.0
 margin_bottom = 39.0
@@ -605,6 +642,10 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "custom_col
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 40.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -616,6 +657,10 @@ alignment = 0
 
 [node name="Spacer" type="Control" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/VBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 40.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 0, 70 )
@@ -629,6 +674,10 @@ _sections_unfolded = [ "Margin", "Rect" ]
 [node name="spellcardtext" type="Label" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/VBoxContainer"]
 
 visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 74.0
 margin_right = 598.0
 margin_bottom = 113.0
@@ -656,6 +705,10 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "custom_col
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer"]
 
 editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 40.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -668,6 +721,10 @@ _sections_unfolded = [ "Anchor" ]
 
 [node name="Filler" type="Control" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -679,6 +736,10 @@ _sections_unfolded = [ "Grow Direction", "Margin", "Rect" ]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 4.0
 margin_right = 624.0
 margin_bottom = 40.0
@@ -691,6 +752,10 @@ alignment = 0
 
 [node name="Filler" type="Control" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer/HBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 16.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 16, 40 )
@@ -703,6 +768,10 @@ _sections_unfolded = [ "Margin", "Rect" ]
 
 [node name="SpellcardBox" type="RichTextLabel" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer/HBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 20.0
 margin_right = 620.0
 margin_bottom = 40.0
@@ -720,6 +789,10 @@ _sections_unfolded = [ "Anchor", "BBCode", "Grow Direction", "Margin", "Rect", "
 
 [node name="Filler2" type="Control" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 628.0
 margin_right = 628.0
 margin_bottom = 40.0
@@ -731,6 +804,10 @@ size_flags_vertical = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 632.0
 margin_right = 632.0
 margin_bottom = 40.0
@@ -752,7 +829,7 @@ scale = Vector2( 1, 1 )
 
 position = Vector2( 300, 150 )
 z = 10
-frame = 6
+frame = 5
 _sections_unfolded = [ "Animation", "Material", "Offset", "Transform", "Visibility", "Z" ]
 bulletmanager = NodePath("../BulletManager")
 
@@ -784,13 +861,18 @@ scale = Vector2( 1, 1 )
 [node name="Textbox" parent="HBoxContainer/Game/ViewportContainer/Viewport/TextboxLayer" instance=ExtResource( 19 )]
 
 visible = false
-margin_top = 216.0
-margin_right = 15.0
-margin_bottom = 16.0
+margin_left = 0.0
+margin_top = 525.0
+margin_right = 593.0
+margin_bottom = 725.0
 rect_min_size = Vector2( 593, 200 )
 
 [node name="Filler2" type="Control" parent="HBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 634.0
 margin_right = 666.0
 margin_bottom = 768.0
@@ -805,6 +887,10 @@ _sections_unfolded = [ "Rect" ]
 [node name="UI" type="VBoxContainer" parent="HBoxContainer"]
 
 editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 670.0
 margin_right = 1012.0
 margin_bottom = 768.0
@@ -819,6 +905,10 @@ _sections_unfolded = [ "Hint", "Margin", "Rect" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/UI"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 31.0
 margin_right = 342.0
 margin_bottom = 426.0
@@ -833,6 +923,10 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Enemy" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 31.0
 margin_right = 342.0
 margin_bottom = 63.0
@@ -846,6 +940,10 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="text" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Enemy"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 80.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 80, 32 )
@@ -862,6 +960,10 @@ _sections_unfolded = [ "BBCode", "Rect", "custom_fonts" ]
 
 [node name="EnemyLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Enemy"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 84.0
 margin_right = 342.0
 margin_bottom = 32.0
@@ -880,8 +982,10 @@ _sections_unfolded = [ "Anchor", "BBCode", "Margin", "Rect", "custom_fonts" ]
 [node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/UI/VBoxContainer/Enemy/EnemyLabel"]
 
 show_behind_parent = true
-anchor_right = 1
-anchor_bottom = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -899,6 +1003,10 @@ _sections_unfolded = [ "Anchor", "Margin", "Material", "Percent", "Visibility" ]
 
 [node name="Filler3" type="Control" parent="HBoxContainer/UI/VBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 67.0
 margin_right = 342.0
 margin_bottom = 99.0
@@ -912,6 +1020,10 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="HighScore" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 103.0
 margin_right = 342.0
 margin_bottom = 135.0
@@ -925,6 +1037,10 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="text" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/HighScore"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 120.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 120, 32 )
@@ -941,6 +1057,10 @@ _sections_unfolded = [ "BBCode", "Rect", "custom_fonts" ]
 
 [node name="HighScoreLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/HighScore"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 124.0
 margin_right = 342.0
 margin_bottom = 32.0
@@ -958,6 +1078,10 @@ _sections_unfolded = [ "BBCode", "Margin", "Rect" ]
 
 [node name="Score" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 139.0
 margin_right = 342.0
 margin_bottom = 171.0
@@ -971,6 +1095,10 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="text" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Score"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 80.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 80, 32 )
@@ -987,6 +1115,10 @@ _sections_unfolded = [ "BBCode", "Margin", "Rect", "custom_fonts" ]
 
 [node name="Control" type="Control" parent="HBoxContainer/UI/VBoxContainer/Score"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 84.0
 margin_right = 120.0
 margin_bottom = 32.0
@@ -1000,6 +1132,10 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="ScoreLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Score"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 124.0
 margin_right = 342.0
 margin_bottom = 32.0
@@ -1017,6 +1153,10 @@ _sections_unfolded = [ "BBCode", "Margin", "Rect", "custom_fonts" ]
 
 [node name="Filler" type="Control" parent="HBoxContainer/UI/VBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 175.0
 margin_right = 342.0
 margin_bottom = 207.0
@@ -1030,6 +1170,10 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Lives" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 211.0
 margin_right = 342.0
 margin_bottom = 249.0
@@ -1043,6 +1187,10 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="text" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Lives"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 80.0
 margin_bottom = 38.0
 rect_min_size = Vector2( 80, 32 )
@@ -1059,6 +1207,10 @@ _sections_unfolded = [ "BBCode", "Rect", "custom_fonts" ]
 
 [node name="LivesLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Lives"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 84.0
 margin_right = 342.0
 margin_bottom = 38.0
@@ -1076,6 +1228,10 @@ _sections_unfolded = [ "Anchor", "BBCode", "Rect", "custom_fonts" ]
 
 [node name="Bomb" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 253.0
 margin_right = 342.0
 margin_bottom = 291.0
@@ -1089,6 +1245,10 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="text" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Bomb"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 80.0
 margin_bottom = 38.0
 rect_min_size = Vector2( 80, 32 )
@@ -1105,6 +1265,10 @@ _sections_unfolded = [ "BBCode", "Rect", "custom_fonts" ]
 
 [node name="BombLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Bomb"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 84.0
 margin_right = 342.0
 margin_bottom = 38.0
@@ -1121,6 +1285,10 @@ _sections_unfolded = [ "BBCode", "Rect" ]
 
 [node name="Filler2" type="Control" parent="HBoxContainer/UI/VBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 295.0
 margin_right = 342.0
 margin_bottom = 327.0
@@ -1134,6 +1302,10 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Power" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 331.0
 margin_right = 342.0
 margin_bottom = 363.0
@@ -1147,6 +1319,10 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="text" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Power"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 80.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 80, 32 )
@@ -1163,6 +1339,10 @@ _sections_unfolded = [ "BBCode", "Rect", "custom_fonts" ]
 
 [node name="PowerLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Power"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 84.0
 margin_right = 342.0
 margin_bottom = 32.0
@@ -1181,8 +1361,10 @@ _sections_unfolded = [ "Anchor", "BBCode", "Margin", "Rect", "custom_fonts" ]
 [node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/UI/VBoxContainer/Power/PowerLabel"]
 
 show_behind_parent = true
-anchor_right = 1
-anchor_bottom = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -1200,6 +1382,10 @@ _sections_unfolded = [ "Margin", "Material", "Percent", "Visibility" ]
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/UI"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 430.0
 margin_right = 342.0
 margin_bottom = 768.0
@@ -1254,8 +1440,10 @@ bus = "Master"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 
-anchor_right = 1
-anchor_bottom = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0

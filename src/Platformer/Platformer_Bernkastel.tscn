@@ -51,10 +51,10 @@ scale = Vector2( 1, 1 )
 [node name="Textbox" parent="CanvasLayer3" instance=ExtResource( 2 )]
 
 visible = false
-margin_left = 25.0
-margin_top = 256.0
-margin_right = 25.0
-margin_bottom = 31.0
+margin_left = 24.0
+margin_top = 562.0
+margin_right = 998.0
+margin_bottom = 787.0
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
@@ -66,6 +66,10 @@ scale = Vector2( 1, 1 )
 [node name="SaveDialog" parent="CanvasLayer2" instance=ExtResource( 3 )]
 
 visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 288.0
 margin_top = 288.0
 margin_right = 688.0
@@ -296,7 +300,7 @@ bernkastel = NodePath("../Bernkastel")
 ] instance=ExtResource( 17 )]
 
 position = Vector2( 2208, 438.956 )
-frame = 5
+frame = 1
 bulletmanager = NodePath("../BulletManager")
 textbox = NodePath("../../CanvasLayer3/Textbox")
 background = NodePath("../Background")

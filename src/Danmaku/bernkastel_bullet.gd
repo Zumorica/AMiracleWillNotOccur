@@ -24,7 +24,7 @@ func _ready():
 		$Background.modulate = background_color
 	else:
 		add_to_group("player_bullets")
-	set_fixed_process(true)
+	set_physics_process(true)
 
 func set_foreground_color(color):
 	assert typeof(color) == TYPE_COLOR
@@ -44,16 +44,16 @@ func get_angle_to_player(from=null):
 	else:
 		return rad2deg(miracle.game_root.player.get_position().angle_to_point(get_position()))
 		
-func _fixed_process(delta):
+func _physics_process(delta):
 	if angular_velocity:
 		direction += angular_velocity
 	if rotate_sprite_according_to_direction:
 		rotation_deg = direction
 	velocity = Vector2((velocity.x + (acceleration.x * delta)), (velocity.y + (acceleration.y * delta)))
 	if direction_affects_velocity:
-		move(Vector2(miracle.costable[int(round(direction)) % 360], miracle.sintable[int(round(direction)) % 360]) * velocity * delta)
+		move_and_collide(Vector2(miracle.costable[int(round(direction)) % 360], miracle.sintable[int(round(direction)) % 360]) * velocity * delta)
 	else:
-		move(velocity * delta)
+		move_and_collide(velocity * delta)
 	if (not get_viewport_rect().has_point(position)) and destroy_if_offscreen:
 		velocity = Vector2()
 		queue_free()

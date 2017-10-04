@@ -20,10 +20,10 @@ func trigger():
 	is_triggered = true
 	$HEYA.play()
 	move(end_vector)
-	if time_before_deleting != false:
+	if typeof(time_before_deleting) == TYPE_INT:
 		get_tree().create_timer(time_before_deleting).connect("timeout", self, "queue_free")
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	if is_triggered:
 		rotation_deg += velocity.length() * 2 * delta
 		if mas_enabled:

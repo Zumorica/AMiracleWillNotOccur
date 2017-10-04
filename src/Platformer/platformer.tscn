@@ -68,14 +68,13 @@ atlas = ExtResource( 13 )
 region = Rect2( 512, 0, 64, 64 )
 margin = Rect2( 0, 0, 0, 0 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=10]
 
 custom_solver_bias = 0.0
 extents = Vector2( 525, 330 )
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 
-resource_name = "FadeMusic"
 length = 2.0
 loop = false
 step = 0.1
@@ -104,9 +103,8 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 
-resource_name = "FadeMusicIn"
 length = 2.0
 loop = false
 step = 0.1
@@ -126,6 +124,7 @@ tracks/0/keys = {
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Z" ]
+level = 0
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 
@@ -137,6 +136,10 @@ scale = Vector2( 1, 1 )
 [node name="SaveDialog" parent="CanvasLayer3" instance=ExtResource( 2 )]
 
 visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 256.0
 margin_top = 192.0
 margin_right = 656.0
@@ -556,7 +559,7 @@ bernkastel = NodePath("../Sorcerer")
 ] instance=ExtResource( 16 )]
 
 position = Vector2( 2272, 1888 )
-frame = 2
+frame = 0
 _sections_unfolded = [ "Transform", "Visibility", "Z" ]
 bgm = NodePath("../../BGM")
 animationplayer = NodePath("../../AnimationPlayer")
@@ -579,14 +582,16 @@ group = "portal_trigger"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger4"]
 
 position = Vector2( -512, -320 )
-shape = SubResource( 12 )
+shape = SubResource( 10 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 
 visible = false
 show_behind_parent = true
-anchor_right = 1
-anchor_bottom = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = -1120.0
 margin_right = -3392.0
 margin_bottom = -1088.0
@@ -611,8 +616,8 @@ bus = "Master"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 root_node = NodePath("..")
-anims/FadeMusic = SubResource( 10 )
-anims/FadeMusicIn = SubResource( 11 )
+anims/FadeMusic = SubResource( 11 )
+anims/FadeMusicIn = SubResource( 12 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]

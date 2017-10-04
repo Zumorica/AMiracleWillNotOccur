@@ -19,13 +19,13 @@ export(bool) var destroy_if_offscreen = true
 var ray = preload("res://src/Danmaku/bernkastel_ray.tscn")
 var rays_created = 0
 var being_destroyed = false
-		
+
 func _ready():
 	add_to_group("bernkastel_bullets")
 	$Foreground.modulate = foreground_color
 	$Background.modulate = background_color
 	$Particles2D.modulate = foreground_color
-	set_fixed_process(true)
+	set_physics_process(true)
 	if typeof(time_before_deleting) == TYPE_INT:
 		get_tree().create_timer(time_before_deleting).connect("timeout", self, "destroy")
 	var timer = Timer.new()
@@ -72,16 +72,16 @@ func create_new_ray():
 		new_ray.z = -1
 		add_child(new_ray)
 		rays_created += 1
-	
-func _fixed_process(delta):
+
+func _physics_process(delta):
 	direction += angular_velocity
 	if rotate_sprite_according_to_direction:
 		rotation_deg = direction
 	velocity = Vector2((velocity.x + (acceleration.x * delta)), (velocity.y + (acceleration.y * delta)))
 	if direction_affects_velocity:
-		move(Vector2(miracle.costable[int(round(direction)) % 360], miracle.sintable[int(round(direction)) % 360]) * velocity * delta)
+		move_and_collide(Vector2(miracle.costable[int(round(direction)) % 360], miracle.sintable[int(round(direction)) % 360]) * velocity * delta)
 	else:
-		move(velocity * delta)
+		move_and_collide(velocity * delta)
 	if not get_viewport_rect().has_point(position) and destroy_if_offscreen:
 		velocity = Vector2()
 		destroy()

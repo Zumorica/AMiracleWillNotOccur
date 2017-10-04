@@ -30,7 +30,7 @@ func _ready():
 
 func load_scene(path):
 	wait_frames = 1
-	var current_scene = weakref(get_tree().get_root().get_child(get_tree().get_root().get_child_count() -1))
+	var current_scene = weakref(get_tree().get_current_scene())
 	loading_screen.get_node("AnimationPlayer").play("reset")
 	yield(get_tree().create_timer(0.1), "timeout")
 	loading_screen.get_node("Control").show()

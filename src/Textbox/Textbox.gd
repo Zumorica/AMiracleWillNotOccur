@@ -57,4 +57,4 @@ func newline():
 	label.newline()
 
 func clear():
-	label.clear()
+	label.bbcode_text = ""

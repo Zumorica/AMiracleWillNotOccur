@@ -161,7 +161,7 @@ func move(point):
 	is_moving = true
 	end_vector = point
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	if health <= 0:
 		is_alive = false
 	if is_moving:

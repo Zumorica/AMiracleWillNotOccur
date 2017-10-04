@@ -10,7 +10,7 @@ func _ready():
 	canvas_transform[2] = Vector2(0,0)
 	original_canvas_transform = canvas_transform
 	get_viewport().set_canvas_transform(canvas_transform)
-	set_fixed_process(true)
+	set_physics_process(true)
 	
 func get_player_stepified(screen_cord = false):
 	var size = get_viewport_rect().size
@@ -27,7 +27,7 @@ func reset():
 	original_canvas_transform[2] = Vector2(0, 0)
 	get_viewport().set_canvas_transform(original_canvas_transform)
 	
-func _fixed_process(delta):
+func _physics_process(delta):
 	if active:
 		if last_offset != get_player_stepified():
 			var canvas_transform = get_viewport_transform()

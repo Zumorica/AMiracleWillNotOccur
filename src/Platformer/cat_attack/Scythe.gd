@@ -11,7 +11,7 @@ var mas_offset = 500
 var time_before_deleting = 15
 
 func _ready():
-	if time_before_deleting != false:
+	if typeof(time_before_deleting) == TYPE_INT:
 		get_tree().create_timer(time_before_deleting).connect("timeout", self, "queue_free")
 
 func move(point):
@@ -19,7 +19,7 @@ func move(point):
 	is_moving = true
 	end_vector = point
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	rotation_deg += velocity.length() * 2 * delta
 	if mas_enabled:
 		var initial_rotation = current_rotation

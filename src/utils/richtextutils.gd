@@ -7,7 +7,7 @@ var queue = []
 var delay = 0.025
 var speed = 8
 var shake = Vector2(0, 0) setget ,set_shake
-onready var origpos = get_position()
+onready var origpos = rect_position
 var timer = 0
 var rainbow_color = false
 var color = Color(1, 1, 1, 1)
@@ -55,12 +55,12 @@ func newline():
 func set_shake(vector):
 	assert typeof(vector) == TYPE_VECTOR2
 	if vector.length() == 0:
-		set_position(origpos)
+		rect_position = origpos
 	else:
-		origpos = get_position()
+		origpos = rect_position
 	shake = vector
 
-func _fixed_process(delta):
+func _process(delta):
 	if timer < delay:
 		timer += (delta * speed)
 	else:
@@ -83,5 +83,5 @@ func _fixed_process(delta):
 		if randi()%2:
 			num.y = -1
 		var deltashake = Vector2(mult * shake.x * num.x, mult * shake.y * num.y)
-		set_position((origpos + deltashake))
+		rect_position = ((origpos + deltashake))
 		

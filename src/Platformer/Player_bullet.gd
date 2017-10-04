@@ -13,11 +13,11 @@ var current_lifetime = 0
 
 signal deletion()
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	current_lifetime += delta
-	var new_collision = move(delta * Vector2(velocity * direction, 0))
+	var new_collision = move_and_collide(delta * Vector2(velocity * direction, 0))
 	
-	if not new_collision.empty():
+	if new_collision:
 		if new_collision.collider is TileMap:
 			queue_free()
 			return

@@ -5,9 +5,9 @@ export(NodePath) var camera
 
 func _ready():
 	camera = get_node(camera)
-	set_fixed_process(true)
+	set_physics_process(true)
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	camera.move_local_y(speed)
 
 func get_speed():

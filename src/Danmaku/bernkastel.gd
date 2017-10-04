@@ -427,7 +427,7 @@ func hide_circles(play_anim=false):
 	$RedCircle.hide(play_anim)
 	$BlueCircle.hide(play_anim)
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	#print(get_node("../..").get_mouse_position())
 	if miracle.game_root:
 		if miracle.game_root.game_started:

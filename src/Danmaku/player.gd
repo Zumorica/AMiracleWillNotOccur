@@ -15,7 +15,7 @@ onready var orig_speed = speed
 onready var initial_position = get_position()
 
 func _ready():
-	set_fixed_process(true)
+	set_physics_process(true)
 
 func die():
 	if not is_invincible:
@@ -125,7 +125,7 @@ func bomb():
 		is_invincible = true
 		add_child(bomb_scene.instance())
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	rotate(deg2rad(speed * delta))
 	speed = orig_speed
 	velocity = Vector2(0, 0)

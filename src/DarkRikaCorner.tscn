@@ -44,8 +44,10 @@ tracks/0/keys = {
 
 [node name="Control" type="Control"]
 
-anchor_right = 1
-anchor_bottom = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -76,8 +78,10 @@ autoplay = ""
 
 [node name="Panel" type="Panel" parent="."]
 
-anchor_right = 1
-anchor_bottom = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -87,6 +91,10 @@ _sections_unfolded = [ "Anchor", "Margin" ]
 
 [node name="TextureRect" type="TextureRect" parent="Panel"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 40.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -99,9 +107,11 @@ stretch_mode = 0
 
 [node name="TextureRect2" type="TextureRect" parent="Panel"]
 
-anchor_left = 1
-anchor_right = 1
-margin_left = 527.0
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -527.0
 margin_bottom = 800.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -114,9 +124,9 @@ _sections_unfolded = [ "Anchor", "Margin" ]
 
 [node name="Textbox" parent="." instance=ExtResource( 5 )]
 
-margin_left = 19.0
-margin_top = 241.0
-margin_right = 31.0
-margin_bottom = 16.0
+margin_left = 21.0
+margin_top = 558.0
+margin_right = 995.0
+margin_bottom = 783.0
 
 

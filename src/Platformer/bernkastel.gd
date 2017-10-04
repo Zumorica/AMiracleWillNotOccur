@@ -130,7 +130,7 @@ func bernkastel_battle():
 		yield(get_tree().create_timer(0.75), "timeout")
 		animation = "idle"
 		yield(get_tree().create_timer(0.75), "timeout")
-		
+
 	if not is_dead and not miracle.game_root.player.is_dead:
 		bulletmanager.multibeam({"position" : Vector2(64 * 16, 64  * 12), "time_between_rays" : 0.025, "delete_if_offscreen" : false, "time_before_deleting" : false}, {"group" : "beam1", "beam_step_start" : 180})
 		velocity *= 2
@@ -159,7 +159,7 @@ func bernkastel_battle():
 		move(Vector2(1800, 400))
 		yield(self, "stopped_moving")
 		velocity /= 2
-		
+
 	if not is_dead and not miracle.game_root.player.is_dead:
 		$Laugh.play()
 		for i in [12, 9, [7, 6], [8, 12], [9, 11], 10, [8, 12], 11, 10, [6, 9, 10], [7, 12], 8, [9, 11], 10, 11]:
@@ -170,9 +170,10 @@ func bernkastel_battle():
 				for s in i:
 					bulletmanager.spike({"rotation_deg" : 270, "position" : Vector2(64 * 17, 64 * s)}, {"time_before_trigger" : 0})
 			yield(get_tree().create_timer(0.75), "timeout")
-			if i == 10:
-				get_tree().call_group("beam1", "destroy")
-				
+			if typeof(i) == TYPE_INT:
+				if i == 10:
+					get_tree().call_group("beam1", "destroy")
+
 	if not is_dead and not miracle.game_root.player.is_dead:
 		move(Vector2(1800, 400))
 		yield(self, "stopped_moving")
@@ -197,7 +198,7 @@ func bernkastel_battle():
 		bulletmanager.scythe({"position" : Vector2(64 * -2, 64 * 19), "mas_enabled" : false, "is_moving" : true, "end_vector" : Vector2(64 * 20, 64 * -3)})
 		yield(get_tree().create_timer(1.75), "timeout")
 		bulletmanager.scythe({"position" : Vector2(64 * 20, 64 * 20), "mas_enabled" : false, "is_moving" : true, "end_vector" : Vector2(64 * -20, 64 * -20)})
-		
+
 	if not is_dead and not miracle.game_root.player.is_dead:
 		animation = "laugh_reversed"
 		yield(self, "animation_finished")
@@ -221,7 +222,7 @@ func bernkastel_battle():
 				$CrazyLaugh.play()
 				bulletmanager.scythe({"position" : Vector2(64 * 20, 800), "mas_enabled" : false, "is_moving" : true, "end_vector" : Vector2(-1500, 800)})
 			yield(get_tree().create_timer(0.75), "timeout")
-			
+
 	if not is_dead and not miracle.game_root.player.is_dead:
 		$Laugh.play()
 		move(Vector2(1800, 400))
@@ -233,7 +234,7 @@ func bernkastel_battle():
 				for s in i:
 					bulletmanager.spike({"rotation_deg" : 180, "position" : Vector2(64 * s, 64 * -1)}, {"time_before_trigger" : 0})
 			yield(get_tree().create_timer(1.25), "timeout")
-		
+
 	if is_dead:
 		if not miracle.game_root.player.is_dead:
 			miracle.game_root.player.can_move = false
@@ -291,7 +292,7 @@ func bernkastel_battle():
 				textbox.clear()
 				textbox.set_color(Color(1, 0, 0, 1))
 				$RedTruth.play()
-				textbox.add_to_queue("TRUE ENDING")
+				textbox.add_text("TRUE ENDING")
 				miracle.ending = miracle.ending_score.true_ending
 				yield(textbox.label, "on_queue_end")
 				yield(get_tree().create_timer(5), "timeout")
@@ -320,7 +321,7 @@ func bernkastel_battle():
 				textbox.clear()
 				textbox.set_color(Color(1, 0, 0, 1))
 				$RedTruth.play()
-				textbox.add_to_queue("GOOD ENDING")
+				textbox.add_text("GOOD ENDING")
 				miracle.ending = miracle.ending_score.good_ending
 				yield(textbox.label, "on_queue_end")
 				yield(get_tree().create_timer(5), "timeout")
@@ -341,7 +342,7 @@ func bernkastel_battle():
 				textbox.clear()
 				textbox.set_color(Color(1, 0, 0, 1))
 				$RedTruth.play()
-				textbox.add_to_queue("...GOOD ENDING?")
+				textbox.add_text("...GOOD ENDING?")
 				miracle.ending = miracle.ending_score.good_ending
 				yield(textbox.label, "on_queue_end")
 				yield(get_tree().create_timer(5), "timeout")
@@ -369,7 +370,7 @@ func bernkastel_battle():
 				textbox.clear()
 				textbox.set_color(Color(1, 0, 0, 1))
 				$RedTruth.play()
-				textbox.add_to_queue("NEUTRAL ENDING")
+				textbox.add_text("NEUTRAL ENDING")
 				miracle.ending = miracle.ending_score.neutral_ending
 				yield(textbox.label, "on_queue_end")
 				yield(get_tree().create_timer(5), "timeout")
@@ -397,7 +398,7 @@ func bernkastel_battle():
 				textbox.clear()
 				textbox.set_color(Color(1, 0, 0, 1))
 				$RedTruth.play()
-				textbox.add_to_queue("...BAD ENDING?")
+				textbox.add_text("...BAD ENDING?")
 				miracle.ending = miracle.ending_score.bad_ending
 				yield(textbox.label, "on_queue_end")
 				yield(get_tree().create_timer(5), "timeout")
@@ -425,7 +426,7 @@ func bernkastel_battle():
 				textbox.clear()
 				textbox.set_color(Color(1, 0, 0, 1))
 				$RedTruth.play()
-				textbox.add_to_queue("BAD ENDING!")
+				textbox.add_text("BAD ENDING!")
 				miracle.ending = miracle.ending_score.worst_ending
 				yield(textbox.label, "on_queue_end")
 				yield(get_tree().create_timer(5), "timeout")
@@ -467,7 +468,7 @@ func hide_circles(play_anim=false):
 	$RedCircle.hide(play_anim)
 	$BlueCircle.hide(play_anim)
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	if miracle.game_root:
 		if miracle.game_root.bern_boss_started:
 			if health <= 0 and not is_dead:
