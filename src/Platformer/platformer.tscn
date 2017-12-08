@@ -188,7 +188,7 @@ save_dialog = NodePath("../../CanvasLayer3/SaveDialog")
 
 [node name="Player" parent="TileMap" instance=ExtResource( 7 )]
 
-position = Vector2( 1536, 704 )
+position = Vector2( 146.526, 212.033 )
 _sections_unfolded = [ "Angular", "Collision", "Linear", "Transform", "Z", "collision" ]
 gameover = NodePath("../../CanvasLayer/Sprite")
 bgm = NodePath("../../BGM")
@@ -567,8 +567,8 @@ bulletmanager = NodePath("../BulletManager")
 player = NodePath("../Player")
 
 [node name="Portal" parent="TileMap" groups=[
-"cat_defeat",
 "portal_trigger",
+"cat_defeat",
 ] instance=ExtResource( 17 )]
 
 position = Vector2( 256, 2112 )
