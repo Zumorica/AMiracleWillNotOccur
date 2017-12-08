@@ -20,7 +20,7 @@ func move(point):
 	end_vector = point
 
 func _physics_process(delta):
-	rotation_deg += velocity.length() * 2 * delta
+	rotation_degrees += velocity.length() * 2 * delta
 	if mas_enabled:
 		var initial_rotation = current_rotation
 		current_rotation += (angular_frequency * delta)

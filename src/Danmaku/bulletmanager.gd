@@ -37,7 +37,7 @@ func create_beam(arg1={"position" : Vector2(0,0), "direction" : 0,
 		new_beam.set(argument, arg1[argument])
 	return new_beam
 
-func create_spike(arg1={"position" : Vector2(0, 0), "rotation_deg" : 0,
+func create_spike(arg1={"position" : Vector2(0, 0), "rotation_degrees" : 0,
 						"velocity" : -750, "lifetime_after_trigger" : 15}, \
 				  packed_scene=spike):
 	var new_spike = packed_scene.instance()
@@ -75,7 +75,7 @@ func spinning(arg1={"position" : Vector2(0, 0), "velocity" : Vector2(0, -100), "
 			spinner.add_to_group(arg2.group)
 	add_child(spinner)
 	
-func spike(arg1={"position" : Vector2(0, 0), "rotation_deg" : 0,
+func spike(arg1={"position" : Vector2(0, 0), "rotation_degrees" : 0,
 						"velocity" : -750, "lifetime_after_trigger" : 15}, \
 		   arg2={"time_before_trigger" : 5, "group" : null}, packed_scene=spike):
 	var new_spike = create_spike(arg1, packed_scene)

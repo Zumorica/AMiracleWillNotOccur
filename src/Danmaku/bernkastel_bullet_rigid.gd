@@ -14,7 +14,7 @@ func _ready():
 func _integrate_forces(state):
 	var delta = 1
 	if rotate_sprite_according_to_direction:
-		rotation_deg = direction
+		rotation_degrees = direction
 	#linear_velocity = Vector2((linear_velocity.x + (acceleration.x * delta)), (linear_velocity.y + (acceleration.y * delta)))
 	#move_and_collide(Vector2(miracle.costable[int(round(direction)) % 360], miracle.sintable[int(round(direction)) % 360]) * linear_velocity * delta)
 	if not get_viewport_rect().has_point(position):

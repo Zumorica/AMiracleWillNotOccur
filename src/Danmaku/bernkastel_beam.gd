@@ -68,7 +68,7 @@ func create_new_ray():
 	if rays_created < max_rays_created:
 		var new_ray = ray.instance()
 		new_ray.position = Vector2(48, -24) * Vector2(rays_created, 1)
-		#new_ray.rotation_deg = direction# buggy reee
+		#new_ray.rotation_degrees = direction# buggy reee
 		new_ray.z = -1
 		add_child(new_ray)
 		rays_created += 1
@@ -76,7 +76,7 @@ func create_new_ray():
 func _physics_process(delta):
 	direction += angular_velocity
 	if rotate_sprite_according_to_direction:
-		rotation_deg = direction
+		rotation_degrees = direction
 	velocity = Vector2((velocity.x + (acceleration.x * delta)), (velocity.y + (acceleration.y * delta)))
 	if direction_affects_velocity:
 		move_and_collide(Vector2(miracle.costable[int(round(direction)) % 360], miracle.sintable[int(round(direction)) % 360]) * velocity * delta)

@@ -48,7 +48,7 @@ func _physics_process(delta):
 	if angular_velocity:
 		direction += angular_velocity
 	if rotate_sprite_according_to_direction:
-		rotation_deg = direction
+		rotation_degrees = direction
 	velocity = Vector2((velocity.x + (acceleration.x * delta)), (velocity.y + (acceleration.y * delta)))
 	if direction_affects_velocity:
 		move_and_collide(Vector2(miracle.costable[int(round(direction)) % 360], miracle.sintable[int(round(direction)) % 360]) * velocity * delta)

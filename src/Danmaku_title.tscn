@@ -112,6 +112,7 @@ void fragment(){
 
 [sub_resource type="ShaderMaterial" id=3]
 
+render_priority = 0
 shader = SubResource( 2 )
 shader_param/enable_scanline = true
 shader_param/transparency_to_black = false
@@ -170,6 +171,7 @@ void fragment(){
 
 [sub_resource type="ShaderMaterial" id=5]
 
+render_priority = 0
 shader = SubResource( 4 )
 shader_param/enable_scanline = true
 shader_param/transparency_to_black = false
@@ -192,6 +194,7 @@ animations = [ {
 
 [sub_resource type="ParticlesMaterial" id=7]
 
+render_priority = 0
 trail_divisor = 1
 emission_shape = 1
 emission_sphere_radius = 128.0
@@ -233,8 +236,10 @@ _sections_unfolded = [ "Angular Velocity", "Animation", "Color", "Emission Shape
 
 modulate = Color( 0, 0, 0, 1 )
 material = ExtResource( 1 )
-anchor_right = 1
-anchor_bottom = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -261,8 +266,10 @@ autoplay = ""
 
 show_behind_parent = true
 material = SubResource( 3 )
-anchor_right = 1
-anchor_bottom = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -275,6 +282,10 @@ _sections_unfolded = [ "Material", "Rect", "Visibility" ]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 253.0
 margin_bottom = 801.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -286,6 +297,10 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 770.0
 margin_top = 1.0
 margin_right = 1023.0
@@ -304,6 +319,7 @@ show_behind_parent = true
 material = SubResource( 5 )
 frames = SubResource( 6 )
 animation = "default"
+frame = 7
 playing = true
 centered = false
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z" ]
@@ -335,6 +351,10 @@ _sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "T
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 40.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -346,6 +366,10 @@ alignment = 0
 
 [node name="Spacer" type="Control" parent="VBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 1024.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
@@ -357,6 +381,10 @@ size_flags_vertical = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 44.0
 margin_right = 1024.0
 margin_bottom = 121.0
@@ -382,6 +410,10 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_font
 
 [node name="Label2" type="Label" parent="VBoxContainer/Label"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 81.0
 margin_right = 1024.0
 margin_bottom = 108.0
@@ -407,6 +439,10 @@ _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
 [node name="Control2" type="Control" parent="VBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 125.0
 margin_right = 1024.0
 margin_bottom = 525.0
@@ -420,6 +456,10 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 529.0
 margin_right = 1024.0
 margin_bottom = 761.0
@@ -432,6 +472,10 @@ alignment = 0
 
 [node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 75.0
 margin_bottom = 232.0
 rect_min_size = Vector2( 75, 0 )
@@ -444,6 +488,10 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 79.0
 margin_right = 219.0
 margin_bottom = 232.0
@@ -457,6 +505,10 @@ alignment = 0
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 140.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 140, 40 )
@@ -475,6 +527,10 @@ flat = false
 
 [node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 64.0
 margin_right = 140.0
 margin_bottom = 104.0
@@ -494,6 +550,10 @@ flat = false
 
 [node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 128.0
 margin_right = 140.0
 margin_bottom = 168.0
@@ -513,6 +573,10 @@ flat = false
 
 [node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 192.0
 margin_right = 140.0
 margin_bottom = 232.0
@@ -533,6 +597,10 @@ flat = false
 [node name="LoadDialog" parent="." instance=ExtResource( 17 )]
 
 visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 316.0
 margin_top = 305.0
 margin_right = 716.0
@@ -541,6 +609,10 @@ margin_bottom = 505.0
 [node name="SaveDialog" parent="." instance=ExtResource( 18 )]
 
 visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 318.0
 margin_top = 307.0
 margin_right = 718.0
@@ -565,6 +637,10 @@ bus = "Master"
 [node name="WindowDialog" type="WindowDialog" parent="."]
 
 visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 314.0
 margin_top = 231.0
 margin_right = 714.0
@@ -582,8 +658,10 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="WindowDialog"]
 
-anchor_right = 1
-anchor_bottom = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 size_flags_horizontal = 1
@@ -601,6 +679,7 @@ control a small sphere made out of your soul's energy.
 Evade one of her spellcards (attacks) perfectly and there's a chance you'll be granted a small miracle."
 visible_characters = -1
 percent_visible = 1.0
+override_selected_font_color = false
 _sections_unfolded = [ "BBCode" ]
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button" to="." method="start"]

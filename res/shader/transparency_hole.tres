@@ -17,6 +17,7 @@ void fragment() {
 
 [resource]
 
+render_priority = 0
 shader = SubResource( 1 )
 shader_param/color = Plane( 0, 0, 0, 1 )
 _sections_unfolded = [ "shader_param" ]
