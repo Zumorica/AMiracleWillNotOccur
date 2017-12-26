@@ -55,7 +55,7 @@ func _ready():
 	set_process(true)
 
 func gameover():
-	get_tree().quit()
+	miracle.load_scene("res://src/gameover.tscn")
 
 func _process(delta):
 	if spawn_collectibles:
@@ -99,6 +99,7 @@ func _process(delta):
 	power_progressbar.value = power
 	bernkastel_hp_progressbar.value = bernkastel.health
 	bernkastel_hp_progressbar.max_value = bernkastel.maxhealth
+	miracle.danmaku_score = score
 	for i in range(lives):
 		if i >= 0:
 			lives_label.add_image(live_texture)

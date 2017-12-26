@@ -26,12 +26,14 @@
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 508, 546 )
 margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
 
 [sub_resource type="AtlasTexture" id=2]
 
 atlas = ExtResource( 19 )
 region = Rect2( 0, 508, 770, 445 )
 margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
 
 [sub_resource type="Animation" id=3]
 

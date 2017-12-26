@@ -16,3 +16,11 @@ func get_speed():
 func set_speed(num):
 	assert typeof(num) == TYPE_INT
 	speed = num
+
+func set_shader_enabled(enabled=true):
+	$ParallaxBackground/ParallaxLayer/Sprite.material.set_shader_param("enable_glitch", enabled)
+
+func set_shader_params(block_thresh=0.2, block_dist=0.35,  line_thresh=0.25):
+	$ParallaxBackground/ParallaxLayer/Sprite.material.set_shader_param("block_thresh_modifier", block_thresh)
+	$ParallaxBackground/ParallaxLayer/Sprite.material.set_shader_param("block_dist_modifier", block_dist)
+	$ParallaxBackground/ParallaxLayer/Sprite.material.set_shader_param("line_thresh_modifier", line_thresh)

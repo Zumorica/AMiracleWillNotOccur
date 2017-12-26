@@ -69,6 +69,7 @@ void fragment(){
 
 [resource]
 
+render_priority = 0
 shader = SubResource( 1 )
 shader_param/enable_glitch = true
 shader_param/transparency_to_black = false

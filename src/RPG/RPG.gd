@@ -39,6 +39,7 @@ var bmult
 
 func _ready():
 	miracle.game_root = self
+	miracle.current_game = miracle.game.RPG
 	randomize()
 	mult = rand_range(0.0, 2.0)
 	bmult = rand_range(0.0, 2.0)
@@ -76,19 +77,25 @@ func _ready():
 	textbox.show()
 	bernkastel_texture.FullBody.texture = load("res://res/spr/VN/Ep5_1_ber_EP5_1_ber.png")
 	textbox.set_name("Bernkastel")
-	textbox.set_color(Color(1, 0, 0, 1))
-	textbox.set_shake(Vector2(1, 1))
-	$Redtruth.play()
-	textbox.add_text("\"As the witch of miracles, I hereby declare that a miracle will not occur.\"")
-	yield(get_tree().create_timer(3), "timeout")
-	bernkastel_texture.FullBody.texture = load("res://res/spr/VN/Ep5_1_ber_d_EP5_1_ber_d.png")
-	textbox.clear()
-	textbox.set_blip(textbox.blips.blip70)
-	textbox.set_color(Color(1, 1, 1, 1))
-	textbox.set_shake(Vector2(0, 0))
-	textbox.add_to_queue("\"...And now there's no way for you to avoid your death.\"")
-	yield(textbox.label, "on_queue_end")
-	yield(get_tree().create_timer(3), "timeout")
+	if not miracle.rpg_dialogue_read:
+		textbox.set_color(Color(1, 0, 0, 1))
+		textbox.set_shake(Vector2(1, 1))
+		$Redtruth.play()
+		textbox.add_text("\"As the witch of miracles, I hereby declare that a miracle will not occur.\"")
+		yield(get_tree().create_timer(3), "timeout")
+		bernkastel_texture.FullBody.texture = load("res://res/spr/VN/Ep5_1_ber_d_EP5_1_ber_d.png")
+		textbox.clear()
+		textbox.set_blip(textbox.blips.blip70)
+		textbox.set_color(Color(1, 1, 1, 1))
+		textbox.set_shake(Vector2(0, 0))
+		textbox.add_to_queue("\"...And now there's no way for you to avoid your death.\"")
+		miracle.rpg_dialogue_read = true
+		yield(textbox.label, "on_queue_end")
+		yield(get_tree().create_timer(3), "timeout")
+	else:
+		textbox.add_to_queue("\"You again? Fine, let's just get this over with.\"")
+		yield(textbox.label, "on_queue_end")
+		yield(get_tree().create_timer(1.5), "timeout")
 	textbox.hide()
 	textbox.clear()
 	new_turn()
@@ -459,7 +466,7 @@ func new_turn():
 					yield(get_tree().create_timer(2), "timeout")
 					$Ahaha.play()
 					yield(get_tree().create_timer(6), "timeout")
-					get_tree().quit()
+					miracle.load_scene("res://src/gameover.tscn")
 		else:
 			bfinal_preparing -= 1
 			if bfinal_preparing <= 0:
@@ -495,7 +502,7 @@ func new_turn():
 				$AnimationPlayer.play("CatDeath")
 				yield($AnimationPlayer, "animation_finished")
 				yield(get_tree().create_timer(2), "timeout")
-				get_tree().quit()
+				miracle.load_scene("res://src/gameover.tscn")
 
 			else:
 				textbox.clear()
@@ -639,7 +646,7 @@ func _on_Mercy_pressed():
 					$ColorRect.set_frame_color(Color8(0, 0, 0, (255/i)))
 				$ColorRect.set_frame_color(Color(0, 0, 0, 1))
 				yield(get_tree().create_timer(2), "timeout")
-				get_tree().quit()
+				miracle.load_scene("res://src/gameover.tscn")
 			yield(get_tree().create_timer(4), "timeout")
 			textbox.hide()
 			textbox.clear()

@@ -151,7 +151,7 @@ length = 1.0
 loop = true
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite2:rotation_deg")
+tracks/0/path = NodePath("Sprite2:rotation_degrees")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -162,7 +162,7 @@ tracks/0/keys = {
 "values": [ 0.0, 359.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:rotation_deg")
+tracks/1/path = NodePath("Sprite:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false

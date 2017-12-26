@@ -14,6 +14,7 @@ config/name="A Miracle Will Not Occur"
 run/main_scene="res://src/intro.tscn"
 run/disable_stdout=true
 run/disable_stderr=true
+boot_splash/image="res://bootsplash.png"
 config/icon="res://bernicon.png"
 name="A Miracle Will Not Occur"
 icon="res://bernicon.png"
@@ -40,6 +41,10 @@ enabled=PoolStringArray( "atlas_importer" )
 [gdnative]
 
 singletons=[  ]
+
+[gui]
+
+theme/custom_font="res://res/fnt/Sazanami22.tres"
 
 [input]
 

@@ -1,6 +1,7 @@
 extends AnimatedSprite
 
 export(NodePath) var bulletmanager
+export(NodePath) var background
 var end_vector = Vector2(0, 0)
 var is_moving = false
 var velocity = Vector2(160, 160)
@@ -20,21 +21,29 @@ signal stopped_moving()
 
 func _ready():
 	bulletmanager = get_node(bulletmanager)
+	background = get_node(background)
+	background.set_shader_enabled(false)
 	yield(spellcard_init(name, 1), "completed")
 	textbox = miracle.game_root.textbox
 	textbox.show()
 	textbox.set_name("Bernkastel")
-	textbox.add_to_queue("\"This is the Sea of Fragments...\"")
-	yield(textbox.label, "on_queue_end")
-	yield(get_tree().create_timer(3), "timeout")
-	textbox.clear()
-	textbox.add_to_queue("\"Pitiful creatures such as you are not\nsupposed to be here, but I'll make an\nexception this time.\"")
-	yield(textbox.label, "on_queue_end")
-	yield(get_tree().create_timer(3), "timeout")
-	textbox.clear()
-	textbox.add_to_queue("\"We will play by the rules a certain shrine \nmaiden once decided.\"")
-	yield(textbox.label, "on_queue_end")
-	yield(get_tree().create_timer(3), "timeout")
+	if not miracle.danmaku_dialogue_read:
+		textbox.add_to_queue("\"This is the Sea of Fragments...\"")
+		yield(textbox.label, "on_queue_end")
+		yield(get_tree().create_timer(3), "timeout")
+		textbox.clear()
+		textbox.add_to_queue("\"Pitiful creatures such as you are not\nsupposed to be here, but I'll make an\nexception this time.\"")
+		yield(textbox.label, "on_queue_end")
+		yield(get_tree().create_timer(3), "timeout")
+		textbox.clear()
+		textbox.add_to_queue("\"We will play by the rules a certain shrine \nmaiden once decided.\"")
+		yield(textbox.label, "on_queue_end")
+		yield(get_tree().create_timer(3), "timeout")
+		miracle.danmaku_dialogue_read = true
+	else:
+		textbox.add_to_queue("\"...Let's just do this already.\"")
+		yield(textbox.label, "on_queue_end")
+		yield(get_tree().create_timer(1), "timeout")
 	textbox.clear()
 	textbox.hide()
 	miracle.game_root.get_node("BGM").volume_db = 0
@@ -66,6 +75,8 @@ func bernkastel_battle():
 	attack_2()
 	yield(get_tree().create_timer(15), "timeout")
 	closed_room_spellcard()
+	background.set_shader_enabled(true)
+	background.set_shader_params(0.1, 0.35, 0.1)
 	yield(get_tree().create_timer(30), "timeout")
 	attack_1()
 	yield(get_tree().create_timer(15), "timeout")
@@ -76,19 +87,24 @@ func bernkastel_battle():
 	attack_2()
 	yield(get_tree().create_timer(15), "timeout")
 	flower_of_hell_spellcard()
+	background.set_shader_params(0.2, 0.35, 0.2)
 	yield(get_tree().create_timer(30), "timeout")
 	a_hundred_years_of_pain_spellcard()
+	background.set_shader_params(0.25, 0.35, 0.25)
 	yield(get_tree().create_timer(45), "timeout")
 	attack_1()
 	yield(get_tree().create_timer(15), "timeout")
 	attack_2()
 	yield(get_tree().create_timer(15), "timeout")
 	blender_spellcard()
+	background.set_shader_params(0.3, 0.35, 0.3)
 	yield(get_tree().create_timer(30), "timeout")
 	attack_3()
 	yield(get_tree().create_timer(8), "timeout")
+	background.set_shader_params(0.5, 1.0, 0.5)
 	a_thousand_years_of_pain_spellcard()
 	yield(get_tree().create_timer(45), "timeout")
+	background.set_shader_params(1.5, 0.0, 1.5)
 
 func stop():
 	is_active = false

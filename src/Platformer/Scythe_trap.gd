@@ -25,7 +25,7 @@ func trigger():
 
 func _physics_process(delta):
 	if is_triggered:
-		rotation_deg += velocity.length() * 2 * delta
+		rotation_degrees += velocity.length() * 2 * delta
 		if mas_enabled:
 			var initial_rotation = current_rotation
 			current_rotation += (angular_frequency * delta)

@@ -3,6 +3,9 @@ extends Node2D
 enum game {RPG, danmaku, platformer, completed, NoGame}
 var game_name = {game.RPG : "RPG", game.danmaku : "Danmaku", game.platformer : "Platformer", "Completed" : game.completed, game.NoGame : "No game"}
 
+var rpg_dialogue_read = false
+var danmaku_dialogue_read = false
+var platformer_dialogue_read = false
 var asked_for_mercy = false
 var asked_for_mercy_twice = false
 var tried_to_run_away = false
@@ -12,6 +15,7 @@ var platformer_deaths = 0
 var platformer_level = 0
 var platformer_respawn_coordinates = Vector2(128, 256)
 var ending = null
+var danmaku_score = 0
 enum ending_score {worst_ending, bad_ending, neutral_ending, good_ending, true_ending}
 
 var current_game = game.NoGame
@@ -85,7 +89,8 @@ func reset_values():
 
 
 func save_game(name):
-	var data = {"game" : current_game, "rpg_mercy" : asked_for_mercy, "rpg_mercy_twice" : asked_for_mercy_twice, "rpg_run_away" : tried_to_run_away,
+	var data = {"game" : current_game, "rpg_dialogue_read" : rpg_dialogue_read, "danmaku_dialogue_read" : danmaku_dialogue_read, "platformer_dialogue_read" : platformer_dialogue_read,
+				"rpg_mercy" : asked_for_mercy, "rpg_mercy_twice" : asked_for_mercy_twice, "rpg_run_away" : tried_to_run_away,
 				"rpg_defeated_bernkastel" : defeated_bernkastel_rpg, "danmaku_defeated_bernkastel" : defeated_bernkastel_danmaku,
 				"platformer_deaths" : platformer_deaths, "platformer_respawn_coordinates" : platformer_respawn_coordinates, "platformer_level" : platformer_level, "date" : OS.get_datetime()}
 	if name.ends_with(".sav"):
@@ -126,6 +131,12 @@ func load_values(data):
 			platformer_respawn_coordinates = data.platformer_respawn_coordinates
 		if data.has("platformer_level"):
 			platformer_level = data.platformer_level
+		if data.has("rpg_dialogue_read"):
+			rpg_dialogue_read = data.rpg_dialogue_read
+		if data.has("danmaku_dialogue_read"):
+			danmaku_dialogue_read = data.danmaku_dialogue_read
+		if data.has("platformer_dialogue_read"):
+			platformer_dialogue_read = data.platformer_dialogue_read
 
 func load_game(name):
 	var data = _load_game(name)

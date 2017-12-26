@@ -481,6 +481,7 @@ mouse_filter = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 stretch = false
+stretch_shrink = 1
 _sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
 __meta__ = {
 "_edit_lock_": true
@@ -560,7 +561,6 @@ _sections_unfolded = [ "Material", "Rect", "Visibility" ]
 
 [node name="GUILayer" type="CanvasLayer" parent="HBoxContainer/Game/ViewportContainer/Viewport"]
 
-editor/display_folded = true
 layer = 100
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -642,6 +642,7 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "custom_col
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -785,6 +786,7 @@ bbcode_enabled = true
 bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
+override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Grow Direction", "Margin", "Rect", "custom_fonts" ]
 
 [node name="Filler2" type="Control" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer"]
@@ -829,9 +831,9 @@ scale = Vector2( 1, 1 )
 
 position = Vector2( 300, 150 )
 z = 10
-frame = 5
 _sections_unfolded = [ "Animation", "Material", "Offset", "Transform", "Visibility", "Z" ]
 bulletmanager = NodePath("../BulletManager")
+background = NodePath("../../Background")
 
 [node name="Player" parent="HBoxContainer/Game/ViewportContainer/Viewport/SpriteLayer" instance=ExtResource( 17 )]
 
@@ -886,7 +888,6 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="UI" type="VBoxContainer" parent="HBoxContainer"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -956,6 +957,7 @@ bbcode_enabled = true
 bbcode_text = "Enemy"
 visible_characters = -1
 percent_visible = 1.0
+override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect", "custom_fonts" ]
 
 [node name="EnemyLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Enemy"]
@@ -977,6 +979,7 @@ bbcode_enabled = true
 bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
+override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Margin", "Rect", "custom_fonts" ]
 
 [node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/UI/VBoxContainer/Enemy/EnemyLabel"]
@@ -1053,6 +1056,7 @@ bbcode_enabled = true
 bbcode_text = "High Score"
 visible_characters = -1
 percent_visible = 1.0
+override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect", "custom_fonts" ]
 
 [node name="HighScoreLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/HighScore"]
@@ -1074,6 +1078,7 @@ bbcode_enabled = true
 bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
+override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Margin", "Rect" ]
 
 [node name="Score" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer"]
@@ -1111,6 +1116,7 @@ bbcode_enabled = true
 bbcode_text = "Score"
 visible_characters = -1
 percent_visible = 1.0
+override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Margin", "Rect", "custom_fonts" ]
 
 [node name="Control" type="Control" parent="HBoxContainer/UI/VBoxContainer/Score"]
@@ -1149,6 +1155,7 @@ bbcode_enabled = true
 bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
+override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Margin", "Rect", "custom_fonts" ]
 
 [node name="Filler" type="Control" parent="HBoxContainer/UI/VBoxContainer"]
@@ -1203,6 +1210,7 @@ bbcode_enabled = true
 bbcode_text = "Lives"
 visible_characters = -1
 percent_visible = 1.0
+override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect", "custom_fonts" ]
 
 [node name="LivesLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Lives"]
@@ -1224,6 +1232,7 @@ bbcode_enabled = true
 bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
+override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Rect", "custom_fonts" ]
 
 [node name="Bomb" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer"]
@@ -1261,6 +1270,7 @@ bbcode_enabled = true
 bbcode_text = "Bomb"
 visible_characters = -1
 percent_visible = 1.0
+override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect", "custom_fonts" ]
 
 [node name="BombLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Bomb"]
@@ -1281,6 +1291,7 @@ bbcode_enabled = true
 bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
+override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect" ]
 
 [node name="Filler2" type="Control" parent="HBoxContainer/UI/VBoxContainer"]
@@ -1335,6 +1346,7 @@ bbcode_enabled = true
 bbcode_text = "Power"
 visible_characters = -1
 percent_visible = 1.0
+override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect", "custom_fonts" ]
 
 [node name="PowerLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Power"]
@@ -1356,6 +1368,7 @@ bbcode_enabled = true
 bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
+override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Margin", "Rect", "custom_fonts" ]
 
 [node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/UI/VBoxContainer/Power/PowerLabel"]
