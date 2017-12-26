@@ -67,6 +67,7 @@ func _ready():
 	miracle.load_scene("res://src/Platformer_title.tscn")
 
 func bernkastel_battle():
+	miracle.game_root.spawn_collectibles = true
 	yield(get_tree().create_timer(3), "timeout")
 	attack_1()
 	yield(get_tree().create_timer(15), "timeout")
