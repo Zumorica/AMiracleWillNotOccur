@@ -20,6 +20,7 @@ func _ready():
 func die():
 	if not is_invincible:
 		miracle.game_root.lives -= 1
+		miracle.game_root.power = 0
 		miracle.game_root.died_during_spellcard = true # We don't really care if there's a spellcard going on or not since each spellcard sets this to false when it starts
 		is_invincible = true
 		miracle.game_root.get_node("Pichun").play()
