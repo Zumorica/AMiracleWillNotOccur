@@ -7,8 +7,8 @@ export(Vector2) var velocity = Vector2(8, 8)
 export(Vector2) var acceleration = Vector2(0, 0)
 export(float) var angular_velocity = 0
 export(bool) var rotate_sprite_according_to_direction = true
-export(Color) var foreground_color = Color8(163, 0, 255, 255) setget ,set_foreground_color
-export(Color) var background_color = Color8(255, 255, 255, 255) setget ,set_background_color
+export(Color) var foreground_color = Color8(163, 0, 255, 255) setget set_foreground_color
+export(Color) var background_color = Color8(255, 255, 255, 255) setget set_background_color
 export(bool) var is_player_bullet = false
 export(float) var direction_affects_velocity = true
 export(bool) var destroy_if_offscreen = true
@@ -43,7 +43,7 @@ func get_angle_to_player(from=null):
 		return rad2deg(miracle.game_root.player.get_position().angle_to_point(from))
 	else:
 		return rad2deg(miracle.game_root.player.get_position().angle_to_point(get_position()))
-		
+
 func _physics_process(delta):
 	if angular_velocity:
 		direction += angular_velocity

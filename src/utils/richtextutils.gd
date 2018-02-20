@@ -6,7 +6,7 @@ signal on_queue_next
 var queue = []
 var delay = 0.025
 var speed = 8
-var shake = Vector2(0, 0) setget ,set_shake
+var shake = Vector2(0, 0) setget set_shake
 onready var origpos = rect_position
 var timer = 0
 var rainbow_color = false
@@ -16,14 +16,14 @@ var blip = load("res://res/snd/blip60.wav")
 func _ready():
 	connect("on_queue_next", self, "_on_queue_next")
 	connect("on_queue_end", self, "_on_queue_end")
-	
+
 	var player = AudioStreamPlayer.new()
 	player.set_volume_db(-15)
 	if typeof(blip) == TYPE_OBJECT:
 		if blip is AudioStream:
 			player.set_stream(blip)
 	add_child(player, true)
-	
+
 	push_color(color)
 
 func _on_queue_next():
@@ -41,7 +41,7 @@ func _on_queue_next():
 	push_color(color)
 	if blip != null:
 		get_node("AudioStreamPlayer").play()
-	
+
 func _on_queue_end():
 	pass
 
@@ -84,4 +84,3 @@ func _process(delta):
 			num.y = -1
 		var deltashake = Vector2(mult * shake.x * num.x, mult * shake.y * num.y)
 		rect_position = ((origpos + deltashake))
-		

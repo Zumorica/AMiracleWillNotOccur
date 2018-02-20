@@ -1,6 +1,6 @@
 extends Node2D
 
-var speed = 5 setget get_speed,set_speed
+var speed = 5 setget set_speed,get_speed
 export(NodePath) var camera
 
 func _ready():

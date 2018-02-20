@@ -11,8 +11,8 @@ export(float) var time_between_rays = 0.25
 export(float) var time_before_deleting = 30.0
 export(bool) var rotate_sprite_according_to_direction = true
 export(int) var max_rays_created = 30
-export(Color) var foreground_color = Color8(163, 0, 255, 255) setget ,set_foreground_color
-export(Color) var background_color = Color8(255, 255, 255, 255) setget ,set_background_color
+export(Color) var foreground_color = Color8(163, 0, 255, 255) setget set_foreground_color
+export(Color) var background_color = Color8(255, 255, 255, 255) setget set_background_color
 export(float) var direction_affects_velocity = true
 export(bool) var destroy_if_offscreen = true
 
