@@ -578,7 +578,7 @@ func _on_Acknowledge_pressed():
 		textbox.set_name("")
 		textbox.set_blip(null)
 		textbox.show()
-		var rmp = round(((randi()%5) + 1) * mult)
+		var rmp = round(((randi()%7) + 3) * mult)
 		textbox.add_to_queue("You acknowledge the existence of magic and recover %s MP." % rmp)
 		mp += rmp
 		yield(textbox.label, "on_queue_end")
@@ -684,7 +684,7 @@ func _on_MinorHeal_pressed():
 		mp -= 2
 		$"GamePanel/HBoxContainer/Panel".set_current_tab(0)
 		gamepanel.hide()
-		var hl = (randi()%9) + 1
+		var hl = (randi()%10) + 3
 		hp += hl
 		textbox.hide()
 		textbox.clear()
@@ -753,19 +753,20 @@ func _on_MagicPunch_pressed():
 		randomize()
 		var dmg = round(((randi()%30) + 1) * mult)
 		var shock = (randi()%5) + 1
-		match shock:
-			4:
-				bstatus.append("Shocked....")
-			3:
-				bstatus.append("Shocked...")
-			2:
-				bstatus.append("Shocked..")
-			1:
-				bstatus.append("Shocked.")
-			_:
-				assert typeof(shock) == TYPE_INT
-				assert shock <= 4
-				assert shock > 0
+		if not (bstatus.has("Shocked....") or bstatus.has("Shocked...") or bstatus.has("Shocked..") or bstatus.has("Shocked.") or bstatus.has("Shocked")):
+			match shock:
+				4:
+					bstatus.append("Shocked....")
+				3:
+					bstatus.append("Shocked...")
+				2:
+					bstatus.append("Shocked..")
+				1:
+					bstatus.append("Shocked.")
+				_:
+					assert typeof(shock) == TYPE_INT
+					assert shock <= 4
+					assert shock > 0
 		textbox.add_to_queue("You concentrate all your energy in your fist...")
 		yield(textbox.label, "on_queue_end")
 		yield(get_tree().create_timer(3), "timeout")
