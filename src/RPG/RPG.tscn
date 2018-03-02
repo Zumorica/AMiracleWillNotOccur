@@ -22,12 +22,61 @@
 [sub_resource type="Shader" id=1]
 
 code = "shader_type canvas_item;
+
+uniform bool enable_scanline = true;
+uniform bool transparency_to_black = true;
+uniform float blur_modifier_one = 0.5;
+uniform float blur_modifier_two = 0.5;
+uniform float blur_modifier_three = 3.0;
+uniform float blur_modifier_four = 0.05;
+uniform float scanline_modifier = 0.04;
+uniform float color_modifier = 0.5;
+
+void fragment(){
+	if(enable_scanline){
+		float a = COLOR.a;
+		float d = length(UV - vec2(0.5,0.5));
+		float blur = 0.0;
+		blur = (1.0 + sin(TIME*6.0)) * blur_modifier_one;
+		blur *= 1.0 + sin(TIME*16.0) * blur_modifier_two;
+		blur = pow(blur, blur_modifier_three);
+		blur *= blur_modifier_four;
+	
+		blur *= d;
+		
+	    vec3 col;
+	    col.r = texture( TEXTURE, vec2(UV.x+blur,UV.y) ).r;
+	    col.g = texture( TEXTURE, UV ).g;
+	    col.b = texture( TEXTURE, vec2(UV.x-blur,UV.y) ).b;
+		
+		float scanline = sin(UV.y*800.0)*scanline_modifier;
+		col -= scanline;
+		
+		col *= 1.0 - d * color_modifier;
+		
+		if(transparency_to_black)
+	    	COLOR = vec4(col,a);
+		else
+			COLOR = vec4(col,texture( TEXTURE, UV ).a);
+	} else {
+		COLOR = texture(TEXTURE, UV);
+	}
+}
 "
 
 [sub_resource type="ShaderMaterial" id=2]
 
 render_priority = 0
 shader = SubResource( 1 )
+shader_param/enable_scanline = true
+shader_param/transparency_to_black = false
+shader_param/blur_modifier_one = 0.35
+shader_param/blur_modifier_two = 1.0
+shader_param/blur_modifier_three = 1.0
+shader_param/blur_modifier_four = 0.015
+shader_param/scanline_modifier = 0.004
+shader_param/color_modifier = 1.5
+_sections_unfolded = [ "shader_param" ]
 
 [sub_resource type="AtlasTexture" id=3]
 
@@ -287,34 +336,8 @@ _sections_unfolded = [ "Margin" ]
 
 [node name="Bernkastel" parent="." index="1" instance=ExtResource( 4 )]
 
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-
-[node name="FullBody" parent="Bernkastel" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-
-[node name="HalfBody" parent="Bernkastel" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+use_parent_material = true
+_sections_unfolded = [ "Anchor", "Margin", "Material", "Rect", "Visibility" ]
 
 [node name="GamePanel" type="Panel" parent="." index="2"]
 
