@@ -47,7 +47,7 @@ script/source = "extends Particles2D
 func _ready():
 	emitting = true"
 
-[node name="Blood" type="Particles2D" index="0"]
+[node name="Blood" type="Particles2D"]
 
 emitting = false
 amount = 50000
