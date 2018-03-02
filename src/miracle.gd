@@ -3,6 +3,8 @@ extends Node2D
 enum game {RPG, danmaku, platformer, completed, NoGame}
 var game_name = {game.RPG : "RPG", game.danmaku : "Danmaku", game.platformer : "Platformer", "Completed" : game.completed, game.NoGame : "No game"}
 
+var direct = true
+
 var rpg_dialogue_read = false
 var danmaku_dialogue_read = false
 var platformer_dialogue_read = false
@@ -33,19 +35,22 @@ func _ready():
 	set_process(false)
 
 func load_scene(path):
-	wait_frames = 1
-	var current_scene = weakref(get_tree().get_current_scene())
-	loading_screen.get_node("AnimationPlayer").play("reset")
-	yield(get_tree().create_timer(0.1), "timeout")
-	loading_screen.get_node("Control").show()
-	loader = ResourceLoader.load_interactive(path)
-	if loader == null:
-		raise()
-	set_process(true)
-	if current_scene.get_ref():
-		if not current_scene.get_ref().is_queued_for_deletion():
-			current_scene.get_ref().queue_free()
-	loading_screen.get_node("AnimationPlayer").play("anim")
+	if not direct:
+		wait_frames = 1
+		var current_scene = weakref(get_tree().get_current_scene())
+		loading_screen.get_node("AnimationPlayer").play("reset")
+		yield(get_tree().create_timer(0.1), "timeout")
+		loading_screen.get_node("Control").show()
+		loader = ResourceLoader.load_interactive(path)
+		if loader == null:
+			raise()
+		set_process(true)
+		if current_scene.get_ref():
+			if not current_scene.get_ref().is_queued_for_deletion():
+				current_scene.get_ref().queue_free()
+		loading_screen.get_node("AnimationPlayer").play("anim")
+	else:
+		get_tree().change_scene(path)
 
 func _process(delta):
 	if loader == null:
