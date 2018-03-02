@@ -213,7 +213,7 @@ animations = [ {
 "speed": 60.0
 } ]
 
-[node name="Title" type="TextureRect" index="0"]
+[node name="Title" type="TextureRect"]
 
 material = SubResource( 2 )
 use_parent_material = true
@@ -253,13 +253,14 @@ self_modulate = Color( 1, 1, 1, 0.3 )
 material = SubResource( 5 )
 frames = SubResource( 6 )
 animation = "default"
-frame = 6
+frame = 2
 playing = true
 centered = false
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -491,7 +492,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Exit game"
+text = "Settings"
 flat = false
 align = 1
 _sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
@@ -550,6 +551,345 @@ margin_top = 289.0
 margin_right = 705.0
 margin_bottom = 489.0
 
+[node name="Settings" type="WindowDialog" parent="." index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 330.0
+margin_bottom = 340.0
+rect_min_size = Vector2( 350, 350 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+window_title = "Settings"
+resizable = false
+_sections_unfolded = [ "Rect" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Spacer3" type="Control" parent="Settings/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 350.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 0, 27 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 31.0
+margin_right = 350.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 0, 27 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Master volume"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 62.0
+margin_right = 350.0
+margin_bottom = 78.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+
+[node name="Master" type="HSlider" parent="Settings/VBoxContainer/HBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 50.0
+margin_right = 300.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 250, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = -50.0
+max_value = 0.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = true
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+_sections_unfolded = [ "Rect" ]
+
+[node name="Spacer" type="Control" parent="Settings/VBoxContainer" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 82.0
+margin_right = 350.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 0, 27 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label2" type="Label" parent="Settings/VBoxContainer" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 113.0
+margin_right = 350.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 0, 27 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Music volume"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Settings/VBoxContainer" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 144.0
+margin_right = 350.0
+margin_bottom = 160.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+
+[node name="Music" type="HSlider" parent="Settings/VBoxContainer/HBoxContainer2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 50.0
+margin_right = 300.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 250, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = -25.0
+max_value = 0.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = true
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+_sections_unfolded = [ "Rect" ]
+
+[node name="Spacer2" type="Control" parent="Settings/VBoxContainer" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 164.0
+margin_right = 350.0
+margin_bottom = 191.0
+rect_min_size = Vector2( 0, 27 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label3" type="Label" parent="Settings/VBoxContainer" index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 195.0
+margin_right = 350.0
+margin_bottom = 222.0
+rect_min_size = Vector2( 0, 27 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "SFX volume"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Settings/VBoxContainer" index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 226.0
+margin_right = 350.0
+margin_bottom = 242.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+
+[node name="SFX" type="HSlider" parent="Settings/VBoxContainer/HBoxContainer3" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 50.0
+margin_right = 300.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 250, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = -25.0
+max_value = 0.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = true
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+_sections_unfolded = [ "Rect" ]
+
+[node name="Spacer4" type="Control" parent="Settings/VBoxContainer" index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 246.0
+margin_right = 350.0
+margin_bottom = 273.0
+rect_min_size = Vector2( 0, 27 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="CheckButton" type="CheckButton" parent="Settings/VBoxContainer" index="10"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 277.0
+margin_right = 350.0
+margin_bottom = 317.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Alternate scene load"
+flat = false
+align = 0
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button" to="." method="new_game"]
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button2" to="LoadDialog" method="popup"]
@@ -557,5 +897,13 @@ margin_bottom = 489.0
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button4" to="." method="website"]
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button3" to="." method="_on_Button3_pressed"]
+
+[connection signal="value_changed" from="Settings/VBoxContainer/HBoxContainer/Master" to="." method="_on_Master_value_changed"]
+
+[connection signal="value_changed" from="Settings/VBoxContainer/HBoxContainer2/Music" to="." method="_on_Music_value_changed"]
+
+[connection signal="value_changed" from="Settings/VBoxContainer/HBoxContainer3/SFX" to="." method="_on_SFX_value_changed"]
+
+[connection signal="toggled" from="Settings/VBoxContainer/CheckButton" to="." method="_on_CheckButton_toggled"]
 
 

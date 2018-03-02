@@ -23,8 +23,21 @@ func new_game():
 	miracle.load_scene("res://src/RPG_title.tscn")
 
 func _on_Button3_pressed():
-	get_tree().quit()
+	$"Settings".popup_centered()
 
 
 func website():
 	OS.shell_open("https://zumo.itch.io/amwno")
+
+
+func _on_Master_value_changed(value):
+	AudioServer.set_bus_volume_db(0, value)
+
+func _on_SFX_value_changed(value):
+	AudioServer.set_bus_volume_db(1, value)
+
+func _on_Music_value_changed(value):
+	AudioServer.set_bus_volume_db(2, value)
+
+func _on_CheckButton_toggled(button_pressed):
+	miracle.direct = not button_pressed
