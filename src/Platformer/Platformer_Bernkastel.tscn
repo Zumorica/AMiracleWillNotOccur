@@ -36,139 +36,141 @@ extents = Vector2( 32, 32 )
 custom_solver_bias = 0.0
 extents = Vector2( 512, 128 )
 
-[node name="Platformer_Bernkastel" type="Node2D"]
+[node name="Platformer_Bernkastel" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 level = 1
 
-[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+[node name="CanvasLayer3" type="CanvasLayer" parent="." index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Textbox" parent="CanvasLayer3" instance=ExtResource( 2 )]
+[node name="Textbox" parent="CanvasLayer3" index="0" instance=ExtResource( 2 )]
 
 visible = false
 margin_left = 24.0
 margin_top = 562.0
 margin_right = 998.0
 margin_bottom = 787.0
+mouse_default_cursor_shape = 0
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." index="1"]
 
 layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="SaveDialog" parent="CanvasLayer2" instance=ExtResource( 3 )]
+[node name="SaveDialog" parent="CanvasLayer2" index="0" instance=ExtResource( 3 )]
 
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 288.0
 margin_top = 288.0
 margin_right = 688.0
 margin_bottom = 488.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
 
 layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+[node name="Sprite" type="Sprite" parent="CanvasLayer" index="0"]
 
 visible = false
 position = Vector2( 512, 400 )
 scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 4 )
 
-[node name="TileMap" parent="." instance=ExtResource( 5 )]
+[node name="TileMap" parent="." index="3" instance=ExtResource( 5 )]
 
 cell_clip_uv = false
 collision_layer = 1024
 collision_mask = 1048575
 format = 1
 tile_data = PoolIntArray( -65521, 1073741861, -784858736, -65520, 1073741861, -784858736, -65519, 1073741861, -784858736, -65518, 1073741861, -784858736, -65517, 1073741861, -784858736, -65516, 1073741861, -784858736, -65515, 1073741861, -784858736, -65514, 1073741861, -784858736, -65513, 1073741861, -784858736, -65512, 1073741861, -784858736, -65511, 1073741861, -784858736, -65510, 1073741861, -784858736, -65509, 1073741861, -784858736, -65508, 1073741861, -784858736, -65507, 1073741861, -784858736, -65506, 1073741861, -784858736, -65505, 1073741861, -784858736, -65504, 10, -784858736, 0, 536870919, -784858736, 1, 2, -784858736, 2, 2, -784858736, 3, 2, -784858736, 4, 2, -784858736, 5, 2, -784858736, 6, 2, -784858736, 7, 2, -784858736, 8, 2, -784858736, 9, 2, -784858736, 10, 2, -784858736, 11, 2, -784858736, 12, 2, -784858736, 13, 2, -784858736, 14, 2, -784858736, 15, 2, -784858736, 32, 10, -784858736, 65536, 10, -784858736, 65568, 10, -784858736, 131072, 10, -784858736, 131074, 46, -784858736, 131085, 536870956, -784858736, 131104, 10, -784858736, 196608, 10, -784858736, 196640, 10, -784858736, 262144, 10, -784858736, 262158, 536870946, -784858736, 262159, 9, -784858736, 262176, 10, -784858736, 327680, 10, -784858736, 327695, 10, -784858736, 327712, 10, -784858736, 393216, 10, -784858736, 393228, 536870946, -784858736, 393231, 536870922, -784858736, 393248, 10, -784858736, 458752, 10, -784858736, 458754, 1073741868, -784858736, 458765, 1610612780, -784858736, 458767, 536870922, -784858736, 458784, 10, -784858736, 524288, 10, -784858736, 524298, 536870946, -784858736, 524303, 536870922, -784858736, 524320, 10, -784858736, 589824, 10, -784858736, 589826, 536870924, -784858736, 589827, 13, -784858736, 589828, 13, -784858736, 589829, 13, -784858736, 589830, 13, -784858736, 589831, 13, -784858736, 589832, 13, -784858736, 589833, 13, -784858736, 589834, 13, -784858736, 589835, 13, -784858736, 589836, 13, -784858736, 589837, 13, -784858736, 589838, 13, -784858736, 589839, 536870922, -784858736, 589842, 36, -784858736, 589853, 36, -784858736, 589856, 10, -784858736, 655360, 10, -784858736, 655375, 536870922, -784858736, 655392, 10, -784858736, 720896, 10, -784858736, 720911, 536870922, -784858736, 720928, 10, -784858736, 786432, 536870919, -784858736, 786433, 0, -784858736, 786434, 0, -784858736, 786435, 0, -784858736, 786436, 0, -784858736, 786437, 0, -784858736, 786438, 0, -784858736, 786439, 0, -784858736, 786440, 0, -784858736, 786441, 0, -784858736, 786442, 0, -784858736, 786443, 0, -784858736, 786444, 3, -784858736, 786446, 37, -784858736, 786447, 10, -784858736, 786448, 39, -784858736, 786449, 30, -784858736, 786450, 30, -784858736, 786451, 30, -784858736, 786452, 30, -784858736, 786453, 30, -784858736, 786454, 30, -784858736, 786455, 30, -784858736, 786456, 30, -784858736, 786457, 30, -784858736, 786458, 30, -784858736, 786459, 30, -784858736, 786460, 30, -784858736, 786461, 30, -784858736, 786462, 30, -784858736, 786463, 30, -784858736, 786464, 10, -784858736, 851968, 536870919, -784858736, 851969, 2, -784858736, 851970, 2, -784858736, 851971, 2, -784858736, 851972, 2, -784858736, 851973, 2, -784858736, 851974, 2, -784858736, 851975, 2, -784858736, 851976, 2, -784858736, 851977, 2, -784858736, 851978, 2, -784858736, 851979, 2, -784858736, 851980, 5, -784858736, 851981, 1610612773, -784858736, 851983, 10, -784858736, 852000, 10, -784858736, 917504, 10, -784858736, 917519, 10, -784858736, 983040, 10, -784858736, 983042, 40, -784858736, 983046, 1073741858, -784858736, 983050, 48, -784858736, 983052, 536870936, -784858736, 983054, 1073741861, -784858736, 983055, 10, -784858736, 1048576, 10, -784858736, 1048580, 14, -784858736, 1048588, 536870938, -784858736, 1048591, 10, -784858736, 1114112, 10, -784858736, 1114114, 536870924, -784858736, 1114115, 536870925, -784858736, 1114116, 536870925, -784858736, 1114117, 536870925, -784858736, 1114118, 536870925, -784858736, 1114119, 536870925, -784858736, 1114120, 536870925, -784858736, 1114121, 536870925, -784858736, 1114122, 536870925, -784858736, 1114123, 536870925, -784858736, 1114124, 536870925, -784858736, 1114125, 536870925, -784858736, 1114126, 536870925, -784858736, 1114127, 7, -784858736, 1179648, 10, -784858736, 1179663, 10, -784858736, 1245184, 10, -784858736, 1245185, 13, -784858736, 1245186, 13, -784858736, 1245187, 13, -784858736, 1245188, 13, -784858736, 1245189, 13, -784858736, 1245190, 13, -784858736, 1245191, 13, -784858736, 1245192, 13, -784858736, 1245193, 13, -784858736, 1245194, 13, -784858736, 1245195, 13, -784858736, 1245196, 6, -784858736, 1245197, 31, -784858736, 1245199, 10, -784858736, 1310720, 10, -784858736, 1310732, 11, -784858736, 1310735, 10, -784858736, 1376256, 10, -784858736, 1376258, 49, -784858736, 1376263, 47, -784858736, 1376270, 536870943, -784858736, 1376271, 10, -784858736, 1441792, 10, -784858736, 1441805, 34, -784858736, 1441807, 10, -784858736, 1507328, 536870919, -784858736, 1507329, 0, -784858736, 1507330, 0, -784858736, 1507331, 0, -784858736, 1507332, 0, -784858736, 1507333, 0, -784858736, 1507334, 0, -784858736, 1507335, 0, -784858736, 1507336, 0, -784858736, 1507337, 0, -784858736, 1507338, 0, -784858736, 1507339, 0, -784858736, 1507340, 0, -784858736, 1507341, 0, -784858736, 1507342, 0, -784858736, 1507343, 7, -784858736, 1572864, 536870920, -784858736, 1572865, 2, -784858736, 1572866, 2, -784858736, 1572867, 2, -784858736, 1572868, 2, -784858736, 1572869, 2, -784858736, 1572870, 2, -784858736, 1572871, 2, -784858736, 1572872, 2, -784858736, 1572873, 2, -784858736, 1572874, 2, -784858736, 1572875, 2, -784858736, 1572876, 2, -784858736, 1572877, 2, -784858736, 1572878, 2, -784858736, 1572879, 8, -784858736 )
+_sections_unfolded = [ "Cell", "Collision", "Occluder", "Visibility", "Z Index" ]
 
-[node name="Sprite" type="Sprite" parent="TileMap"]
+[node name="Sprite" type="Sprite" parent="TileMap" index="0"]
 
 position = Vector2( 0, 800 )
 scale = Vector2( 0.533333, 0.625 )
-z = -10
+z_index = -100
 texture = ExtResource( 6 )
 centered = false
-_sections_unfolded = [ "Z" ]
+_sections_unfolded = [ "Z", "Z Index" ]
 
-[node name="Sprite2" type="Sprite" parent="TileMap"]
+[node name="Sprite2" type="Sprite" parent="TileMap" index="1"]
 
 scale = Vector2( 0.533333, 0.625 )
-z = -10
+z_index = -100
 texture = ExtResource( 6 )
 centered = false
-_sections_unfolded = [ "Z" ]
+_sections_unfolded = [ "Z", "Z Index" ]
 
-[node name="Background" parent="TileMap" instance=ExtResource( 7 )]
+[node name="Background" parent="TileMap" index="2" instance=ExtResource( 7 )]
 
+show_behind_parent = true
 position = Vector2( 896, 0 )
-z = -100
 z_as_relative = false
+_sections_unfolded = [ "Material", "Scroll", "Transform", "Visibility", "Z", "Z Index" ]
 
-[node name="Player" parent="TileMap" instance=ExtResource( 8 )]
+[node name="Player" parent="TileMap" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( 96, 1312 )
 bgm = NodePath("../../BGM")
 save_dialog = NodePath("../../CanvasLayer2/SaveDialog")
 
-[node name="Spike" parent="TileMap" groups=[
+[node name="Spike" parent="TileMap" index="4" groups=[
 "spike_1",
 ] instance=ExtResource( 9 )]
 
 position = Vector2( 192, 1408 )
 
-[node name="Spike2" parent="TileMap" groups=[
+[node name="Spike2" parent="TileMap" index="5" groups=[
 "spike_2",
 ] instance=ExtResource( 9 )]
 
 position = Vector2( 320, 1408 )
 
-[node name="Spike3" parent="TileMap" groups=[
+[node name="Spike3" parent="TileMap" index="6" groups=[
 "spike_3",
 ] instance=ExtResource( 9 )]
 
 position = Vector2( 384, 1408 )
 
-[node name="Spike10" parent="TileMap" instance=ExtResource( 9 )]
+[node name="Spike10" parent="TileMap" index="7" instance=ExtResource( 9 )]
 
 position = Vector2( 192, 1024 )
 
-[node name="Spike11" parent="TileMap" instance=ExtResource( 9 )]
+[node name="Spike11" parent="TileMap" index="8" instance=ExtResource( 9 )]
 
 position = Vector2( 256, 960 )
 
-[node name="Spike12" parent="TileMap" instance=ExtResource( 9 )]
+[node name="Spike12" parent="TileMap" index="9" instance=ExtResource( 9 )]
 
 position = Vector2( 384, 1024 )
 
-[node name="Spike13" parent="TileMap" instance=ExtResource( 9 )]
+[node name="Spike13" parent="TileMap" index="10" instance=ExtResource( 9 )]
 
 position = Vector2( 448, 1024 )
 
-[node name="Spike14" parent="TileMap" instance=ExtResource( 9 )]
+[node name="Spike14" parent="TileMap" index="11" instance=ExtResource( 9 )]
 
 position = Vector2( 512, 1024 )
 
-[node name="Spike15" parent="TileMap" instance=ExtResource( 9 )]
+[node name="Spike15" parent="TileMap" index="12" instance=ExtResource( 9 )]
 
 position = Vector2( 576, 1024 )
 
-[node name="Spike4" parent="TileMap" groups=[
+[node name="Spike4" parent="TileMap" index="13" groups=[
 "spike_4",
 ] instance=ExtResource( 9 )]
 
@@ -176,105 +178,105 @@ position = Vector2( 1024, 1472 )
 rotation = 4.71239
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Spike5" parent="TileMap" instance=ExtResource( 9 )]
+[node name="Spike5" parent="TileMap" index="14" instance=ExtResource( 9 )]
 
 position = Vector2( 320, 1344 )
 rotation = 3.14159
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Spike6" parent="TileMap" instance=ExtResource( 9 )]
+[node name="Spike6" parent="TileMap" index="15" instance=ExtResource( 9 )]
 
 position = Vector2( 576, 1344 )
 rotation = 3.14159
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Spike7" parent="TileMap" instance=ExtResource( 9 )]
+[node name="Spike7" parent="TileMap" index="16" instance=ExtResource( 9 )]
 
 position = Vector2( 896, 1248 )
 rotation = 1.5708
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Spike8" parent="TileMap" groups=[
+[node name="Spike8" parent="TileMap" index="17" groups=[
 "spike_8",
 ] instance=ExtResource( 9 )]
 
 position = Vector2( 704, 1408 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Spike9" parent="TileMap" instance=ExtResource( 9 )]
+[node name="Spike9" parent="TileMap" index="18" instance=ExtResource( 9 )]
 
 position = Vector2( 896, 1440 )
 rotation = 4.71239
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Trigger" parent="TileMap" instance=ExtResource( 10 )]
+[node name="Trigger" parent="TileMap" index="19" instance=ExtResource( 10 )]
 
 editor/display_folded = true
 position = Vector2( 480, 1440 )
 trigger_sound = ExtResource( 11 )
 group = "spike_4"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger" index="0"]
 
 position = Vector2( 0, -64 )
 shape = SubResource( 1 )
 
-[node name="Trigger2" parent="TileMap" instance=ExtResource( 10 )]
+[node name="Trigger2" parent="TileMap" index="20" instance=ExtResource( 10 )]
 
 editor/display_folded = true
 position = Vector2( 736, 1184 )
 trigger_sound = ExtResource( 11 )
 group = "spike_8"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger2" index="0"]
 
 shape = SubResource( 2 )
 
-[node name="Trigger3" parent="TileMap" instance=ExtResource( 10 )]
+[node name="Trigger3" parent="TileMap" index="21" instance=ExtResource( 10 )]
 
 editor/display_folded = true
 position = Vector2( 224, 1184 )
 trigger_sound = ExtResource( 11 )
 group = "spike_1"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger3" index="0"]
 
 shape = SubResource( 2 )
 
-[node name="Trigger4" parent="TileMap" instance=ExtResource( 10 )]
+[node name="Trigger4" parent="TileMap" index="22" instance=ExtResource( 10 )]
 
 editor/display_folded = true
 position = Vector2( 352, 1184 )
 trigger_sound = ExtResource( 11 )
 group = "spike_2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger4" index="0"]
 
 shape = SubResource( 2 )
 
-[node name="Trigger5" parent="TileMap" instance=ExtResource( 10 )]
+[node name="Trigger5" parent="TileMap" index="23" instance=ExtResource( 10 )]
 
 editor/display_folded = true
 position = Vector2( 416, 1184 )
 trigger_sound = ExtResource( 11 )
 group = "spike_3"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger5" index="0"]
 
 shape = SubResource( 2 )
 
-[node name="Trigger6" parent="TileMap" instance=ExtResource( 10 )]
+[node name="Trigger6" parent="TileMap" index="24" instance=ExtResource( 10 )]
 
 editor/display_folded = true
 position = Vector2( 800, 1184 )
 trigger_sound = ExtResource( 12 )
 group = "scythe"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger6" index="0"]
 
 shape = SubResource( 2 )
 
-[node name="Scythe" parent="TileMap" groups=[
+[node name="Scythe" parent="TileMap" index="25" groups=[
 "scythe",
 ] instance=ExtResource( 13 )]
 
@@ -283,54 +285,54 @@ end_vector = Vector2( 5000, 1184 )
 velocity = Vector2( 900, 900 )
 mas_enabled = false
 
-[node name="Save" parent="TileMap" instance=ExtResource( 14 )]
+[node name="Save" parent="TileMap" index="26" instance=ExtResource( 14 )]
 
 position = Vector2( 928, 1056 )
 
-[node name="Save2" parent="TileMap" instance=ExtResource( 15 )]
+[node name="Save2" parent="TileMap" index="27" instance=ExtResource( 15 )]
 
 position = Vector2( 416, 480 )
 save_dialog = NodePath("../../CanvasLayer2/SaveDialog")
 
-[node name="BulletManager" parent="TileMap" instance=ExtResource( 16 )]
+[node name="BulletManager" parent="TileMap" index="28" instance=ExtResource( 16 )]
 
 position = Vector2( 1024, 0 )
 bernkastel = NodePath("../Bernkastel")
 
-[node name="Bernkastel" parent="TileMap" groups=[
+[node name="Bernkastel" parent="TileMap" index="29" groups=[
 "bernkastel",
 ] instance=ExtResource( 17 )]
 
 position = Vector2( 2208, 438.956 )
-frame = 0
+frame = 3
 bulletmanager = NodePath("../BulletManager")
 textbox = NodePath("../../CanvasLayer3/Textbox")
 background = NodePath("../Background")
 
-[node name="Trigger7" parent="TileMap" instance=ExtResource( 10 )]
+[node name="Trigger7" parent="TileMap" index="30" instance=ExtResource( 10 )]
 
 position = Vector2( 1536, 672 )
 trigger_sound = ExtResource( 18 )
 group = "bernkastel"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger7"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger7" index="0"]
 
 shape = SubResource( 3 )
 
-[node name="BGM" type="AudioStreamPlayer" parent="."]
+[node name="BGM" type="AudioStreamPlayer" parent="." index="4"]
 
 stream = ExtResource( 19 )
 volume_db = -13.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Music"
 
-[node name="Ambience" type="AudioStreamPlayer" parent="."]
+[node name="Ambience" type="AudioStreamPlayer" parent="." index="5"]
 
 stream = ExtResource( 20 )
 volume_db = -30.0
 autoplay = true
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
 

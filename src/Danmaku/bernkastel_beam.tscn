@@ -6,6 +6,7 @@
 
 [sub_resource type="ParticlesMaterial" id=1]
 
+render_priority = 0
 trail_divisor = 1
 emission_shape = 1
 emission_sphere_radius = 32.0
@@ -70,10 +71,9 @@ background_color = Color( 1, 1, 1, 1 )
 direction_affects_velocity = true
 destroy_if_offscreen = true
 
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="Particles2D" type="Particles2D" parent="." index="0"]
 
 show_behind_parent = true
-z = -10
 emitting = true
 amount = 32
 lifetime = 1.0
@@ -94,17 +94,16 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Time", "Transform", "Visibility", "Z" ]
 
-[node name="Foreground" type="Sprite" parent="."]
+[node name="Foreground" type="Sprite" parent="." index="1"]
 
 texture = ExtResource( 2 )
 
-[node name="Background" type="Sprite" parent="."]
+[node name="Background" type="Sprite" parent="." index="2"]
 
-z = -1
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Animation", "Region", "Transform", "Z" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
 
 shape = SubResource( 2 )
 

@@ -4,7 +4,6 @@ export(NodePath) var bulletmanager
 var end_vector = Vector2(0, 0)
 var is_moving = false
 var velocity = Vector2(160, 160)
-var name = "The Witch of Miracles"
 
 var is_deadly = true
 var is_dead = false
@@ -20,6 +19,7 @@ onready var maxhealth = health
 signal stopped_moving()
 
 func _ready():
+	name = "The Witch of Miracles"
 	bulletmanager = get_node(bulletmanager)
 	textbox = get_node(textbox)
 	background = get_node(background)

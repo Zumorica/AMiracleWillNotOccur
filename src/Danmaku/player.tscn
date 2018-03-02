@@ -22,7 +22,7 @@ script = ExtResource( 2 )
 _sections_unfolded = [ "Offset" ]
 bomb_scene = ExtResource( 3 )
 
-[node name="CircleArea2D" type="Area2D" parent="."]
+[node name="CircleArea2D" type="Area2D" parent="." index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -35,11 +35,11 @@ audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CircleArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CircleArea2D" index="0"]
 
 shape = SubResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." index="1"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -52,23 +52,23 @@ audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision", "Pickable" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
 position = Vector2( 0.0240765, 0.0738831 )
 shape = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="." index="2"]
 
 texture = ExtResource( 4 )
 
-[node name="InvincibleTimer" type="Timer" parent="."]
+[node name="InvincibleTimer" type="Timer" parent="." index="3"]
 
 process_mode = 0
 wait_time = 3.0
 one_shot = true
 autostart = false
 
-[node name="ShootTimer" type="Timer" parent="."]
+[node name="ShootTimer" type="Timer" parent="." index="4"]
 
 process_mode = 0
 wait_time = 0.1

@@ -15,13 +15,14 @@ height = 40.0
 
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 1
+frame = 7
 playing = true
 script = ExtResource( 2 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Transform", "Z" ]
 bulletmanager = NodePath("Null")
+background = null
 
-[node name="YellowCircle" type="Sprite" parent="."]
+[node name="YellowCircle" type="Sprite" parent="." index="0"]
 
 visible = false
 show_behind_parent = true
@@ -31,7 +32,7 @@ region_rect = Rect2( 217, 220, 234, 224 )
 script = ExtResource( 4 )
 _sections_unfolded = [ "Material", "Region", "Transform", "Visibility" ]
 
-[node name="WhiteCircle" type="Sprite" parent="."]
+[node name="WhiteCircle" type="Sprite" parent="." index="1"]
 
 visible = false
 show_behind_parent = true
@@ -41,7 +42,7 @@ region_rect = Rect2( 0, 448, 220, 217 )
 script = ExtResource( 4 )
 _sections_unfolded = [ "Material", "Region", "Visibility" ]
 
-[node name="GreenCircle" type="Sprite" parent="."]
+[node name="GreenCircle" type="Sprite" parent="." index="2"]
 
 visible = false
 show_behind_parent = true
@@ -51,7 +52,7 @@ region_rect = Rect2( 220, 442, 220, 217 )
 script = ExtResource( 4 )
 _sections_unfolded = [ "Material", "Pause", "Region", "Visibility" ]
 
-[node name="BlackCircle" type="Sprite" parent="."]
+[node name="BlackCircle" type="Sprite" parent="." index="3"]
 
 visible = false
 show_behind_parent = true
@@ -61,7 +62,7 @@ region_rect = Rect2( 442, 450, 220, 217 )
 script = ExtResource( 4 )
 _sections_unfolded = [ "Material", "Region", "Visibility" ]
 
-[node name="RedCircle" type="Sprite" parent="."]
+[node name="RedCircle" type="Sprite" parent="." index="4"]
 
 visible = false
 show_behind_parent = true
@@ -71,7 +72,7 @@ region_rect = Rect2( 678, 450, 223, 217 )
 script = ExtResource( 4 )
 _sections_unfolded = [ "Material", "Region", "Visibility" ]
 
-[node name="BlueCircle" type="Sprite" parent="."]
+[node name="BlueCircle" type="Sprite" parent="." index="5"]
 
 visible = false
 show_behind_parent = true
@@ -81,7 +82,7 @@ region_rect = Rect2( 678, 225, 223, 217 )
 script = ExtResource( 4 )
 _sections_unfolded = [ "Material", "Region", "Visibility" ]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." index="6"]
 
 position = Vector2( 0, -90 )
 input_pickable = true
@@ -94,7 +95,7 @@ audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
 position = Vector2( -5.40359, 76.1907 )
 shape = SubResource( 1 )

@@ -109,6 +109,7 @@ tracks/0/path = NodePath("Clock")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -122,6 +123,7 @@ tracks/1/path = NodePath("ClockSE")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 8 ),
 "transitions": PoolRealArray( 1 ),
@@ -135,6 +137,7 @@ tracks/2/path = NodePath("VBoxContainer/Label:modulate")
 tracks/2/interp = 2
 tracks/2/loop_wrap = false
 tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0, 8 ),
 "transitions": PoolRealArray( 0.466517, 1 ),
@@ -210,7 +213,7 @@ animations = [ {
 "speed": 60.0
 } ]
 
-[node name="Title" type="TextureRect"]
+[node name="Title" type="TextureRect" index="0"]
 
 material = SubResource( 2 )
 use_parent_material = true
@@ -222,6 +225,7 @@ rect_min_size = Vector2( 1024, 800 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 2 )
@@ -232,30 +236,29 @@ _sections_unfolded = [ "Material", "Rect", "Visibility" ]
 normal_texture = ExtResource( 2 )
 other_texture = ExtResource( 4 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
+root_node = NodePath("..")
+autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
-root_node = NodePath("..")
+playback_speed = 1.0
 anims/clock = SubResource( 3 )
-playback/active = true
-playback/speed = 1.0
 blend_times = [  ]
-autoplay = ""
 _sections_unfolded = [ "Playback", "playback" ]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
 self_modulate = Color( 1, 1, 1, 0.3 )
 material = SubResource( 5 )
 frames = SubResource( 6 )
 animation = "default"
-frame = 9
+frame = 6
 playing = true
 centered = false
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -264,11 +267,12 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="Spacer" type="Control" parent="VBoxContainer"]
+[node name="Spacer" type="Control" parent="VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -280,11 +284,12 @@ rect_min_size = Vector2( 0, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -297,6 +302,7 @@ rect_min_size = Vector2( 1024, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 15 )
@@ -313,7 +319,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Material", "Rect" ]
 
-[node name="Spacer2" type="Control" parent="VBoxContainer"]
+[node name="Spacer2" type="Control" parent="VBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -326,11 +332,12 @@ rect_min_size = Vector2( 0, 400 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -342,11 +349,12 @@ margin_bottom = 761.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="Spacer" type="Control" parent="VBoxContainer/HBoxContainer"]
+[node name="Spacer" type="Control" parent="VBoxContainer/HBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -358,11 +366,12 @@ rect_min_size = Vector2( 75, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -374,13 +383,14 @@ margin_bottom = 232.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_constants/separation = 24
 alignment = 0
 _sections_unfolded = [ "custom_constants" ]
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -391,7 +401,9 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 140, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 16 )
@@ -401,9 +413,10 @@ shortcut = null
 group = null
 text = "New game"
 flat = false
-_sections_unfolded = [ "Rect" ]
+align = 1
+_sections_unfolded = [ "Rect", "Theme" ]
 
-[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -415,7 +428,9 @@ margin_bottom = 104.0
 rect_min_size = Vector2( 140, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 16 )
@@ -425,9 +440,10 @@ shortcut = null
 group = null
 text = "Load game"
 flat = false
+align = 1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -439,7 +455,9 @@ margin_bottom = 168.0
 rect_min_size = Vector2( 140, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 16 )
@@ -449,8 +467,9 @@ shortcut = null
 group = null
 text = "Website"
 flat = false
+align = 1
 
-[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -462,7 +481,9 @@ margin_bottom = 232.0
 rect_min_size = Vector2( 140, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 16 )
@@ -472,9 +493,10 @@ shortcut = null
 group = null
 text = "Exit game"
 flat = false
+align = 1
 _sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -486,6 +508,7 @@ margin_bottom = 804.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 17 )
@@ -495,37 +518,33 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="ClockSE" type="AudioStreamPlayer" parent="."]
+[node name="ClockSE" type="AudioStreamPlayer" parent="." index="3"]
 
 stream = ExtResource( 18 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
-[node name="Clock" type="AudioStreamPlayer" parent="."]
+[node name="Clock" type="AudioStreamPlayer" parent="." index="4"]
 
 stream = ExtResource( 19 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
-[node name="atmosphere" type="AudioStreamPlayer" parent="."]
+[node name="atmosphere" type="AudioStreamPlayer" parent="." index="5"]
 
 stream = ExtResource( 20 )
 volume_db = -15.0
 autoplay = true
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
-[node name="LoadDialog" parent="." instance=ExtResource( 21 )]
+[node name="LoadDialog" parent="." index="6" instance=ExtResource( 21 )]
 
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 305.0
 margin_top = 289.0
 margin_right = 705.0

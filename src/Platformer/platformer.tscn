@@ -26,6 +26,7 @@ extents = Vector2( 32, 256 )
 
 [sub_resource type="AtlasTexture" id=2]
 
+flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 0, 0, 64, 64 )
 margin = Rect2( 0, 0, 0, 0 )
@@ -33,10 +34,12 @@ filter_clip = false
 
 [sub_resource type="StreamTexture" id=3]
 
+flags = 0
 load_path = ""
 
 [sub_resource type="AtlasTexture" id=4]
 
+flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 0, 128, 64, 64 )
 margin = Rect2( 0, 0, 0, 0 )
@@ -54,6 +57,7 @@ extents = Vector2( 512, 64 )
 
 [sub_resource type="AtlasTexture" id=7]
 
+flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 512, 64, 64, 64 )
 margin = Rect2( 0, 0, 0, 0 )
@@ -61,6 +65,7 @@ filter_clip = false
 
 [sub_resource type="AtlasTexture" id=8]
 
+flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 512, 128, 64, 64 )
 margin = Rect2( 0, 0, 0, 0 )
@@ -68,6 +73,7 @@ filter_clip = false
 
 [sub_resource type="AtlasTexture" id=9]
 
+flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 512, 0, 64, 64 )
 margin = Rect2( 0, 0, 0, 0 )
@@ -88,6 +94,7 @@ tracks/0/path = NodePath("BGM:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 4.43828, 1 ),
@@ -99,6 +106,7 @@ tracks/1/path = NodePath("BGM")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 2 ),
 "transitions": PoolRealArray( 1 ),
@@ -118,6 +126,7 @@ tracks/0/path = NodePath("BGM:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -131,47 +140,46 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Z" ]
 level = 0
 
-[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+[node name="CanvasLayer3" type="CanvasLayer" parent="." index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="SaveDialog" parent="CanvasLayer3" instance=ExtResource( 2 )]
+[node name="SaveDialog" parent="CanvasLayer3" index="0" instance=ExtResource( 2 )]
 
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 256.0
 margin_top = 192.0
 margin_right = 656.0
 margin_bottom = 392.0
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." index="1"]
 
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="BG" type="Sprite" parent="CanvasLayer2"]
+[node name="BG" type="Sprite" parent="CanvasLayer2" index="0"]
 
 scale = Vector2( 0.533333, 0.625 )
 texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset", "Visibility", "Z" ]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
 
 layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+[node name="Sprite" type="Sprite" parent="CanvasLayer" index="0"]
 
 visible = false
 position = Vector2( 512, 400 )
@@ -179,7 +187,7 @@ scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Offset" ]
 
-[node name="TileMap" parent="." instance=ExtResource( 5 )]
+[node name="TileMap" parent="." index="3" instance=ExtResource( 5 )]
 
 cell_clip_uv = false
 collision_layer = 1024
@@ -187,13 +195,13 @@ collision_mask = 1048575
 format = 1
 tile_data = PoolIntArray( -65537, 536870918, -1187511920, -131072, 536870912, -1187511920, -131071, 536870912, -1187511920, -131070, 536870912, -1187511920, -131069, 536870912, -1187511920, -131068, 536870912, -1187511920, -131067, 536870912, -1187511920, -131066, 536870912, -1187511920, -131065, 536870912, -1187511920, -131064, 536870912, -1187511920, -131063, 536870912, -1187511920, -131062, 536870912, -1187511920, -131061, 536870912, -1187511920, -131060, 536870912, -1187511920, -131059, 536870912, -1187511920, -131058, 536870912, -1187511920, -131057, 536870912, -1187511920, -131056, 536870912, -1187511920, -131055, 536870912, -1187511920, -131054, 536870912, -1187511920, -131053, 536870912, -1187511920, -131052, 536870912, -1187511920, -131051, 536870912, -1187511920, -131050, 536870912, -1187511920, -131049, 536870912, -1187511920, -131048, 536870912, -1187511920, -131047, 536870912, -1187511920, -131046, 536870912, -1187511920, -131045, 536870912, -1187511920, -131044, 536870912, -1187511920, -131043, 536870912, -1187511920, -131042, 536870912, -1187511920, -131041, 6, -1187511920, -131040, 9, -1187511920, -1, 536870919, -1187511920, -65536, 1, -1187511920, -65535, 1, -1187511920, -65534, 1, -1187511920, -65533, 1, -1187511920, -65532, 1, -1187511920, -65531, 1, -1187511920, -65530, 1, -1187511920, -65529, 1, -1187511920, -65528, 1, -1187511920, -65527, 1, -1187511920, -65526, 1, -1187511920, -65525, 1, -1187511920, -65524, 1, -1187511920, -65523, 1, -1187511920, -65522, 1, -1187511920, -65521, 1, -1187511920, -65520, 536870913, -1187511920, -65519, 536870913, -1187511920, -65518, 536870913, -1187511920, -65517, 536870913, -1187511920, -65516, 536870913, -1187511920, -65515, 536870913, -1187511920, -65514, 536870913, -1187511920, -65513, 536870913, -1187511920, -65512, 536870913, -1187511920, -65511, 536870913, -1187511920, -65510, 536870913, -1187511920, -65509, 536870913, -1187511920, -65508, 536870913, -1187511920, -65507, 536870913, -1187511920, -65506, 536870913, -1187511920, -65505, 7, -1187511920, -65504, 10, -1187511920, 65535, 536870919, -1187511920, 0, 536870920, -1187511920, 1, 2, -1187511920, 2, 2, -1187511920, 3, 2, -1187511920, 4, 2, -1187511920, 5, 2, -1187511920, 6, 2, -1187511920, 7, 2, -1187511920, 8, 2, -1187511920, 9, 2, -1187511920, 10, 2, -1187511920, 11, 2, -1187511920, 12, 2, -1187511920, 13, 2, -1187511920, 14, 2, -1187511920, 15, 2, -1187511920, 16, 2, -1187511920, 17, 2, -1187511920, 18, 2, -1187511920, 19, 2, -1187511920, 20, 2, -1187511920, 21, 2, -1187511920, 22, 2, -1187511920, 23, 2, -1187511920, 24, 2, -1187511920, 25, 2, -1187511920, 26, 2, -1187511920, 27, 2, -1187511920, 28, 2, -1187511920, 29, 2, -1187511920, 30, 2, -1187511920, 31, 8, -1187511920, 32, 10, -1187511920, 131071, 10, -1187511920, 65552, 24, -1187511920, 65554, 24, -1187511920, 65558, 24, -1187511920, 65563, 24, -1187511920, 65567, 24, -1187511920, 65568, 10, -1187511920, 196607, 10, -1187511920, 131088, 25, -1187511920, 131090, 25, -1187511920, 131094, 25, -1187511920, 131099, 25, -1187511920, 131103, 25, -1187511920, 131104, 10, -1187511920, 262143, 10, -1187511920, 196624, 25, -1187511920, 196626, 25, -1187511920, 196630, 25, -1187511920, 196635, 25, -1187511920, 196639, 25, -1187511920, 196640, 10, -1187511920, 327679, 10, -1187511920, 262160, 25, -1187511920, 262162, 25, -1187511920, 262164, 42, -1187511920, 262166, 25, -1187511920, 262168, 46, -1187511920, 262171, 25, -1187511920, 262175, 25, -1187511920, 262176, 10, -1187511920, 393215, 10, -1187511920, 327696, 26, -1187511920, 327698, 26, -1187511920, 327702, 26, -1187511920, 327707, 26, -1187511920, 327711, 26, -1187511920, 327712, 10, -1187511920, 458751, 536870922, -1187511920, 393217, 49, -1187511920, 393232, 37, -1187511920, 393233, 28, -1187511920, 393234, 28, -1187511920, 393235, 28, -1187511920, 393236, 28, -1187511920, 393237, 28, -1187511920, 393238, 28, -1187511920, 393239, 28, -1187511920, 393240, 28, -1187511920, 393241, 28, -1187511920, 393242, 28, -1187511920, 393243, 28, -1187511920, 393244, 28, -1187511920, 393245, 28, -1187511920, 393246, 28, -1187511920, 393247, 31, -1187511920, 393248, 10, -1187511920, 524287, 536870922, -1187511920, 458784, 10, -1187511920, 589823, 536870922, -1187511920, 524288, 536870915, -1187511920, 524289, 0, -1187511920, 524290, 0, -1187511920, 524291, 0, -1187511920, 524292, 6, -1187511920, 524293, 28, -1187511920, 524294, 536870918, -1187511920, 524295, 0, -1187511920, 524296, 0, -1187511920, 524297, 0, -1187511920, 524298, 0, -1187511920, 524299, 0, -1187511920, 524300, 0, -1187511920, 524301, 0, -1187511920, 524302, 0, -1187511920, 524303, 0, -1187511920, 524304, 0, -1187511920, 524305, 0, -1187511920, 524306, 0, -1187511920, 524318, 0, -1187511920, 524319, 6, -1187511920, 524320, 10, -1187511920, 655359, 10, -1187511920, 589824, 536870916, -1187511920, 589825, 1, -1187511920, 589826, 1, -1187511920, 589827, 1, -1187511920, 589828, 7, -1187511920, 589830, 536870919, -1187511920, 589831, 1, -1187511920, 589832, 1, -1187511920, 589833, 1, -1187511920, 589834, 1, -1187511920, 589835, 1, -1187511920, 589836, 1, -1187511920, 589837, 1, -1187511920, 589838, 1, -1187511920, 589839, 536870913, -1187511920, 589840, 536870914, -1187511920, 589841, 536870914, -1187511920, 589842, 536870914, -1187511920, 589854, 536870914, -1187511920, 589855, 8, -1187511920, 589856, 10, -1187511920, 720895, 10, -1187511920, 655360, 536870916, -1187511920, 655361, 1, -1187511920, 655362, 1, -1187511920, 655363, 1, -1187511920, 655364, 7, -1187511920, 655366, 536870919, -1187511920, 655367, 1, -1187511920, 655368, 1, -1187511920, 655369, 1, -1187511920, 655370, 1, -1187511920, 655371, 1, -1187511920, 655372, 1, -1187511920, 655373, 1, -1187511920, 655374, 1, -1187511920, 655375, 7, -1187511920, 655392, 10, -1187511920, 786431, 10, -1187511920, 720896, 536870916, -1187511920, 720897, 1, -1187511920, 720898, 1, -1187511920, 720899, 1, -1187511920, 720900, 7, -1187511920, 720902, 536870919, -1187511920, 720903, 1, -1187511920, 720904, 1, -1187511920, 720905, 1, -1187511920, 720906, 1, -1187511920, 720907, 1, -1187511920, 720908, 1, -1187511920, 720909, 1, -1187511920, 720910, 1, -1187511920, 720911, 7, -1187511920, 720928, 10, -1187511920, 851967, 11, -1187511920, 786432, 536870917, -1187511920, 786433, 2, -1187511920, 786434, 2, -1187511920, 786435, 2, -1187511920, 786436, 8, -1187511920, 786437, 536870937, -1187511920, 786438, 536870920, -1187511920, 786439, 2, -1187511920, 786440, 2, -1187511920, 786441, 2, -1187511920, 786442, 2, -1187511920, 786443, 2, -1187511920, 786444, 2, -1187511920, 786445, 2, -1187511920, 786446, 2, -1187511920, 786447, 8, -1187511920, 786464, 536870919, -1187511920, 786465, 536870912, -1187511920, 786466, 536870912, -1187511920, 786467, 536870912, -1187511920, 786468, 536870912, -1187511920, 786469, 536870912, -1187511920, 786470, 536870912, -1187511920, 786471, 536870912, -1187511920, 786472, 536870912, -1187511920, 786473, 536870912, -1187511920, 786474, 536870912, -1187511920, 786475, 536870912, -1187511920, 786476, 536870912, -1187511920, 786477, 536870912, -1187511920, 786478, 536870912, -1187511920, 786479, 6, -1187511920, 851968, 10, -1187511920, 851983, 10, -1187511920, 851985, 44, -1187511920, 851989, 44, -1187511920, 851993, 44, -1187511920, 851995, 44, -1187511920, 851999, 44, -1187511920, 852000, 536870919, -1187511920, 852001, 1, -1187511920, 852002, 1, -1187511920, 852003, 1, -1187511920, 852004, 1, -1187511920, 852005, 1, -1187511920, 852006, 1, -1187511920, 852007, 1, -1187511920, 852008, 1, -1187511920, 852009, 1, -1187511920, 852010, 1, -1187511920, 852011, 1, -1187511920, 852012, 1, -1187511920, 852013, 1, -1187511920, 852014, 1, -1187511920, 852015, 7, -1187511920, 917504, 10, -1187511920, 917505, 13, -1187511920, 917506, 13, -1187511920, 917507, 13, -1187511920, 917508, 13, -1187511920, 917509, 13, -1187511920, 917510, 13, -1187511920, 917511, 13, -1187511920, 917512, 13, -1187511920, 917513, 13, -1187511920, 917514, 13, -1187511920, 917515, 13, -1187511920, 917516, 13, -1187511920, 917517, 13, -1187511920, 917518, 13, -1187511920, 917519, 10, -1187511920, 917520, 46, -1187511920, 917530, 44, -1187511920, 917534, 46, -1187511920, 917536, 536870919, -1187511920, 917537, 536870914, -1187511920, 917538, 536870914, -1187511920, 917539, 536870914, -1187511920, 917540, 536870914, -1187511920, 917541, 536870914, -1187511920, 917542, 536870914, -1187511920, 917543, 536870914, -1187511920, 917544, 536870914, -1187511920, 917545, 536870914, -1187511920, 917546, 536870914, -1187511920, 917547, 536870914, -1187511920, 917548, 536870914, -1187511920, 917549, 536870914, -1187511920, 917550, 536870914, -1187511920, 917551, 7, -1187511920, 983040, 10, -1187511920, 983041, 17, -1187511920, 983042, 17, -1187511920, 983043, 17, -1187511920, 983044, 17, -1187511920, 983045, 17, -1187511920, 983046, 17, -1187511920, 983047, 17, -1187511920, 983048, 15, -1187511920, 983049, 17, -1187511920, 983050, 17, -1187511920, 983051, 17, -1187511920, 983052, 17, -1187511920, 983053, 17, -1187511920, 983054, 17, -1187511920, 983055, 10, -1187511920, 983057, 44, -1187511920, 983063, 44, -1187511920, 983071, 44, -1187511920, 983072, 11, -1187511920, 983082, 536870933, -1187511920, 983083, 15, -1187511920, 983084, 15, -1187511920, 983085, 15, -1187511920, 983086, 21, -1187511920, 983087, 536870922, -1187511920, 1048576, 10, -1187511920, 1048592, 44, -1187511920, 1048594, 46, -1187511920, 1048596, 44, -1187511920, 1048598, 44, -1187511920, 1048600, 46, -1187511920, 1048618, 536870934, -1187511920, 1048619, 16, -1187511920, 1048620, 16, -1187511920, 1048621, 16, -1187511920, 1048622, 22, -1187511920, 1048623, 10, -1187511920, 1114112, 10, -1187511920, 1114135, 42, -1187511920, 1114141, 42, -1187511920, 1114149, 46, -1187511920, 1114151, 45, -1187511920, 1114154, 536870934, -1187511920, 1114155, 16, -1187511920, 1114156, 16, -1187511920, 1114157, 16, -1187511920, 1114158, 22, -1187511920, 1114159, 10, -1187511920, 1179648, 10, -1187511920, 1179664, 44, -1187511920, 1179666, 41, -1187511920, 1179668, 42, -1187511920, 1179674, 42, -1187511920, 1179690, 1610612757, -1187511920, 1179691, 23, -1187511920, 1179692, 23, -1187511920, 1179693, 23, -1187511920, 1179694, 23, -1187511920, 1179695, 10, -1187511920, 1245184, 10, -1187511920, 1245199, 9, -1187511920, 1245211, 44, -1187511920, 1245214, 24, -1187511920, 1245215, 35, -1187511920, 1245216, 536870918, -1187511920, 1245217, 536870912, -1187511920, 1245218, 536870912, -1187511920, 1245219, 536870912, -1187511920, 1245220, 536870912, -1187511920, 1245221, 536870912, -1187511920, 1245222, 536870912, -1187511920, 1245223, 536870912, -1187511920, 1245224, 536870912, -1187511920, 1245225, 536870912, -1187511920, 1245226, 536870912, -1187511920, 1245227, 536870912, -1187511920, 1245228, 536870912, -1187511920, 1245229, 536870912, -1187511920, 1245230, 536870912, -1187511920, 1245231, 6, -1187511920, 1310720, 10, -1187511920, 1310734, 9, -1187511920, 1310735, 10, -1187511920, 1310736, 46, -1187511920, 1310738, 44, -1187511920, 1310742, 42, -1187511920, 1310750, 25, -1187511920, 1310752, 536870919, -1187511920, 1310753, 536870913, -1187511920, 1310754, 536870913, -1187511920, 1310755, 536870913, -1187511920, 1310756, 536870913, -1187511920, 1310757, 536870913, -1187511920, 1310758, 536870913, -1187511920, 1310759, 536870913, -1187511920, 1310760, 536870913, -1187511920, 1310761, 536870913, -1187511920, 1310762, 536870913, -1187511920, 1310763, 536870913, -1187511920, 1310764, 536870913, -1187511920, 1310765, 536870913, -1187511920, 1310766, 536870913, -1187511920, 1310767, 7, -1187511920, 1376256, 10, -1187511920, 1376269, 9, -1187511920, 1376270, 10, -1187511920, 1376271, 10, -1187511920, 1376275, 42, -1187511920, 1376277, 44, -1187511920, 1376286, 25, -1187511920, 1376287, 44, -1187511920, 1376288, 536870919, -1187511920, 1376289, 1, -1187511920, 1376290, 1, -1187511920, 1376291, 1, -1187511920, 1376292, 1, -1187511920, 1376293, 1, -1187511920, 1376294, 1, -1187511920, 1376295, 1, -1187511920, 1376296, 1, -1187511920, 1376297, 1, -1187511920, 1376298, 1, -1187511920, 1376299, 1, -1187511920, 1376300, 1, -1187511920, 1376301, 1, -1187511920, 1376302, 1, -1187511920, 1376303, 7, -1187511920, 1441792, 10, -1187511920, 1441794, 43, -1187511920, 1441804, 9, -1187511920, 1441805, 10, -1187511920, 1441806, 10, -1187511920, 1441807, 10, -1187511920, 1441808, 44, -1187511920, 1441812, 42, -1187511920, 1441814, 44, -1187511920, 1441822, 26, -1187511920, 1441824, 536870919, -1187511920, 1441825, 1, -1187511920, 1441826, 1, -1187511920, 1441827, 1, -1187511920, 1441828, 1, -1187511920, 1441829, 1, -1187511920, 1441830, 1, -1187511920, 1441831, 1, -1187511920, 1441832, 1, -1187511920, 1441833, 1, -1187511920, 1441834, 1, -1187511920, 1441835, 1, -1187511920, 1441836, 1, -1187511920, 1441837, 1, -1187511920, 1441838, 1, -1187511920, 1441839, 7, -1187511920, 1507328, 10, -1187511920, 1507339, 9, -1187511920, 1507340, 10, -1187511920, 1507341, 10, -1187511920, 1507342, 10, -1187511920, 1507343, 10, -1187511920, 1507349, 42, -1187511920, 1507358, 12, -1187511920, 1507359, 42, -1187511920, 1507360, 536870919, -1187511920, 1507361, 1, -1187511920, 1507362, 1, -1187511920, 1507363, 1, -1187511920, 1507364, 1, -1187511920, 1507365, 1, -1187511920, 1507366, 1, -1187511920, 1507367, 1, -1187511920, 1507368, 1, -1187511920, 1507369, 1, -1187511920, 1507370, 1, -1187511920, 1507371, 1, -1187511920, 1507372, 1, -1187511920, 1507373, 1, -1187511920, 1507374, 1, -1187511920, 1507375, 7, -1187511920, 1572864, 10, -1187511920, 1572865, 30, -1187511920, 1572866, 30, -1187511920, 1572867, 30, -1187511920, 1572868, 30, -1187511920, 1572869, 30, -1187511920, 1572870, 30, -1187511920, 1572871, 30, -1187511920, 1572872, 30, -1187511920, 1572873, 30, -1187511920, 1572874, 12, -1187511920, 1572875, 11, -1187511920, 1572876, 11, -1187511920, 1572877, 11, -1187511920, 1572878, 11, -1187511920, 1572879, 11, -1187511920, 1572880, 44, -1187511920, 1572884, 42, -1187511920, 1572890, 44, -1187511920, 1572896, 536870919, -1187511920, 1572897, 536870914, -1187511920, 1572898, 536870914, -1187511920, 1572899, 536870914, -1187511920, 1572900, 536870914, -1187511920, 1572901, 536870914, -1187511920, 1572902, 536870914, -1187511920, 1572903, 536870914, -1187511920, 1572904, 536870914, -1187511920, 1572905, 536870914, -1187511920, 1572906, 536870914, -1187511920, 1572907, 536870914, -1187511920, 1572908, 536870914, -1187511920, 1572909, 536870914, -1187511920, 1572910, 536870914, -1187511920, 1572911, 8, -1187511920, 1638400, 536870918, -1187511920, 1638401, 536870912, -1187511920, 1638402, 536870912, -1187511920, 1638403, 536870912, -1187511920, 1638404, 536870912, -1187511920, 1638405, 536870912, -1187511920, 1638406, 536870912, -1187511920, 1638407, 536870912, -1187511920, 1638408, 536870912, -1187511920, 1638409, 536870912, -1187511920, 1638410, 536870912, -1187511920, 1638411, 536870912, -1187511920, 1638412, 536870912, -1187511920, 1638413, 536870912, -1187511920, 1638414, 0, -1187511920, 1638415, 6, -1187511920, 1638432, 10, -1187511920, 1769471, 9, -1187511920, 1703936, 536870920, -1187511920, 1703937, 2, -1187511920, 1703938, 2, -1187511920, 1703939, 2, -1187511920, 1703940, 2, -1187511920, 1703941, 2, -1187511920, 1703942, 2, -1187511920, 1703943, 2, -1187511920, 1703944, 2, -1187511920, 1703945, 2, -1187511920, 1703946, 2, -1187511920, 1703947, 2, -1187511920, 1703948, 2, -1187511920, 1703949, 2, -1187511920, 1703950, 2, -1187511920, 1703951, 8, -1187511920, 1703967, 24, -1187511920, 1703968, 10, -1187511920, 1835007, 10, -1187511920, 1769500, 44, -1187511920, 1769503, 25, -1187511920, 1769504, 10, -1187511920, 1900543, 10, -1187511920, 1835010, 41, -1187511920, 1835039, 25, -1187511920, 1835040, 10, -1187511920, 1966079, 10, -1187511920, 1900562, 42, -1187511920, 1900575, 25, -1187511920, 1900576, 10, -1187511920, 2031615, 10, -1187511920, 1966111, 25, -1187511920, 1966112, 10, -1187511920, 2097151, 10, -1187511920, 2031647, 25, -1187511920, 2031648, 10, -1187511920, 2162687, 10, -1187511920, 2097183, 25, -1187511920, 2097184, 10, -1187511920, 2228223, 10, -1187511920, 2162719, 25, -1187511920, 2162720, 10, -1187511920, 2293759, 10, -1187511920, 2228255, 25, -1187511920, 2228256, 10, -1187511920, 2359295, 10, -1187511920, 2293779, 44, -1187511920, 2293788, 46, -1187511920, 2293791, 25, -1187511920, 2293792, 10, -1187511920, 2424831, 10, -1187511920, 2359327, 26, -1187511920, 2359328, 10, -1187511920, 2490367, 10, -1187511920, 2424832, 536870918, -1187511920, 2424833, 536870912, -1187511920, 2424834, 536870912, -1187511920, 2424835, 536870912, -1187511920, 2424836, 536870912, -1187511920, 2424837, 536870912, -1187511920, 2424838, 536870912, -1187511920, 2424839, 536870912, -1187511920, 2424840, 536870912, -1187511920, 2424841, 536870912, -1187511920, 2424842, 536870912, -1187511920, 2424843, 536870912, -1187511920, 2424844, 536870912, -1187511920, 2424845, 536870912, -1187511920, 2424846, 536870912, -1187511920, 2424847, 536870912, -1187511920, 2424848, 0, -1187511920, 2424849, 0, -1187511920, 2424850, 0, -1187511920, 2424851, 0, -1187511920, 2424852, 0, -1187511920, 2424853, 0, -1187511920, 2424854, 0, -1187511920, 2424855, 0, -1187511920, 2424856, 0, -1187511920, 2424857, 0, -1187511920, 2424858, 0, -1187511920, 2424859, 0, -1187511920, 2424860, 0, -1187511920, 2424861, 0, -1187511920, 2424862, 0, -1187511920, 2424863, 0, -1187511920, 2424864, 10, -1187511920, 2555903, 11, -1187511920, 2490368, 536870920, -1187511920, 2490369, 2, -1187511920, 2490370, 2, -1187511920, 2490371, 2, -1187511920, 2490372, 2, -1187511920, 2490373, 2, -1187511920, 2490374, 2, -1187511920, 2490375, 2, -1187511920, 2490376, 2, -1187511920, 2490377, 2, -1187511920, 2490378, 2, -1187511920, 2490379, 2, -1187511920, 2490380, 2, -1187511920, 2490381, 2, -1187511920, 2490382, 2, -1187511920, 2490383, 2, -1187511920, 2490384, 2, -1187511920, 2490385, 2, -1187511920, 2490386, 2, -1187511920, 2490387, 2, -1187511920, 2490388, 2, -1187511920, 2490389, 2, -1187511920, 2490390, 2, -1187511920, 2490391, 2, -1187511920, 2490392, 2, -1187511920, 2490393, 2, -1187511920, 2490394, 2, -1187511920, 2490395, 2, -1187511920, 2490396, 2, -1187511920, 2490397, 2, -1187511920, 2490398, 2, -1187511920, 2490399, 2, -1187511920, 2490400, 11, -1187511920 )
 
-[node name="Save3" parent="TileMap" instance=ExtResource( 6 )]
+[node name="Save3" parent="TileMap" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 704, 2240 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 save_dialog = NodePath("../../CanvasLayer3/SaveDialog")
 
-[node name="Player" parent="TileMap" instance=ExtResource( 7 )]
+[node name="Player" parent="TileMap" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( 146.526, 212.033 )
 _sections_unfolded = [ "Angular", "Collision", "Linear", "Transform", "Z", "collision" ]
@@ -201,25 +209,25 @@ gameover = NodePath("../../CanvasLayer/Sprite")
 bgm = NodePath("../../BGM")
 save_dialog = NodePath("../../CanvasLayer3/SaveDialog")
 
-[node name="Trigger" parent="TileMap" instance=ExtResource( 8 )]
+[node name="Trigger" parent="TileMap" index="2" instance=ExtResource( 8 )]
 
 editor/display_folded = true
 trigger_sound = ExtResource( 9 )
 group = "spike_1"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger" index="0"]
 
 position = Vector2( 352, 256 )
 shape = SubResource( 1 )
 
-[node name="Spike" parent="TileMap" groups=[
+[node name="Spike" parent="TileMap" index="3" groups=[
 "spike_1",
 ] instance=ExtResource( 10 )]
 
 position = Vector2( 320, 704 )
 velocity = -1000.0
 
-[node name="Spike2" parent="TileMap" groups=[
+[node name="Spike2" parent="TileMap" index="4" groups=[
 "spike_1",
 ] instance=ExtResource( 10 )]
 
@@ -227,7 +235,7 @@ position = Vector2( -64, 448 )
 rotation = 1.5708
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Spike4" parent="TileMap" groups=[
+[node name="Spike4" parent="TileMap" index="5" groups=[
 "spike_1",
 ] instance=ExtResource( 10 )]
 
@@ -235,7 +243,7 @@ position = Vector2( -64, 320 )
 rotation = 1.5708
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Spike6" parent="TileMap" groups=[
+[node name="Spike6" parent="TileMap" index="6" groups=[
 "spike_1",
 ] instance=ExtResource( 10 )]
 
@@ -243,7 +251,7 @@ position = Vector2( -64, 192 )
 rotation = 1.5708
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Spike8" parent="TileMap" groups=[
+[node name="Spike8" parent="TileMap" index="7" groups=[
 "spike_1",
 ] instance=ExtResource( 10 )]
 
@@ -251,15 +259,15 @@ position = Vector2( -64, 64 )
 rotation = 1.5708
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Save" parent="TileMap" instance=ExtResource( 11 )]
+[node name="Save" parent="TileMap" index="8" instance=ExtResource( 11 )]
 
 position = Vector2( 192, 416 )
 
-[node name="Save2" parent="TileMap" instance=ExtResource( 11 )]
+[node name="Save2" parent="TileMap" index="9" instance=ExtResource( 11 )]
 
 position = Vector2( 2464, 1120 )
 
-[node name="Fake_Block" parent="TileMap" groups=[
+[node name="Fake_Block" parent="TileMap" index="10" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -267,7 +275,7 @@ position = Vector2( 1408, 512 )
 sprite_default = SubResource( 2 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block17" parent="TileMap" groups=[
+[node name="Fake_Block17" parent="TileMap" index="11" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -275,7 +283,7 @@ position = Vector2( 1344, 512 )
 sprite_default = SubResource( 2 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block18" parent="TileMap" groups=[
+[node name="Fake_Block18" parent="TileMap" index="12" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -283,7 +291,7 @@ position = Vector2( 1280, 512 )
 sprite_default = SubResource( 2 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block19" parent="TileMap" groups=[
+[node name="Fake_Block19" parent="TileMap" index="13" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -291,7 +299,7 @@ position = Vector2( 1216, 512 )
 sprite_default = SubResource( 2 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block2" parent="TileMap" groups=[
+[node name="Fake_Block2" parent="TileMap" index="14" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -299,7 +307,7 @@ position = Vector2( 1472, 512 )
 sprite_default = SubResource( 2 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block3" parent="TileMap" groups=[
+[node name="Fake_Block3" parent="TileMap" index="15" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -307,7 +315,7 @@ position = Vector2( 1536, 512 )
 sprite_default = SubResource( 2 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block4" parent="TileMap" groups=[
+[node name="Fake_Block4" parent="TileMap" index="16" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -315,7 +323,7 @@ position = Vector2( 1600, 512 )
 sprite_default = SubResource( 2 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block5" parent="TileMap" groups=[
+[node name="Fake_Block5" parent="TileMap" index="17" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -323,7 +331,7 @@ position = Vector2( 1664, 512 )
 sprite_default = SubResource( 2 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block6" parent="TileMap" groups=[
+[node name="Fake_Block6" parent="TileMap" index="18" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -331,7 +339,7 @@ position = Vector2( 1728, 512 )
 sprite_default = SubResource( 2 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block13" parent="TileMap" groups=[
+[node name="Fake_Block13" parent="TileMap" index="19" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -339,7 +347,7 @@ position = Vector2( 1792, 512 )
 sprite_default = SubResource( 2 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block14" parent="TileMap" groups=[
+[node name="Fake_Block14" parent="TileMap" index="20" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -347,7 +355,7 @@ position = Vector2( 1856, 512 )
 sprite_default = SubResource( 2 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block7" parent="TileMap" groups=[
+[node name="Fake_Block7" parent="TileMap" index="21" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -355,7 +363,7 @@ position = Vector2( 1408, 576 )
 sprite_default = SubResource( 4 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block20" parent="TileMap" groups=[
+[node name="Fake_Block20" parent="TileMap" index="22" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -363,7 +371,7 @@ position = Vector2( 1344, 576 )
 sprite_default = SubResource( 4 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block21" parent="TileMap" groups=[
+[node name="Fake_Block21" parent="TileMap" index="23" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -371,7 +379,7 @@ position = Vector2( 1280, 576 )
 sprite_default = SubResource( 4 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block22" parent="TileMap" groups=[
+[node name="Fake_Block22" parent="TileMap" index="24" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -379,7 +387,7 @@ position = Vector2( 1216, 576 )
 sprite_default = SubResource( 4 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block8" parent="TileMap" groups=[
+[node name="Fake_Block8" parent="TileMap" index="25" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -387,7 +395,7 @@ position = Vector2( 1472, 576 )
 sprite_default = SubResource( 4 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block9" parent="TileMap" groups=[
+[node name="Fake_Block9" parent="TileMap" index="26" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -395,7 +403,7 @@ position = Vector2( 1536, 576 )
 sprite_default = SubResource( 4 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block10" parent="TileMap" groups=[
+[node name="Fake_Block10" parent="TileMap" index="27" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -403,7 +411,7 @@ position = Vector2( 1600, 576 )
 sprite_default = SubResource( 4 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block11" parent="TileMap" groups=[
+[node name="Fake_Block11" parent="TileMap" index="28" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -411,7 +419,7 @@ position = Vector2( 1664, 576 )
 sprite_default = SubResource( 4 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block12" parent="TileMap" groups=[
+[node name="Fake_Block12" parent="TileMap" index="29" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -419,7 +427,7 @@ position = Vector2( 1728, 576 )
 sprite_default = SubResource( 4 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block15" parent="TileMap" groups=[
+[node name="Fake_Block15" parent="TileMap" index="30" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -427,7 +435,7 @@ position = Vector2( 1792, 576 )
 sprite_default = SubResource( 4 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Fake_Block16" parent="TileMap" groups=[
+[node name="Fake_Block16" parent="TileMap" index="31" groups=[
 "fall_1",
 ] instance=ExtResource( 12 )]
 
@@ -435,29 +443,29 @@ position = Vector2( 1856, 576 )
 sprite_default = SubResource( 4 )
 sprite_triggered = SubResource( 3 )
 
-[node name="Trigger2" parent="TileMap" instance=ExtResource( 8 )]
+[node name="Trigger2" parent="TileMap" index="32" instance=ExtResource( 8 )]
 
 editor/display_folded = true
 trigger_sound = ExtResource( 14 )
 group = "fall_1"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger2" index="0"]
 
 position = Vector2( 1600, 480 )
 shape = SubResource( 5 )
 
-[node name="Trigger3" parent="TileMap" instance=ExtResource( 8 )]
+[node name="Trigger3" parent="TileMap" index="33" instance=ExtResource( 8 )]
 
 editor/display_folded = true
 position = Vector2( 1056, 1632 )
 group = "cat_attack"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger3" index="0"]
 
 position = Vector2( 480, 32 )
 shape = SubResource( 6 )
 
-[node name="Fake_Block23" parent="TileMap" groups=[
+[node name="Fake_Block23" parent="TileMap" index="34" groups=[
 "cat_defeat",
 ] instance=ExtResource( 12 )]
 
@@ -466,7 +474,7 @@ sprite_default = SubResource( 7 )
 on_trigger_opacity_change = true
 opacity = 0.0
 
-[node name="Fake_Block24" parent="TileMap" groups=[
+[node name="Fake_Block24" parent="TileMap" index="35" groups=[
 "cat_defeat",
 ] instance=ExtResource( 12 )]
 
@@ -475,7 +483,7 @@ sprite_default = SubResource( 7 )
 on_trigger_opacity_change = true
 opacity = 0.0
 
-[node name="Fake_Block25" parent="TileMap" groups=[
+[node name="Fake_Block25" parent="TileMap" index="36" groups=[
 "cat_defeat",
 ] instance=ExtResource( 12 )]
 
@@ -484,7 +492,7 @@ sprite_default = SubResource( 7 )
 on_trigger_opacity_change = true
 opacity = 0.0
 
-[node name="Fake_Block26" parent="TileMap" groups=[
+[node name="Fake_Block26" parent="TileMap" index="37" groups=[
 "cat_defeat",
 ] instance=ExtResource( 12 )]
 
@@ -493,7 +501,7 @@ sprite_default = SubResource( 7 )
 on_trigger_opacity_change = true
 opacity = 0.0
 
-[node name="Fake_Block27" parent="TileMap" groups=[
+[node name="Fake_Block27" parent="TileMap" index="38" groups=[
 "cat_defeat",
 ] instance=ExtResource( 12 )]
 
@@ -502,7 +510,7 @@ sprite_default = SubResource( 7 )
 on_trigger_opacity_change = true
 opacity = 0.0
 
-[node name="Fake_Block28" parent="TileMap" groups=[
+[node name="Fake_Block28" parent="TileMap" index="39" groups=[
 "cat_defeat",
 ] instance=ExtResource( 12 )]
 
@@ -511,7 +519,7 @@ sprite_default = SubResource( 7 )
 on_trigger_opacity_change = true
 opacity = 0.0
 
-[node name="Fake_Block29" parent="TileMap" groups=[
+[node name="Fake_Block29" parent="TileMap" index="40" groups=[
 "cat_defeat",
 ] instance=ExtResource( 12 )]
 
@@ -520,7 +528,7 @@ sprite_default = SubResource( 7 )
 on_trigger_opacity_change = true
 opacity = 0.0
 
-[node name="Fake_Block30" parent="TileMap" groups=[
+[node name="Fake_Block30" parent="TileMap" index="41" groups=[
 "cat_defeat",
 ] instance=ExtResource( 12 )]
 
@@ -529,7 +537,7 @@ sprite_default = SubResource( 7 )
 on_trigger_opacity_change = true
 opacity = 0.0
 
-[node name="Fake_Block31" parent="TileMap" groups=[
+[node name="Fake_Block31" parent="TileMap" index="42" groups=[
 "cat_defeat",
 ] instance=ExtResource( 12 )]
 
@@ -538,7 +546,7 @@ sprite_default = SubResource( 7 )
 on_trigger_opacity_change = true
 opacity = 0.0
 
-[node name="Fake_Block32" parent="TileMap" groups=[
+[node name="Fake_Block32" parent="TileMap" index="43" groups=[
 "cat_defeat",
 ] instance=ExtResource( 12 )]
 
@@ -547,7 +555,7 @@ sprite_default = SubResource( 8 )
 on_trigger_opacity_change = true
 opacity = 0.0
 
-[node name="Fake_Block33" parent="TileMap" groups=[
+[node name="Fake_Block33" parent="TileMap" index="44" groups=[
 "cat_defeat",
 ] instance=ExtResource( 12 )]
 
@@ -556,12 +564,12 @@ sprite_default = SubResource( 9 )
 on_trigger_opacity_change = true
 opacity = 0.0
 
-[node name="BulletManager" parent="TileMap" instance=ExtResource( 15 )]
+[node name="BulletManager" parent="TileMap" index="45" instance=ExtResource( 15 )]
 
 position = Vector2( 1024, 1600 )
 bernkastel = NodePath("../Sorcerer")
 
-[node name="Sorcerer" parent="TileMap" groups=[
+[node name="Sorcerer" parent="TileMap" index="46" groups=[
 "cat_attack",
 ] instance=ExtResource( 16 )]
 
@@ -573,25 +581,25 @@ animationplayer = NodePath("../../AnimationPlayer")
 bulletmanager = NodePath("../BulletManager")
 player = NodePath("../Player")
 
-[node name="Portal" parent="TileMap" groups=[
-"portal_trigger",
+[node name="Portal" parent="TileMap" index="47" groups=[
 "cat_defeat",
+"portal_trigger",
 ] instance=ExtResource( 17 )]
 
 position = Vector2( 256, 2112 )
 
-[node name="Trigger4" parent="TileMap" instance=ExtResource( 8 )]
+[node name="Trigger4" parent="TileMap" index="48" instance=ExtResource( 8 )]
 
 editor/display_folded = true
 position = Vector2( 1024, 2368 )
 group = "portal_trigger"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Trigger4" index="0"]
 
 position = Vector2( -512, -320 )
 shape = SubResource( 10 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." index="4"]
 
 visible = false
 show_behind_parent = true
@@ -605,29 +613,29 @@ margin_bottom = -1088.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0.183594, 0.152218, 0.103271, 1 )
 _sections_unfolded = [ "Material", "Visibility" ]
 
-[node name="BGM" type="AudioStreamPlayer" parent="."]
+[node name="BGM" type="AudioStreamPlayer" parent="." index="5"]
 
 stream = ExtResource( 18 )
 volume_db = 0.0
 autoplay = true
 mix_target = 0
-bus = "Master"
+bus = "Music"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
 
+root_node = NodePath("..")
+autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
-root_node = NodePath("..")
+playback_speed = 1.0
 anims/FadeMusic = SubResource( 11 )
 anims/FadeMusicIn = SubResource( 12 )
-playback/active = true
-playback/speed = 1.0
 blend_times = [  ]
-autoplay = ""
 
 

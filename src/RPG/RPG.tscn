@@ -14,30 +14,39 @@
 [ext_resource path="res://res/snd/wind.wav" type="AudioStream" id=12]
 [ext_resource path="res://res/snd/boom.wav" type="AudioStream" id=13]
 [ext_resource path="res://res/snd/cat.wav" type="AudioStream" id=14]
-[ext_resource path="res://res/snd/roundabout.ogg" type="AudioStream" id=15]
-[ext_resource path="res://res/snd/roundabout_shorter.ogg" type="AudioStream" id=16]
-[ext_resource path="res://res/snd/magic.wav" type="AudioStream" id=17]
-[ext_resource path="res://res/snd/executioner.ogg" type="AudioStream" id=18]
-[ext_resource path="res://res/spr/effects/00000003.png" type="Texture" id=19]
-[ext_resource path="res://src/Textbox/Textbox.tscn" type="PackedScene" id=20]
+[ext_resource path="res://res/snd/magic.wav" type="AudioStream" id=15]
+[ext_resource path="res://res/snd/executioner.ogg" type="AudioStream" id=16]
+[ext_resource path="res://res/spr/effects/00000003.png" type="Texture" id=17]
+[ext_resource path="res://src/Textbox/Textbox.tscn" type="PackedScene" id=18]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="Shader" id=1]
 
+code = "shader_type canvas_item;
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+
+render_priority = 0
+shader = SubResource( 1 )
+
+[sub_resource type="AtlasTexture" id=3]
+
+flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 508, 546 )
 margin = Rect2( 0, 0, 0, 0 )
 filter_clip = false
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=4]
 
-atlas = ExtResource( 19 )
+flags = 4
+atlas = ExtResource( 17 )
 region = Rect2( 0, 508, 770, 445 )
 margin = Rect2( 0, 0, 0, 0 )
 filter_clip = false
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 
-resource_name = "BernAttacked"
 length = 0.25
 loop = false
 step = 0.06
@@ -46,6 +55,7 @@ tracks/0/path = NodePath("Bernkastel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.12, 0.24 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -57,6 +67,7 @@ tracks/1/path = NodePath("Bernkastel:rect_position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
@@ -64,7 +75,7 @@ tracks/1/keys = {
 "values": [ Vector2( 115, -225 ), Vector2( 115, -210 ), Vector2( 115, -225 ), Vector2( 115, -240 ), Vector2( 115, -225 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 
 length = 2.0
 loop = false
@@ -74,6 +85,7 @@ tracks/0/path = NodePath("Bernkastel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -81,7 +93,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 
 length = 5.0
 loop = false
@@ -91,6 +103,7 @@ tracks/0/path = NodePath("CatTexture:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -102,6 +115,7 @@ tracks/1/path = NodePath("Cat:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -109,9 +123,8 @@ tracks/1/keys = {
 "values": [ true, true ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 
-resource_name = "FadeMusic"
 length = 1.5
 loop = false
 step = 0.1
@@ -120,6 +133,7 @@ tracks/0/path = NodePath("Music:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1.5 ),
 "transitions": PoolRealArray( 4, 1 ),
@@ -131,6 +145,7 @@ tracks/1/path = NodePath("Music:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 1.5 ),
 "transitions": PoolRealArray( 1 ),
@@ -138,7 +153,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
 
 length = 3.0
 loop = false
@@ -148,6 +163,7 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -155,7 +171,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=10]
 
 length = 5.0
 loop = false
@@ -165,6 +181,7 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 5 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -172,9 +189,8 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=11]
 
-resource_name = "ScreenGreen"
 length = 0.25
 loop = false
 step = 0.05
@@ -183,6 +199,7 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
@@ -190,7 +207,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.53186, 1, 0.492188, 1 ), Color( 0.265381, 1, 0.203125, 1 ), Color( 0.387817, 1, 0.335938, 1 ), Color( 0.510254, 1, 0.46875, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=12]
 
 length = 0.3
 loop = false
@@ -200,6 +217,7 @@ tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
@@ -207,8 +225,9 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -15, 0 ), Vector2( 15, 0 ), Vector2( 0, 0 ) ]
 }
 
-[node name="RPG" type="TextureRect"]
+[node name="RPG" type="TextureRect" index="0"]
 
+material = SubResource( 2 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -217,13 +236,14 @@ rect_min_size = Vector2( 1024, 800 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 0
 script = ExtResource( 2 )
-_sections_unfolded = [ "Margin", "Rect", "Visibility" ]
+_sections_unfolded = [ "Margin", "Material", "Rect", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -247,7 +267,7 @@ magicmissile_button = NodePath("GamePanel/HBoxContainer/Panel/Magic/MagicMissile
 magicpunch_button = NodePath("GamePanel/HBoxContainer/Panel/Magic/MagicPunch")
 back_button = NodePath("GamePanel/HBoxContainer/Panel/Magic/Back")
 
-[node name="BernkastelOugon" type="TextureRect" parent="."]
+[node name="BernkastelOugon" type="TextureRect" parent="." index="0"]
 
 visible = false
 anchor_left = 0.0
@@ -257,42 +277,48 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = SubResource( 1 )
+texture = SubResource( 3 )
 expand = true
 stretch_mode = 6
 _sections_unfolded = [ "Margin" ]
 
-[node name="Bernkastel" parent="." instance=ExtResource( 4 )]
+[node name="Bernkastel" parent="." index="1" instance=ExtResource( 4 )]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 rect_pivot_offset = Vector2( 0, 0 )
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="FullBody" parent="Bernkastel"]
+[node name="FullBody" parent="Bernkastel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="HalfBody" parent="Bernkastel"]
+[node name="HalfBody" parent="Bernkastel" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 rect_pivot_offset = Vector2( 0, 0 )
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="GamePanel" type="Panel" parent="."]
+[node name="GamePanel" type="Panel" parent="." index="2"]
 
+editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0.882353 )
 anchor_left = 0.0
 anchor_top = 1.0
@@ -302,11 +328,12 @@ margin_top = -256.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin", "Material", "Visibility" ]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GamePanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="GamePanel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -315,12 +342,13 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Margin", "Rect" ]
 
-[node name="Panel" type="TabContainer" parent="GamePanel/HBoxContainer"]
+[node name="Panel" type="TabContainer" parent="GamePanel/HBoxContainer" index="0"]
 
 self_modulate = Color( 0.609375, 0.609375, 0.609375, 0.882353 )
 anchor_left = 0.0
@@ -328,18 +356,19 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 508.0
-margin_bottom = 256.0
+margin_bottom = 267.0
 rect_min_size = Vector2( 508, 256 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 tab_align = 1
 tabs_visible = false
 _sections_unfolded = [ "Rect", "Visibility" ]
 
-[node name="Actions" type="VBoxContainer" parent="GamePanel/HBoxContainer/Panel"]
+[node name="Actions" type="VBoxContainer" parent="GamePanel/HBoxContainer/Panel" index="0"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -353,6 +382,7 @@ margin_bottom = -4.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 1
@@ -361,18 +391,20 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Attack" type="Button" parent="GamePanel/HBoxContainer/Panel/Actions"]
+[node name="Attack" type="Button" parent="GamePanel/HBoxContainer/Panel/Actions" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 13.0
+margin_top = 18.0
 margin_right = 500.0
-margin_bottom = 46.0
+margin_bottom = 51.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 5 )
@@ -382,19 +414,22 @@ shortcut = null
 group = null
 text = "Attack"
 flat = false
+align = 1
 
-[node name="Defend" type="Button" parent="GamePanel/HBoxContainer/Panel/Actions"]
+[node name="Defend" type="Button" parent="GamePanel/HBoxContainer/Panel/Actions" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 50.0
+margin_top = 55.0
 margin_right = 500.0
-margin_bottom = 83.0
+margin_bottom = 88.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 5 )
@@ -404,19 +439,22 @@ shortcut = null
 group = null
 text = "Defend"
 flat = false
+align = 1
 
-[node name="Magic" type="Button" parent="GamePanel/HBoxContainer/Panel/Actions"]
+[node name="Magic" type="Button" parent="GamePanel/HBoxContainer/Panel/Actions" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 87.0
+margin_top = 92.0
 margin_right = 500.0
-margin_bottom = 120.0
+margin_bottom = 125.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 5 )
@@ -426,19 +464,22 @@ shortcut = null
 group = null
 text = "Magic"
 flat = false
+align = 1
 
-[node name="Acknowledge" type="Button" parent="GamePanel/HBoxContainer/Panel/Actions"]
+[node name="Acknowledge" type="Button" parent="GamePanel/HBoxContainer/Panel/Actions" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 124.0
+margin_top = 129.0
 margin_right = 500.0
-margin_bottom = 157.0
+margin_bottom = 162.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 5 )
@@ -448,19 +489,22 @@ shortcut = null
 group = null
 text = "Acknowledge magic"
 flat = false
+align = 1
 
-[node name="Mercy" type="Button" parent="GamePanel/HBoxContainer/Panel/Actions"]
+[node name="Mercy" type="Button" parent="GamePanel/HBoxContainer/Panel/Actions" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 161.0
+margin_top = 166.0
 margin_right = 500.0
-margin_bottom = 194.0
+margin_bottom = 199.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 5 )
@@ -470,20 +514,23 @@ shortcut = null
 group = null
 text = "Request mercy"
 flat = false
+align = 1
 _sections_unfolded = [ "custom_constants", "custom_fonts" ]
 
-[node name="Runaway" type="Button" parent="GamePanel/HBoxContainer/Panel/Actions"]
+[node name="Runaway" type="Button" parent="GamePanel/HBoxContainer/Panel/Actions" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 198.0
+margin_top = 203.0
 margin_right = 500.0
-margin_bottom = 231.0
+margin_bottom = 236.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 5 )
@@ -493,9 +540,10 @@ shortcut = null
 group = null
 text = "Run away"
 flat = false
+align = 1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Magic" type="VBoxContainer" parent="GamePanel/HBoxContainer/Panel"]
+[node name="Magic" type="VBoxContainer" parent="GamePanel/HBoxContainer/Panel" index="1"]
 
 editor/display_folded = true
 visible = false
@@ -510,11 +558,12 @@ margin_bottom = -4.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 1
 
-[node name="MinorHeal" type="Button" parent="GamePanel/HBoxContainer/Panel/Magic"]
+[node name="MinorHeal" type="Button" parent="GamePanel/HBoxContainer/Panel/Magic" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -525,7 +574,9 @@ margin_right = 500.0
 margin_bottom = 83.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 5 )
@@ -535,9 +586,10 @@ shortcut = null
 group = null
 text = "Minor heal (2 MP)"
 flat = false
+align = 1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="MagicMissile" type="Button" parent="GamePanel/HBoxContainer/Panel/Magic"]
+[node name="MagicMissile" type="Button" parent="GamePanel/HBoxContainer/Panel/Magic" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -548,7 +600,9 @@ margin_right = 500.0
 margin_bottom = 120.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 5 )
@@ -558,8 +612,9 @@ shortcut = null
 group = null
 text = "Magic missile (5 MP)"
 flat = false
+align = 1
 
-[node name="MagicPunch" type="Button" parent="GamePanel/HBoxContainer/Panel/Magic"]
+[node name="MagicPunch" type="Button" parent="GamePanel/HBoxContainer/Panel/Magic" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -570,7 +625,9 @@ margin_right = 500.0
 margin_bottom = 157.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 5 )
@@ -580,8 +637,9 @@ shortcut = null
 group = null
 text = "MAGIC PUNCH! (15 MP)"
 flat = false
+align = 1
 
-[node name="Back" type="Button" parent="GamePanel/HBoxContainer/Panel/Magic"]
+[node name="Back" type="Button" parent="GamePanel/HBoxContainer/Panel/Magic" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -592,7 +650,9 @@ margin_right = 500.0
 margin_bottom = 194.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 5 )
@@ -602,20 +662,23 @@ shortcut = null
 group = null
 text = "Back"
 flat = false
+align = 1
 
-[node name="Container" type="Container" parent="GamePanel/HBoxContainer"]
+[node name="Container" type="Container" parent="GamePanel/HBoxContainer" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 512.0
 margin_right = 1020.0
-margin_bottom = 256.0
+margin_bottom = 267.0
 rect_min_size = Vector2( 508, 256 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
@@ -623,9 +686,8 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GamePanel/HBoxContainer/Container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GamePanel/HBoxContainer/Container" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -633,6 +695,7 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
@@ -641,7 +704,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="You" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer"]
+[node name="You" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -652,6 +715,7 @@ margin_bottom = 27.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
 custom_fonts/font = ExtResource( 5 )
@@ -666,7 +730,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="HP" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer"]
+[node name="HP" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -678,6 +742,7 @@ margin_bottom = 58.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
 custom_fonts/font = ExtResource( 5 )
@@ -694,7 +759,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="MP" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer"]
+[node name="MP" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -706,6 +771,7 @@ margin_bottom = 89.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
 custom_fonts/font = ExtResource( 5 )
@@ -722,7 +788,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="Status" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer"]
+[node name="Status" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -734,6 +800,7 @@ margin_bottom = 120.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
 custom_fonts/font = ExtResource( 5 )
@@ -750,7 +817,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="Bernkastel" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer"]
+[node name="Bernkastel" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -762,6 +829,7 @@ margin_bottom = 151.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
 custom_fonts/font = ExtResource( 5 )
@@ -775,7 +843,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="BHP" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer"]
+[node name="BHP" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -787,6 +855,7 @@ margin_bottom = 182.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
 custom_fonts/font = ExtResource( 5 )
@@ -802,7 +871,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="BMP" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer"]
+[node name="BMP" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer" index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -814,6 +883,7 @@ margin_bottom = 213.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
 custom_fonts/font = ExtResource( 5 )
@@ -829,7 +899,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="BStatus" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer"]
+[node name="BStatus" type="Label" parent="GamePanel/HBoxContainer/Container/VBoxContainer" index="7"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -841,6 +911,7 @@ margin_bottom = 244.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
 custom_fonts/font = ExtResource( 5 )
@@ -856,111 +927,95 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="Redtruth" type="AudioStreamPlayer" parent="."]
+[node name="Redtruth" type="AudioStreamPlayer" parent="." index="3"]
 
 stream = ExtResource( 6 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
-[node name="Glassbreak" type="AudioStreamPlayer" parent="."]
+[node name="Glassbreak" type="AudioStreamPlayer" parent="." index="4"]
 
 stream = ExtResource( 7 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
-[node name="Giggle" type="AudioStreamPlayer" parent="."]
+[node name="Giggle" type="AudioStreamPlayer" parent="." index="5"]
 
 stream = ExtResource( 8 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
-[node name="Flange" type="AudioStreamPlayer" parent="."]
+[node name="Flange" type="AudioStreamPlayer" parent="." index="6"]
 
 stream = ExtResource( 9 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
-[node name="Blood" type="AudioStreamPlayer" parent="."]
+[node name="Blood" type="AudioStreamPlayer" parent="." index="7"]
 
 stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
-[node name="Ahaha" type="AudioStreamPlayer" parent="."]
+[node name="Ahaha" type="AudioStreamPlayer" parent="." index="8"]
 
 stream = ExtResource( 11 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
-[node name="Wind" type="AudioStreamPlayer" parent="."]
+[node name="Wind" type="AudioStreamPlayer" parent="." index="9"]
 
 stream = ExtResource( 12 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
-[node name="Boom" type="AudioStreamPlayer" parent="."]
+[node name="Boom" type="AudioStreamPlayer" parent="." index="10"]
 
 stream = ExtResource( 13 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
-[node name="Cat" type="AudioStreamPlayer" parent="."]
+[node name="Cat" type="AudioStreamPlayer" parent="." index="11"]
 
 stream = ExtResource( 14 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
-[node name="Roundabout" type="AudioStreamPlayer" parent="."]
+[node name="Magic" type="AudioStreamPlayer" parent="." index="12"]
 
 stream = ExtResource( 15 )
-volume_db = -10.0
+volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
-[node name="Roundabout2" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="." index="13"]
 
 stream = ExtResource( 16 )
-volume_db = 0.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
-[node name="Magic" type="AudioStreamPlayer" parent="."]
-
-stream = ExtResource( 17 )
-volume_db = 0.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-
-stream = ExtResource( 18 )
 volume_db = -10.0
 autoplay = true
 mix_target = 0
-bus = "Master"
+bus = "Music"
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." index="14"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -969,6 +1024,7 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0, 0, 0, 0 )
@@ -977,7 +1033,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CatTexture" type="TextureRect" parent="."]
+[node name="CatTexture" type="TextureRect" parent="." index="15"]
 
 modulate = Color( 0, 0, 0, 0 )
 anchor_left = 0.0
@@ -987,9 +1043,10 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = SubResource( 2 )
+texture = SubResource( 4 )
 expand = true
 stretch_mode = 6
 _sections_unfolded = [ "Margin", "Mouse", "Rect", "Visibility" ]
@@ -997,27 +1054,27 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Textbox" parent="." instance=ExtResource( 20 )]
+[node name="Textbox" parent="." index="16" instance=ExtResource( 18 )]
 
 margin_top = 550.0
+mouse_default_cursor_shape = 0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="17"]
 
+root_node = NodePath("..")
+autoplay = ""
 playback_process_mode = 0
 playback_default_blend_time = 0.0
-root_node = NodePath("..")
-anims/BernAttacked = SubResource( 3 )
-anims/BernBlack = SubResource( 4 )
-anims/CatDeath = SubResource( 5 )
-anims/FadeMusic = SubResource( 6 )
-anims/FadeToBlack3 = SubResource( 7 )
-anims/FadeToBlack5 = SubResource( 8 )
-anims/ScreenGreen = SubResource( 9 )
-anims/Shake = SubResource( 10 )
-playback/active = true
-playback/speed = 1.0
+playback_speed = 1.0
+anims/BernAttacked = SubResource( 5 )
+anims/BernBlack = SubResource( 6 )
+anims/CatDeath = SubResource( 7 )
+anims/FadeMusic = SubResource( 8 )
+anims/FadeToBlack3 = SubResource( 9 )
+anims/FadeToBlack5 = SubResource( 10 )
+anims/ScreenGreen = SubResource( 11 )
+anims/Shake = SubResource( 12 )
 blend_times = [  ]
-autoplay = ""
 _sections_unfolded = [ "Playback", "playback" ]
 
 [connection signal="pressed" from="GamePanel/HBoxContainer/Panel/Actions/Attack" to="." method="_on_Attack_pressed"]

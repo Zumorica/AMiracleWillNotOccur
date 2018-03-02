@@ -32,6 +32,7 @@ tracks/0/path = NodePath("thunder")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -45,6 +46,7 @@ tracks/1/path = NodePath(".:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 25.1066, 1 ),
@@ -56,6 +58,7 @@ tracks/2/path = NodePath("BGM")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
@@ -243,6 +246,7 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 2 )
@@ -251,18 +255,17 @@ stretch_mode = 6
 script = ExtResource( 3 )
 _sections_unfolded = [ "Material", "Visibility" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
+root_node = NodePath("..")
+autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
-root_node = NodePath("..")
+playback_speed = 1.0
 anims/start = SubResource( 1 )
-playback/active = true
-playback/speed = 1.0
 blend_times = [  ]
-autoplay = ""
 
-[node name="BG" type="TextureRect" parent="."]
+[node name="BG" type="TextureRect" parent="." index="1"]
 
 show_behind_parent = true
 material = SubResource( 3 )
@@ -273,6 +276,7 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 4 )
@@ -280,7 +284,7 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Material", "Rect", "Visibility" ]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -291,11 +295,12 @@ margin_bottom = 801.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0, 0, 0, 1 )
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -308,23 +313,24 @@ margin_bottom = 802.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0, 0, 0, 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="4"]
 
 self_modulate = Color( 1, 1, 1, 0.490196 )
 show_behind_parent = true
 material = SubResource( 5 )
 frames = SubResource( 6 )
 animation = "default"
-frame = 7
+frame = 9
 playing = true
 centered = false
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z" ]
 
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="Particles2D" type="Particles2D" parent="." index="5"]
 
 self_modulate = Color( 1, 1, 1, 0.412706 )
 show_behind_parent = true
@@ -349,7 +355,7 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Visibility" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -360,11 +366,12 @@ margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="Spacer" type="Control" parent="VBoxContainer"]
+[node name="Spacer" type="Control" parent="VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -376,10 +383,11 @@ rect_min_size = Vector2( 0, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -392,6 +400,7 @@ rect_min_size = Vector2( 1024, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 15 )
@@ -408,7 +417,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="Label2" type="Label" parent="VBoxContainer/Label"]
+[node name="Label2" type="Label" parent="VBoxContainer/Label" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -421,6 +430,7 @@ rect_min_size = Vector2( 1024, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 16 )
@@ -437,7 +447,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="Control2" type="Control" parent="VBoxContainer"]
+[node name="Control2" type="Control" parent="VBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -450,11 +460,12 @@ rect_min_size = Vector2( 0, 400 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -466,11 +477,12 @@ margin_bottom = 761.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -482,11 +494,12 @@ rect_min_size = Vector2( 75, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -498,12 +511,13 @@ margin_bottom = 232.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_constants/separation = 24
 alignment = 0
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -514,7 +528,9 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 140, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 16 )
@@ -524,8 +540,9 @@ shortcut = null
 group = null
 text = "Start"
 flat = false
+align = 1
 
-[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -537,7 +554,9 @@ margin_bottom = 104.0
 rect_min_size = Vector2( 140, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 16 )
@@ -547,8 +566,9 @@ shortcut = null
 group = null
 text = "Save game"
 flat = false
+align = 1
 
-[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -560,7 +580,9 @@ margin_bottom = 168.0
 rect_min_size = Vector2( 140, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 16 )
@@ -570,8 +592,9 @@ shortcut = null
 group = null
 text = "Load game"
 flat = false
+align = 1
 
-[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -583,7 +606,9 @@ margin_bottom = 232.0
 rect_min_size = Vector2( 140, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 16 )
@@ -593,48 +618,41 @@ shortcut = null
 group = null
 text = "How to play"
 flat = false
+align = 1
 
-[node name="LoadDialog" parent="." instance=ExtResource( 17 )]
+[node name="LoadDialog" parent="." index="7" instance=ExtResource( 17 )]
 
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 316.0
 margin_top = 305.0
 margin_right = 716.0
 margin_bottom = 505.0
 
-[node name="SaveDialog" parent="." instance=ExtResource( 18 )]
+[node name="SaveDialog" parent="." index="8" instance=ExtResource( 18 )]
 
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 318.0
 margin_top = 307.0
 margin_right = 718.0
 margin_bottom = 507.0
 
-[node name="thunder" type="AudioStreamPlayer" parent="."]
+[node name="thunder" type="AudioStreamPlayer" parent="." index="9"]
 
 stream = ExtResource( 19 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
-[node name="BGM" type="AudioStreamPlayer" parent="."]
+[node name="BGM" type="AudioStreamPlayer" parent="." index="10"]
 
 stream = ExtResource( 20 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Music"
 
-[node name="WindowDialog" type="WindowDialog" parent="."]
+[node name="WindowDialog" type="WindowDialog" parent="." index="11"]
 
 visible = false
 anchor_left = 0.0
@@ -649,6 +667,7 @@ rect_min_size = Vector2( 400, 200 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
@@ -656,14 +675,16 @@ window_title = ""
 resizable = false
 _sections_unfolded = [ "Rect" ]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="WindowDialog"]
+[node name="RichTextLabel" type="RichTextLabel" parent="WindowDialog" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 bbcode_enabled = false
@@ -679,6 +700,21 @@ control a small sphere made out of your soul's energy.
 Evade one of her spellcards (attacks) perfectly and there's a chance you'll be granted a small miracle."
 visible_characters = -1
 percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "---
+SHIFT to focus your bullets and move slower
+Z to shoot
+X to use a bomb
+Arrow keys to control your character
+---
+The Witch of Miracles has finally decided the location for your second battle.
+The Sea of Fragments. A normal human can't exist there, so instead you'll
+control a small sphere made out of your soul's energy.
+Evade one of her spellcards (attacks) perfectly and there's a chance you'll be granted a small miracle."
+scroll_active = true
+scroll_following = false
+selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode" ]
 

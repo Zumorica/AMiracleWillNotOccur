@@ -21,6 +21,7 @@ tracks/0/path = NodePath("BG:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 4 ),
 "transitions": PoolRealArray( 0.466516, 1 ),
@@ -32,6 +33,7 @@ tracks/1/path = NodePath("ColorRect:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 4, 1 ),
@@ -86,6 +88,7 @@ void fragment(){
 
 [sub_resource type="ShaderMaterial" id=3]
 
+render_priority = 0
 shader = SubResource( 2 )
 shader_param/enable_scanline = true
 shader_param/transparency_to_black = false
@@ -100,11 +103,14 @@ _sections_unfolded = [ "shader_param" ]
 [node name="Title" type="TextureRect"]
 
 material = ExtResource( 1 )
-anchor_right = 1
-anchor_bottom = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 2 )
@@ -113,29 +119,31 @@ stretch_mode = 0
 script = ExtResource( 3 )
 _sections_unfolded = [ "Material", "Visibility" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
+root_node = NodePath("..")
+autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
-root_node = NodePath("..")
+playback_speed = 1.0
 anims/start = SubResource( 1 )
-playback/active = true
-playback/speed = 1.0
 blend_times = [  ]
-autoplay = ""
 _sections_unfolded = [ "Playback", "playback" ]
 
-[node name="BG" type="TextureRect" parent="."]
+[node name="BG" type="TextureRect" parent="." index="1"]
 
 self_modulate = Color( 1, 1, 1, 0.502627 )
 material = SubResource( 3 )
-anchor_right = 1
-anchor_bottom = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 9.77716
 margin_right = -10.7771
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 4 )
@@ -143,30 +151,44 @@ expand = true
 stretch_mode = 6
 _sections_unfolded = [ "Material", "Rect", "Visibility" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="2"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 1024.0
 margin_bottom = 761.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="Spacer" type="Control" parent="VBoxContainer"]
+[node name="Spacer" type="Control" parent="VBoxContainer" index="0"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 1024.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer" index="1"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 44.0
 margin_right = 1024.0
 margin_bottom = 121.0
@@ -174,6 +196,7 @@ rect_min_size = Vector2( 1024, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 5 )
@@ -190,8 +213,12 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="Label2" type="Label" parent="VBoxContainer/Label"]
+[node name="Label2" type="Label" parent="VBoxContainer/Label" index="0"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 81.0
 margin_right = 1024.0
 margin_bottom = 108.0
@@ -199,6 +226,7 @@ rect_min_size = Vector2( 1024, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 6 )
@@ -215,8 +243,12 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="Control2" type="Control" parent="VBoxContainer"]
+[node name="Control2" type="Control" parent="VBoxContainer" index="2"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 125.0
 margin_right = 1024.0
 margin_bottom = 525.0
@@ -224,54 +256,76 @@ rect_min_size = Vector2( 0, 400 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" index="3"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 529.0
 margin_right = 1024.0
 margin_bottom = 761.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer" index="0"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 75.0
 margin_bottom = 232.0
 rect_min_size = Vector2( 75, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" index="1"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 79.0
 margin_right = 219.0
 margin_bottom = 232.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_constants/separation = 24
 alignment = 0
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="0"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 140.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 140, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 6 )
@@ -281,16 +335,23 @@ shortcut = null
 group = null
 text = "Start"
 flat = false
+align = 1
 
-[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="1"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 64.0
 margin_right = 140.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 140, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 6 )
@@ -300,16 +361,23 @@ shortcut = null
 group = null
 text = "Save game"
 flat = false
+align = 1
 
-[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="2"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 128.0
 margin_right = 140.0
 margin_bottom = 168.0
 rect_min_size = Vector2( 140, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 6 )
@@ -319,16 +387,23 @@ shortcut = null
 group = null
 text = "Load game"
 flat = false
+align = 1
 
-[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="3"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 192.0
 margin_right = 140.0
 margin_bottom = 232.0
 rect_min_size = Vector2( 140, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 6 )
@@ -338,8 +413,9 @@ shortcut = null
 group = null
 text = "How to play"
 flat = false
+align = 1
 
-[node name="LoadDialog" parent="." instance=ExtResource( 7 )]
+[node name="LoadDialog" parent="." index="3" instance=ExtResource( 7 )]
 
 visible = false
 margin_left = 301.0
@@ -347,7 +423,7 @@ margin_top = 320.0
 margin_right = 701.0
 margin_bottom = 520.0
 
-[node name="SaveDialog" parent="." instance=ExtResource( 8 )]
+[node name="SaveDialog" parent="." index="4" instance=ExtResource( 8 )]
 
 visible = false
 margin_left = 300.0
@@ -355,30 +431,37 @@ margin_top = 321.0
 margin_right = 700.0
 margin_bottom = 521.0
 
-[node name="atmosphere" type="AudioStreamPlayer" parent="."]
+[node name="atmosphere" type="AudioStreamPlayer" parent="." index="5"]
 
 stream = ExtResource( 9 )
 volume_db = -20.0
 autoplay = true
 mix_target = 0
-bus = "Master"
+bus = "Music"
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." index="6"]
 
 visible = false
-anchor_right = 1
-anchor_bottom = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0, 0, 0, 1 )
 _sections_unfolded = [ "Mouse", "Visibility" ]
 
-[node name="WindowDialog" type="WindowDialog" parent="."]
+[node name="WindowDialog" type="WindowDialog" parent="." index="7"]
 
 visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 508.0
 margin_top = 265.0
 margin_right = 524.0
@@ -387,6 +470,7 @@ rect_min_size = Vector2( 400, 250 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
@@ -394,13 +478,19 @@ window_title = ""
 resizable = false
 _sections_unfolded = [ "Rect" ]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="WindowDialog"]
+[node name="RichTextLabel" type="RichTextLabel" parent="WindowDialog" index="1"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 400, 250 )
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 bbcode_enabled = true
@@ -415,6 +505,21 @@ There is only one condition, though... You must look exactly like one of her kit
 "
 visible_characters = -1
 percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "---
+SHIFT to jump. 
+You can DOUBLE JUMP by pressing SHIFT while in mid-air.
+You will jump lower or higher depending how much you hold the shift key. 
+Z to shoot.
+---
+The Witch of Miracles has invited you to the great City of Books.
+There is only one condition, though... You must look exactly like one of her kitties, or you will not be allowed in such a place. Be careful, the witch has placed traps all around the city, and her kitties are looking for you...
+"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect" ]
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button" to="." method="start"]

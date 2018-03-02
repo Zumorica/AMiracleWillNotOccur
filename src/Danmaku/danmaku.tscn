@@ -37,6 +37,7 @@ tracks/0/path = NodePath("BGM:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -48,6 +49,7 @@ tracks/1/path = NodePath("BGM")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 2 ),
 "transitions": PoolRealArray( 1 ),
@@ -67,6 +69,7 @@ tracks/0/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -84,6 +87,7 @@ tracks/0/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -95,6 +99,7 @@ tracks/1/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -106,6 +111,7 @@ tracks/2/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0.5 ),
 "transitions": PoolRealArray( 1 ),
@@ -123,6 +129,7 @@ tracks/0/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -134,6 +141,7 @@ tracks/1/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -145,6 +153,7 @@ tracks/2/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0.5 ),
 "transitions": PoolRealArray( 1 ),
@@ -163,6 +172,7 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 0.25, 1 ),
@@ -180,6 +190,7 @@ tracks/0/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -191,6 +202,7 @@ tracks/1/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -202,6 +214,7 @@ tracks/2/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0.5 ),
 "transitions": PoolRealArray( 1 ),
@@ -219,6 +232,7 @@ tracks/0/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -230,6 +244,7 @@ tracks/1/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -241,6 +256,7 @@ tracks/2/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0.5 ),
 "transitions": PoolRealArray( 1 ),
@@ -258,6 +274,7 @@ tracks/0/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -269,6 +286,7 @@ tracks/1/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -280,6 +298,7 @@ tracks/2/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0.5 ),
 "transitions": PoolRealArray( 1 ),
@@ -297,6 +316,7 @@ tracks/0/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -308,6 +328,7 @@ tracks/1/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -319,6 +340,7 @@ tracks/2/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0.5 ),
 "transitions": PoolRealArray( 1 ),
@@ -336,6 +358,7 @@ tracks/0/path = NodePath("HBoxContainer/Game/ViewportContainer/Viewport/OverlayB
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -352,6 +375,7 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 1 )
@@ -380,11 +404,13 @@ bomb_texture = ExtResource( 4 )
 power_scene = ExtResource( 5 )
 point_scene = ExtResource( 6 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
+root_node = NodePath("..")
+autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
-root_node = NodePath("..")
+playback_speed = 1.0
 anims/FadeMusic = SubResource( 1 )
 anims/FadeToWhite1 = SubResource( 2 )
 anims/Hinamizawa = SubResource( 3 )
@@ -395,12 +421,9 @@ anims/Spiral1 = SubResource( 7 )
 anims/Spiral2 = SubResource( 8 )
 anims/Spiral3 = SubResource( 9 )
 anims/WhiteFlash1 = SubResource( 10 )
-playback/active = true
-playback/speed = 1.0
 blend_times = [  ]
-autoplay = ""
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -411,12 +434,13 @@ margin_bottom = 768.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Anchor", "custom_constants" ]
 
-[node name="Filler" type="Control" parent="HBoxContainer"]
+[node name="Filler" type="Control" parent="HBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -428,11 +452,12 @@ rect_min_size = Vector2( 28, 32 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin", "Rect" ]
 
-[node name="Game" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Game" type="VBoxContainer" parent="HBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -444,12 +469,13 @@ margin_bottom = 768.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
-[node name="Filler" type="Control" parent="HBoxContainer/Game"]
+[node name="Filler" type="Control" parent="HBoxContainer/Game" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -461,11 +487,12 @@ rect_min_size = Vector2( 0, 28 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
-[node name="ViewportContainer" type="ViewportContainer" parent="HBoxContainer/Game"]
+[node name="ViewportContainer" type="ViewportContainer" parent="HBoxContainer/Game" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -478,6 +505,7 @@ rect_min_size = Vector2( 598, 736 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 stretch = false
@@ -487,7 +515,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Viewport" type="Viewport" parent="HBoxContainer/Game/ViewportContainer"]
+[node name="Viewport" type="Viewport" parent="HBoxContainer/Game/ViewportContainer" index="0"]
 
 arvr = false
 size = Vector2( 598, 736 )
@@ -514,20 +542,20 @@ shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
 _sections_unfolded = [ "Audio Listener", "GUI", "Physics", "Render Target", "Rendering", "Shadow Atlas" ]
 
-[node name="Background" parent="HBoxContainer/Game/ViewportContainer/Viewport" instance=ExtResource( 13 )]
+[node name="Background" parent="HBoxContainer/Game/ViewportContainer/Viewport" index="0" instance=ExtResource( 13 )]
 
-z = -100
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z" ]
 
-[node name="OverlayBackgroundLayer" type="CanvasLayer" parent="HBoxContainer/Game/ViewportContainer/Viewport"]
+[node name="OverlayBackgroundLayer" type="CanvasLayer" parent="HBoxContainer/Game/ViewportContainer/Viewport" index="1"]
 
 editor/display_folded = true
 layer = 0
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Sprite" type="TextureRect" parent="HBoxContainer/Game/ViewportContainer/Viewport/OverlayBackgroundLayer"]
+[node name="Sprite" type="TextureRect" parent="HBoxContainer/Game/ViewportContainer/Viewport/OverlayBackgroundLayer" index="0"]
 
 visible = false
 anchor_left = 0.0
@@ -537,6 +565,7 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 10 )
@@ -544,7 +573,7 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Anchor", "Animation", "Margin", "Offset", "Rect", "Visibility" ]
 
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Game/ViewportContainer/Viewport/OverlayBackgroundLayer"]
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Game/ViewportContainer/Viewport/OverlayBackgroundLayer" index="1"]
 
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
@@ -554,19 +583,21 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 1, 1, 1, 1 )
 _sections_unfolded = [ "Material", "Rect", "Visibility" ]
 
-[node name="GUILayer" type="CanvasLayer" parent="HBoxContainer/Game/ViewportContainer/Viewport"]
+[node name="GUILayer" type="CanvasLayer" parent="HBoxContainer/Game/ViewportContainer/Viewport" index="2"]
 
 layer = 100
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="spellcardbonus" type="Label" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer"]
+[node name="spellcardbonus" type="Label" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer" index="0"]
 
 editor/display_folded = true
 visible = false
@@ -581,6 +612,7 @@ margin_bottom = 189.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
 custom_fonts/font = ExtResource( 14 )
@@ -596,7 +628,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/spellcardbonus"]
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/spellcardbonus" index="0"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -608,12 +640,13 @@ margin_bottom = -40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 use_top_left = false
 _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
-[node name="points" type="Label" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/spellcardbonus/CenterContainer"]
+[node name="points" type="Label" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/spellcardbonus/CenterContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -625,6 +658,7 @@ margin_bottom = 39.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
 custom_fonts/font = ExtResource( 14 )
@@ -640,7 +674,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer" index="1"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -652,11 +686,12 @@ margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="Spacer" type="Control" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/VBoxContainer"]
+[node name="Spacer" type="Control" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -668,11 +703,12 @@ rect_min_size = Vector2( 0, 70 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin", "Rect" ]
 
-[node name="spellcardtext" type="Label" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/VBoxContainer"]
+[node name="spellcardtext" type="Label" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/VBoxContainer" index="1"]
 
 visible = false
 anchor_left = 0.0
@@ -687,6 +723,7 @@ rect_min_size = Vector2( 598, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
 custom_fonts/font = ExtResource( 14 )
@@ -703,7 +740,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "custom_colors", "custom_constants" ]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer" index="2"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -715,12 +752,13 @@ margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Anchor" ]
 
-[node name="Filler" type="Control" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer"]
+[node name="Filler" type="Control" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -731,11 +769,12 @@ rect_min_size = Vector2( 0, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Grow Direction", "Margin", "Rect" ]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -747,11 +786,12 @@ margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="Filler" type="Control" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer/HBoxContainer"]
+[node name="Filler" type="Control" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer/HBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -763,11 +803,12 @@ rect_min_size = Vector2( 16, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin", "Rect" ]
 
-[node name="SpellcardBox" type="RichTextLabel" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer/HBoxContainer"]
+[node name="SpellcardBox" type="RichTextLabel" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer/HBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -778,7 +819,9 @@ margin_right = 620.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 600, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/normal_font = ExtResource( 15 )
@@ -786,10 +829,16 @@ bbcode_enabled = true
 bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Grow Direction", "Margin", "Rect", "custom_fonts" ]
 
-[node name="Filler2" type="Control" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer"]
+[node name="Filler2" type="Control" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -801,10 +850,11 @@ margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Game/ViewportContainer/Viewport/GUILayer/HBoxContainer" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -816,51 +866,51 @@ margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="SpriteLayer" type="CanvasLayer" parent="HBoxContainer/Game/ViewportContainer/Viewport"]
+[node name="SpriteLayer" type="CanvasLayer" parent="HBoxContainer/Game/ViewportContainer/Viewport" index="3"]
 
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Bernkastel" parent="HBoxContainer/Game/ViewportContainer/Viewport/SpriteLayer" instance=ExtResource( 16 )]
+[node name="Bernkastel" parent="HBoxContainer/Game/ViewportContainer/Viewport/SpriteLayer" index="0" instance=ExtResource( 16 )]
 
 position = Vector2( 300, 150 )
-z = 10
+frame = 5
 _sections_unfolded = [ "Animation", "Material", "Offset", "Transform", "Visibility", "Z" ]
 bulletmanager = NodePath("../BulletManager")
 background = NodePath("../../Background")
 
-[node name="Player" parent="HBoxContainer/Game/ViewportContainer/Viewport/SpriteLayer" instance=ExtResource( 17 )]
+[node name="Player" parent="HBoxContainer/Game/ViewportContainer/Viewport/SpriteLayer" index="1" instance=ExtResource( 17 )]
 
 position = Vector2( 290, 600 )
-z = 10
 _sections_unfolded = [ "Offset", "Transform", "Z" ]
 
-[node name="BulletManager" parent="HBoxContainer/Game/ViewportContainer/Viewport/SpriteLayer" instance=ExtResource( 18 )]
+[node name="BulletManager" parent="HBoxContainer/Game/ViewportContainer/Viewport/SpriteLayer" index="2" instance=ExtResource( 18 )]
 
-z = 100
 _sections_unfolded = [ "Transform", "Z" ]
 bernkastel = NodePath("../Bernkastel")
 
-[node name="BulletManager2" parent="HBoxContainer/Game/ViewportContainer/Viewport/SpriteLayer" instance=ExtResource( 18 )]
+[node name="BulletManager2" parent="HBoxContainer/Game/ViewportContainer/Viewport/SpriteLayer" index="3" instance=ExtResource( 18 )]
 
-z = 100
 _sections_unfolded = [ "Transform", "Z" ]
 bernkastel = NodePath("../Bernkastel")
 
-[node name="TextboxLayer" type="CanvasLayer" parent="HBoxContainer/Game/ViewportContainer/Viewport"]
+[node name="TextboxLayer" type="CanvasLayer" parent="HBoxContainer/Game/ViewportContainer/Viewport" index="4"]
 
 layer = 100
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Textbox" parent="HBoxContainer/Game/ViewportContainer/Viewport/TextboxLayer" instance=ExtResource( 19 )]
+[node name="Textbox" parent="HBoxContainer/Game/ViewportContainer/Viewport/TextboxLayer" index="0" instance=ExtResource( 19 )]
 
 visible = false
 margin_left = 0.0
@@ -868,8 +918,9 @@ margin_top = 525.0
 margin_right = 593.0
 margin_bottom = 725.0
 rect_min_size = Vector2( 593, 200 )
+mouse_default_cursor_shape = 0
 
-[node name="Filler2" type="Control" parent="HBoxContainer"]
+[node name="Filler2" type="Control" parent="HBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -882,11 +933,12 @@ rect_min_size = Vector2( 32, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="UI" type="VBoxContainer" parent="HBoxContainer"]
+[node name="UI" type="VBoxContainer" parent="HBoxContainer" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -899,12 +951,13 @@ rect_min_size = Vector2( 338, 768 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 2
 _sections_unfolded = [ "Hint", "Margin", "Rect" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/UI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/UI" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -917,12 +970,13 @@ rect_min_size = Vector2( 338, 395 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Enemy" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer"]
+[node name="Enemy" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -934,12 +988,13 @@ margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="text" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Enemy"]
+[node name="text" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Enemy" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -949,7 +1004,9 @@ margin_right = 80.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 80, 32 )
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/normal_font = ExtResource( 15 )
@@ -957,10 +1014,16 @@ bbcode_enabled = true
 bbcode_text = "Enemy"
 visible_characters = -1
 percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Enemy"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect", "custom_fonts" ]
 
-[node name="EnemyLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Enemy"]
+[node name="EnemyLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Enemy" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -971,7 +1034,9 @@ margin_right = 342.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 258, 32 )
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/normal_font = ExtResource( 15 )
@@ -979,10 +1044,16 @@ bbcode_enabled = true
 bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Margin", "Rect", "custom_fonts" ]
 
-[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/UI/VBoxContainer/Enemy/EnemyLabel"]
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/UI/VBoxContainer/Enemy/EnemyLabel" index="1"]
 
 show_behind_parent = true
 anchor_left = 0.0
@@ -992,6 +1063,7 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
 min_value = 0.0
@@ -1004,7 +1076,7 @@ rounded = false
 percent_visible = false
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Percent", "Visibility" ]
 
-[node name="Filler3" type="Control" parent="HBoxContainer/UI/VBoxContainer"]
+[node name="Filler3" type="Control" parent="HBoxContainer/UI/VBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1017,11 +1089,12 @@ rect_min_size = Vector2( 0, 32 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="HighScore" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer"]
+[node name="HighScore" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1033,12 +1106,13 @@ margin_bottom = 135.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="text" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/HighScore"]
+[node name="text" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/HighScore" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1048,7 +1122,9 @@ margin_right = 120.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 120, 32 )
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/normal_font = ExtResource( 15 )
@@ -1056,10 +1132,16 @@ bbcode_enabled = true
 bbcode_text = "High Score"
 visible_characters = -1
 percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "High Score"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect", "custom_fonts" ]
 
-[node name="HighScoreLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/HighScore"]
+[node name="HighScoreLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/HighScore" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1070,7 +1152,9 @@ margin_right = 342.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 218, 32 )
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/normal_font = ExtResource( 15 )
@@ -1078,10 +1162,16 @@ bbcode_enabled = true
 bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Margin", "Rect" ]
 
-[node name="Score" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer"]
+[node name="Score" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1093,12 +1183,13 @@ margin_bottom = 171.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="text" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Score"]
+[node name="text" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Score" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1108,7 +1199,9 @@ margin_right = 80.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 80, 32 )
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/normal_font = ExtResource( 15 )
@@ -1116,10 +1209,16 @@ bbcode_enabled = true
 bbcode_text = "Score"
 visible_characters = -1
 percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Score"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Margin", "Rect", "custom_fonts" ]
 
-[node name="Control" type="Control" parent="HBoxContainer/UI/VBoxContainer/Score"]
+[node name="Control" type="Control" parent="HBoxContainer/UI/VBoxContainer/Score" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1132,11 +1231,12 @@ rect_min_size = Vector2( 36, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="ScoreLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Score"]
+[node name="ScoreLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Score" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1147,7 +1247,9 @@ margin_right = 342.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 218, 32 )
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/normal_font = ExtResource( 15 )
@@ -1155,10 +1257,16 @@ bbcode_enabled = true
 bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Margin", "Rect", "custom_fonts" ]
 
-[node name="Filler" type="Control" parent="HBoxContainer/UI/VBoxContainer"]
+[node name="Filler" type="Control" parent="HBoxContainer/UI/VBoxContainer" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1171,11 +1279,12 @@ rect_min_size = Vector2( 0, 32 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Lives" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer"]
+[node name="Lives" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1187,12 +1296,13 @@ margin_bottom = 249.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="text" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Lives"]
+[node name="text" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Lives" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1202,7 +1312,9 @@ margin_right = 80.0
 margin_bottom = 38.0
 rect_min_size = Vector2( 80, 32 )
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/normal_font = ExtResource( 15 )
@@ -1210,10 +1322,16 @@ bbcode_enabled = true
 bbcode_text = "Lives"
 visible_characters = -1
 percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Lives"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect", "custom_fonts" ]
 
-[node name="LivesLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Lives"]
+[node name="LivesLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Lives" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1224,7 +1342,9 @@ margin_right = 342.0
 margin_bottom = 38.0
 rect_min_size = Vector2( 258, 38 )
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/normal_font = ExtResource( 15 )
@@ -1232,10 +1352,16 @@ bbcode_enabled = true
 bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Rect", "custom_fonts" ]
 
-[node name="Bomb" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer"]
+[node name="Bomb" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer" index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1247,12 +1373,13 @@ margin_bottom = 291.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="text" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Bomb"]
+[node name="text" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Bomb" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1262,7 +1389,9 @@ margin_right = 80.0
 margin_bottom = 38.0
 rect_min_size = Vector2( 80, 32 )
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/normal_font = ExtResource( 15 )
@@ -1270,10 +1399,16 @@ bbcode_enabled = true
 bbcode_text = "Bomb"
 visible_characters = -1
 percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Bomb"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect", "custom_fonts" ]
 
-[node name="BombLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Bomb"]
+[node name="BombLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Bomb" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1284,17 +1419,25 @@ margin_right = 342.0
 margin_bottom = 38.0
 rect_min_size = Vector2( 258, 38 )
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 bbcode_enabled = true
 bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect" ]
 
-[node name="Filler2" type="Control" parent="HBoxContainer/UI/VBoxContainer"]
+[node name="Filler2" type="Control" parent="HBoxContainer/UI/VBoxContainer" index="7"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1307,11 +1450,12 @@ rect_min_size = Vector2( 0, 32 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Power" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer"]
+[node name="Power" type="HBoxContainer" parent="HBoxContainer/UI/VBoxContainer" index="8"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1323,12 +1467,13 @@ margin_bottom = 363.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="text" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Power"]
+[node name="text" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Power" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1338,7 +1483,9 @@ margin_right = 80.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 80, 32 )
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/normal_font = ExtResource( 15 )
@@ -1346,10 +1493,16 @@ bbcode_enabled = true
 bbcode_text = "Power"
 visible_characters = -1
 percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Power"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect", "custom_fonts" ]
 
-[node name="PowerLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Power"]
+[node name="PowerLabel" type="RichTextLabel" parent="HBoxContainer/UI/VBoxContainer/Power" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1360,7 +1513,9 @@ margin_right = 342.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 258, 32 )
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/normal_font = ExtResource( 15 )
@@ -1368,10 +1523,16 @@ bbcode_enabled = true
 bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Margin", "Rect", "custom_fonts" ]
 
-[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/UI/VBoxContainer/Power/PowerLabel"]
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/UI/VBoxContainer/Power/PowerLabel" index="1"]
 
 show_behind_parent = true
 anchor_left = 0.0
@@ -1381,6 +1542,7 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
 min_value = 0.0
@@ -1393,7 +1555,7 @@ rounded = false
 percent_visible = false
 _sections_unfolded = [ "Margin", "Material", "Percent", "Visibility" ]
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/UI"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/UI" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1405,53 +1567,54 @@ margin_bottom = 768.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 20 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Pichun" type="AudioStreamPlayer" parent="."]
+[node name="Pichun" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = ExtResource( 21 )
 volume_db = -10.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
-[node name="Glassbreak" type="AudioStreamPlayer" parent="."]
+[node name="Glassbreak" type="AudioStreamPlayer" parent="." index="3"]
 
 stream = ExtResource( 22 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
-[node name="BGM" type="AudioStreamPlayer" parent="."]
+[node name="BGM" type="AudioStreamPlayer" parent="." index="4"]
 
 stream = ExtResource( 23 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Music"
 
-[node name="Magic" type="AudioStreamPlayer" parent="."]
+[node name="Magic" type="AudioStreamPlayer" parent="." index="5"]
 
 stream = ExtResource( 24 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
-[node name="Ahaha" type="AudioStreamPlayer" parent="."]
+[node name="Ahaha" type="AudioStreamPlayer" parent="." index="6"]
 
 stream = ExtResource( 25 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." index="7"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1460,6 +1623,7 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0, 0, 0, 0 )
