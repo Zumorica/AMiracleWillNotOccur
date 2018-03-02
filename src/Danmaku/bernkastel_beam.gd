@@ -69,7 +69,7 @@ func create_new_ray():
 		var new_ray = ray.instance()
 		new_ray.position = Vector2(48, -24) * Vector2(rays_created, 1)
 		#new_ray.rotation_degrees = direction# buggy reee
-		new_ray.z = -1
+		new_ray.z_index = -1
 		add_child(new_ray)
 		rays_created += 1
 
