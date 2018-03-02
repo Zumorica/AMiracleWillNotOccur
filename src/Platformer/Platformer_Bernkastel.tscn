@@ -36,7 +36,7 @@ extents = Vector2( 32, 32 )
 custom_solver_bias = 0.0
 extents = Vector2( 512, 128 )
 
-[node name="Platformer_Bernkastel" type="Node2D" index="0"]
+[node name="Platformer_Bernkastel" type="Node2D"]
 
 script = ExtResource( 1 )
 level = 1
@@ -119,6 +119,7 @@ _sections_unfolded = [ "Z", "Z Index" ]
 
 show_behind_parent = true
 position = Vector2( 896, 0 )
+z_index = -10
 z_as_relative = false
 _sections_unfolded = [ "Material", "Scroll", "Transform", "Visibility", "Z", "Z Index" ]
 
@@ -304,7 +305,7 @@ bernkastel = NodePath("../Bernkastel")
 ] instance=ExtResource( 17 )]
 
 position = Vector2( 2208, 438.956 )
-frame = 3
+frame = 5
 bulletmanager = NodePath("../BulletManager")
 textbox = NodePath("../../CanvasLayer3/Textbox")
 background = NodePath("../Background")
