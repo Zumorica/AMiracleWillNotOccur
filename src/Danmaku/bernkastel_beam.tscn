@@ -16,24 +16,24 @@ flag_disable_z = true
 spread = 180.0
 flatness = 0.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 1.0
-initial_velocity_random = 0.0
-angular_velocity = 180.0
+initial_velocity = 100.0
+initial_velocity_random = 1.0
+angular_velocity = 1.0
 angular_velocity_random = 0.0
-orbit_velocity = 25.0
+orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 linear_accel = 0.0
 linear_accel_random = 0.0
-radial_accel = 0.25
+radial_accel = 0.0
 radial_accel_random = 0.0
-tangential_accel = 0.25
+tangential_accel = 0.0
 tangential_accel_random = 0.0
 damping = 0.0
 damping_random = 0.0
 angle = 0.0
 angle_random = 0.0
-scale = 3.0
-scale_random = 0.0
+scale = 2.0
+scale_random = 1.0
 color = Color( 1, 1, 1, 1 )
 hue_variation = 0.0
 hue_variation_random = 0.0
@@ -42,14 +42,14 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Angular Velocity", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Orbit Velocity", "Radial Accel", "Scale", "Spread", "Tangential Accel" ]
+_sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Scale", "Spread", "Tangential Accel" ]
 
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 32.0
 
-[node name="Bernkastel_Beam" type="KinematicBody2D"]
+[node name="Bernkastel_Beam" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 4
@@ -77,11 +77,11 @@ show_behind_parent = true
 z_index = 1
 emitting = true
 amount = 32
-lifetime = 1.0
+lifetime = 0.25
 one_shot = false
 preprocess = 0.0
 speed_scale = 1.0
-explosiveness = 0.0
+explosiveness = 1.0
 randomness = 0.0
 fixed_fps = 0
 fract_delta = true
