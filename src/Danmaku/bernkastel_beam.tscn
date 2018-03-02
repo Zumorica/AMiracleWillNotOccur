@@ -20,13 +20,13 @@ initial_velocity = 1.0
 initial_velocity_random = 0.0
 angular_velocity = 180.0
 angular_velocity_random = 0.0
-orbit_velocity = 180.0
+orbit_velocity = 25.0
 orbit_velocity_random = 0.0
 linear_accel = 0.0
 linear_accel_random = 0.0
-radial_accel = 25.0
+radial_accel = 0.25
 radial_accel_random = 0.0
-tangential_accel = 100.0
+tangential_accel = 0.25
 tangential_accel_random = 0.0
 damping = 0.0
 damping_random = 0.0
@@ -74,6 +74,7 @@ destroy_if_offscreen = true
 [node name="Particles2D" type="Particles2D" parent="." index="0"]
 
 show_behind_parent = true
+z_index = 1
 emitting = true
 amount = 32
 lifetime = 1.0
@@ -92,7 +93,7 @@ texture = null
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Time", "Transform", "Visibility", "Z" ]
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Time", "Transform", "Visibility", "Z", "Z Index" ]
 
 [node name="Foreground" type="Sprite" parent="." index="1"]
 

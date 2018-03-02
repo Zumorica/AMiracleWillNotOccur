@@ -6,6 +6,7 @@
 
 [sub_resource type="ParticlesMaterial" id=1]
 
+render_priority = 0
 trail_divisor = 1
 emission_shape = 1
 emission_sphere_radius = 24.0
@@ -45,6 +46,7 @@ _sections_unfolded = [ "Color", "Emission Shape", "Flags", "Gravity", "Hue Varia
 
 [sub_resource type="ParticlesMaterial" id=2]
 
+render_priority = 0
 trail_divisor = 1
 emission_shape = 1
 emission_sphere_radius = 24.0
@@ -90,7 +92,6 @@ extents = Vector2( 24, 24 )
 [node name="Bernkastel_ray" type="KinematicBody2D"]
 
 show_behind_parent = true
-z = -1
 input_pickable = false
 collision_layer = 4
 collision_mask = 0
@@ -98,11 +99,10 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Material", "Transform", "Visibility", "Z", "collision" ]
 
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="Particles2D" type="Particles2D" parent="." index="0"]
 
 show_behind_parent = true
 position = Vector2( 24, 24 )
-z = -10
 emitting = true
 amount = 8
 lifetime = 0.75
@@ -123,11 +123,10 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Time", "Transform", "Visibility", "Z" ]
 
-[node name="Particles2D2" type="Particles2D" parent="."]
+[node name="Particles2D2" type="Particles2D" parent="." index="1"]
 
 show_behind_parent = true
 position = Vector2( 24, 24 )
-z = -10
 emitting = true
 amount = 8
 lifetime = 0.75
@@ -148,23 +147,23 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Time", "Transform", "Visibility", "Z" ]
 
-[node name="Foreground" type="Sprite" parent="."]
+[node name="Foreground" type="Sprite" parent="." index="2"]
 
 use_parent_material = true
 rotation = 4.71239
 scale = Vector2( -1, 1 )
+z_index = 1
 texture = ExtResource( 2 )
 centered = false
-_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z" ]
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z", "Z Index" ]
 
-[node name="Background" type="Sprite" parent="."]
+[node name="Background" type="Sprite" parent="." index="3"]
 
-z = -1
 texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Animation", "Material", "Offset", "Visibility", "Z" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
 
 position = Vector2( 24, 24 )
 shape = SubResource( 3 )
