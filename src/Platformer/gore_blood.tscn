@@ -1,7 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [sub_resource type="ParticlesMaterial" id=1]
 
+render_priority = 0
 trail_divisor = 1
 emission_shape = 1
 emission_sphere_radius = 30.0
@@ -11,15 +12,15 @@ flag_disable_z = true
 spread = 180.0
 flatness = 0.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 1.0
+initial_velocity = 1000.0
 initial_velocity_random = 0.0
-angular_velocity = 180.0
+angular_velocity = 0.0
 angular_velocity_random = 0.0
-orbit_velocity = 180.0
+orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 linear_accel = 0.0
 linear_accel_random = 0.0
-radial_accel = 25.0
+radial_accel = 50.0
 radial_accel_random = 0.0
 tangential_accel = 0.0
 tangential_accel_random = 0.0
@@ -39,14 +40,21 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Damping", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Spread", "Tangential Accel", "Trail" ]
 
-[node name="Blood" type="Particles2D"]
+[sub_resource type="GDScript" id=2]
 
-emitting = true
+script/source = "extends Particles2D
+
+func _ready():
+	emitting = true"
+
+[node name="Blood" type="Particles2D" index="0"]
+
+emitting = false
 amount = 50000
 lifetime = 8.0
 one_shot = true
 preprocess = 0.0
-speed_scale = 24.0
+speed_scale = 1.0
 explosiveness = 1.0
 randomness = 0.0
 fixed_fps = 0
@@ -59,6 +67,7 @@ texture = null
 normal_map = null
 h_frames = 1
 v_frames = 1
+script = SubResource( 2 )
 _sections_unfolded = [ "Angular", "Drawing", "Linear", "Process Material", "Textures", "Time", "Transform" ]
 
 
