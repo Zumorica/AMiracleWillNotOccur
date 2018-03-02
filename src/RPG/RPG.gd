@@ -713,7 +713,7 @@ func _on_MagicMissile_pressed():
 		var dmg = (randi()%15) + 1
 		if bstatus.has("Defending"):
 			dmg = round((dmg * mult) / 2)
-		var missiles = randi()%4
+		var missiles = (randi()%3) + 1
 		dmg = dmg * missiles
 		match missiles:
 			3:
@@ -722,12 +722,10 @@ func _on_MagicMissile_pressed():
 				textbox.add_to_queue("You summon two magic missiles!")
 			1:
 				textbox.add_to_queue("You summon a magic missile.")
-			0:
-				textbox.add_to_queue("You summon three magic missiles... But they explode midair.")
 			_:
 				assert typeof(missiles) == TYPE_INT
 				assert missiles <= 3
-				assert missiles >= 0
+				assert missiles > 0
 		yield(textbox.label, "on_queue_end")
 		yield(get_tree().create_timer(2), "timeout")
 		textbox.newline()
@@ -754,7 +752,7 @@ func _on_MagicPunch_pressed():
 		textbox.show()
 		randomize()
 		var dmg = round(((randi()%30) + 1) * mult)
-		var shock = randi()%5
+		var shock = (randi()%5) + 1
 		match shock:
 			4:
 				bstatus.append("Shocked....")
@@ -764,12 +762,10 @@ func _on_MagicPunch_pressed():
 				bstatus.append("Shocked..")
 			1:
 				bstatus.append("Shocked.")
-			0:
-				bstatus.append("Shocked")
 			_:
 				assert typeof(shock) == TYPE_INT
 				assert shock <= 4
-				assert shock >= 0
+				assert shock > 0
 		textbox.add_to_queue("You concentrate all your energy in your fist...")
 		yield(textbox.label, "on_queue_end")
 		yield(get_tree().create_timer(3), "timeout")
