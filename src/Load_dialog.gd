@@ -20,7 +20,7 @@ func reset_names():
 	savegame_name.text = "    Unknown"
 	stage_name.text = "    Unknown"
 	date.text = "    Unknown"
-	
+
 func save_selected(save):
 	reset_names()
 	var data = miracle._load_game(save)
@@ -43,13 +43,13 @@ func refresh():
 	var directory = Directory.new()
 	directory.open("user://save/")
 	directory.list_dir_begin(true, true)
-	var name = directory.get_next()
-	while name != "":
+	var n = directory.get_next()
+	while n != "":
 		if not directory.current_is_dir():
-			if name.ends_with(".sav"):
-				saves.append(name)
-				save_list.add_item(name.replace(".sav", ""))
-		name = directory.get_next()
+			if n.ends_with(".sav"):
+				saves.append(n)
+				save_list.add_item(n.replace(".sav", ""))
+		n = directory.get_next()
 
 func _on_List_item_selected(index):
 	selected = index

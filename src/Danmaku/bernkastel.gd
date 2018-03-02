@@ -5,7 +5,7 @@ export(NodePath) var background
 var end_vector = Vector2(0, 0)
 var is_moving = false
 var velocity = Vector2(160, 160)
-var name = "The Witch of Miracles"
+var _name = "The Witch of Miracles"
 
 var is_deadly = true
 var is_dead = false
@@ -23,7 +23,7 @@ func _ready():
 	bulletmanager = get_node(bulletmanager)
 	background = get_node(background)
 	background.set_shader_enabled(false)
-	yield(spellcard_init(name, 1), "completed")
+	yield(spellcard_init(_name, 1), "completed")
 	textbox = miracle.game_root.textbox
 	textbox.show()
 	textbox.set_name("Bernkastel")
@@ -372,11 +372,11 @@ func closed_room_spellcard():
 		miracle.game_root.get_node("AnimationPlayer").play_backwards("Spiral3")
 		move(Vector2(300, 400))
 
-func spellcard_init(name="Fragment 「Unknown」", delay_before_starting=1, physics_fps=60, force_fps=0):
+func spellcard_init(n="Fragment 「Unknown」", delay_before_starting=1, physics_fps=60, force_fps=0):
 	yield(get_tree().create_timer(delay_before_starting), "timeout")
 	miracle.game_root.died_during_spellcard = false
 	miracle.game_root.spellcard_textbox.clear()
-	miracle.game_root.spellcard_textbox.add_text(name)
+	miracle.game_root.spellcard_textbox.add_text(n)
 	miracle.game_root.spawn_collectibles = false
 	ProjectSettings.set("physics/common/Fixed Fps", physics_fps)
 	ProjectSettings.set("debug/fps/Force Fps", force_fps)
@@ -384,7 +384,7 @@ func spellcard_init(name="Fragment 「Unknown」", delay_before_starting=1, phys
 func spellcard_end(bonus_points=10000, delay_before_ending=1):
 	yield(get_tree().create_timer(delay_before_ending), "timeout")
 	miracle.game_root.spellcard_textbox.clear()
-	miracle.game_root.spellcard_textbox.add_text(name)
+	miracle.game_root.spellcard_textbox.add_text(_name)
 	miracle.game_root.spawn_collectibles = true
 	miracle.game_root.get_node("Glassbreak").play()
 	animation = "idle"

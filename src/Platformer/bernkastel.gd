@@ -19,7 +19,6 @@ onready var maxhealth = health
 signal stopped_moving()
 
 func _ready():
-	name = "The Witch of Miracles"
 	bulletmanager = get_node(bulletmanager)
 	textbox = get_node(textbox)
 	background = get_node(background)

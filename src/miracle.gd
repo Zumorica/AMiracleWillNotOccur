@@ -88,27 +88,27 @@ func reset_values():
 	platformer_respawn_coordinates = Vector2(128, 256)
 
 
-func save_game(name):
+func save_game(n):
 	var data = {"game" : current_game, "rpg_dialogue_read" : rpg_dialogue_read, "danmaku_dialogue_read" : danmaku_dialogue_read, "platformer_dialogue_read" : platformer_dialogue_read,
 				"rpg_mercy" : asked_for_mercy, "rpg_mercy_twice" : asked_for_mercy_twice, "rpg_run_away" : tried_to_run_away,
 				"rpg_defeated_bernkastel" : defeated_bernkastel_rpg, "danmaku_defeated_bernkastel" : defeated_bernkastel_danmaku,
 				"platformer_deaths" : platformer_deaths, "platformer_respawn_coordinates" : platformer_respawn_coordinates, "platformer_level" : platformer_level, "date" : OS.get_datetime()}
-	if name.ends_with(".sav"):
-		name.erase(name.length() - 4,4)
+	if n.ends_with(".sav"):
+		n.erase(n.length() - 4,4)
 	var file = File.new()
 	var dir = Directory.new()
-	var path = "user://save/%s.sav"%name
+	var path = "user://save/%s.sav"%n
 	if dir.file_exists(path):
 		dir.remove(path)
 	file.open(path, file.WRITE)
 	file.store_var(data)
 	file.close()
 
-func _load_game(name):
+func _load_game(n):
 	var file = File.new()
-	if name.ends_with(".sav"):
-		name.erase(name.length() - 4,4)
-	file.open("user://save/%s.sav"%name, file.READ)
+	if n.ends_with(".sav"):
+		n.erase(n.length() - 4,4)
+	file.open("user://save/%s.sav"%n, file.READ)
 	var data = file.get_var()
 	file.close()
 	return data
@@ -138,8 +138,8 @@ func load_values(data):
 		if data.has("platformer_dialogue_read"):
 			platformer_dialogue_read = data.platformer_dialogue_read
 
-func load_game(name):
-	var data = _load_game(name)
+func load_game(n):
+	var data = _load_game(n)
 	if typeof(data) == TYPE_DICTIONARY:
 		load_values(data)
 		if data.game == game.RPG:
