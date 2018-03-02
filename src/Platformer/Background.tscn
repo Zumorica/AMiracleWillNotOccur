@@ -19,6 +19,7 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -37,6 +38,7 @@ tracks/0/path = NodePath("low/lowest:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
@@ -55,6 +57,7 @@ tracks/0/path = NodePath("low/lowest:rotation_degrees")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -72,6 +75,7 @@ tracks/0/path = NodePath("low/lowest:texture")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -83,6 +87,7 @@ tracks/1/path = NodePath("low/lowest:position")
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -94,6 +99,7 @@ tracks/2/path = NodePath("low/lowest:modulate")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0, 2.9, 6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -112,6 +118,7 @@ tracks/0/path = NodePath("low/lowest:modulate")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 6, 7 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -123,6 +130,7 @@ tracks/1/path = NodePath("low/low:modulate")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 5, 6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -134,6 +142,7 @@ tracks/2/path = NodePath("middle/middle:modulate")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0, 4, 5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -145,6 +154,7 @@ tracks/3/path = NodePath("high/high:modulate")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/keys = {
 "times": PoolRealArray( 0, 2, 4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -156,6 +166,7 @@ tracks/4/path = NodePath("highest/highest:modulate")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/imported = false
+tracks/4/enabled = true
 tracks/4/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -167,6 +178,7 @@ tracks/5/path = NodePath("ColorRect:color")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
+tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -177,86 +189,98 @@ tracks/5/keys = {
 [node name="Background" type="Node2D"]
 
 script = ExtResource( 1 )
-_sections_unfolded = [ "Scroll", "Transform", "Z" ]
+_sections_unfolded = [ "Material", "Scroll", "Transform", "Z" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
+root_node = NodePath("..")
+autoplay = ""
 playback_process_mode = 0
 playback_default_blend_time = 0.0
-root_node = NodePath("..")
+playback_speed = 1.0
 anims/FadeToBlack3 = SubResource( 1 )
 anims/LowestShake = SubResource( 2 )
 anims/LowestSpin = SubResource( 3 )
 anims/LowestSpiral = SubResource( 4 )
 anims/SlowlyAppear = SubResource( 5 )
-playback/active = true
-playback/speed = 1.0
 blend_times = [  ]
-autoplay = ""
 _sections_unfolded = [ "Playback", "playback" ]
 
-[node name="low" type="Node2D" parent="."]
+[node name="low" type="Node2D" parent="." index="1"]
 
-_sections_unfolded = [ "Motion", "Scroll", "Visibility" ]
+use_parent_material = true
+_sections_unfolded = [ "Material", "Motion", "Scroll", "Visibility" ]
 
-[node name="lowest" type="Sprite" parent="low"]
+[node name="lowest" type="Sprite" parent="low" index="0"]
 
 modulate = Color( 1, 1, 1, 0 )
+use_parent_material = true
 position = Vector2( 795.01, 584.566 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform", "Visibility" ]
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
-[node name="low" type="Sprite" parent="low"]
+[node name="low" type="Sprite" parent="low" index="1"]
 
 modulate = Color( 1, 1, 1, 0 )
+use_parent_material = true
 position = Vector2( 823.403, 537.801 )
 texture = ExtResource( 4 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Material", "Visibility" ]
 
-[node name="middle" type="Node2D" parent="."]
+[node name="middle" type="Node2D" parent="." index="2"]
 
-_sections_unfolded = [ "Motion", "Scroll" ]
+use_parent_material = true
+_sections_unfolded = [ "Material", "Motion", "Scroll" ]
 
-[node name="middle" type="Sprite" parent="middle"]
+[node name="middle" type="Sprite" parent="middle" index="0"]
 
 modulate = Color( 1, 1, 1, 0 )
+use_parent_material = true
 position = Vector2( 737.67, 400.968 )
 texture = ExtResource( 5 )
-_sections_unfolded = [ "Offset", "Visibility" ]
+_sections_unfolded = [ "Material", "Offset", "Visibility" ]
 
-[node name="high" type="Node2D" parent="."]
+[node name="high" type="Node2D" parent="." index="3"]
 
-_sections_unfolded = [ "Motion", "Scroll" ]
+use_parent_material = true
+_sections_unfolded = [ "Material", "Motion", "Scroll" ]
 
-[node name="high" type="Sprite" parent="high"]
+[node name="high" type="Sprite" parent="high" index="0"]
 
 modulate = Color( 1, 1, 1, 0 )
+use_parent_material = true
 position = Vector2( 695.987, 400.968 )
 texture = ExtResource( 6 )
-_sections_unfolded = [ "Offset", "Visibility" ]
+_sections_unfolded = [ "Material", "Offset", "Visibility" ]
 
-[node name="highest" type="Node2D" parent="."]
+[node name="highest" type="Node2D" parent="." index="4"]
 
-_sections_unfolded = [ "Motion" ]
+use_parent_material = true
+_sections_unfolded = [ "Material", "Motion" ]
 
-[node name="highest" type="Sprite" parent="highest"]
+[node name="highest" type="Sprite" parent="highest" index="0"]
 
 modulate = Color( 1, 1, 1, 0 )
+use_parent_material = true
 position = Vector2( 800, 400 )
 texture = ExtResource( 7 )
-_sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility" ]
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility" ]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." index="5"]
 
 visible = false
 show_behind_parent = true
-anchor_right = 1
-anchor_bottom = 1
+use_parent_material = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_right = 64.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0, 0, 0, 0 )

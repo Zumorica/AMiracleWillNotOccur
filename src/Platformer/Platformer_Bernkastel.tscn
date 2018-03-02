@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/Platformer/platformer.gd" type="Script" id=1]
 [ext_resource path="res://src/Textbox/Textbox.tscn" type="PackedScene" id=2]
@@ -20,6 +20,65 @@
 [ext_resource path="res://res/snd/thunder.wav" type="AudioStream" id=18]
 [ext_resource path="res://res/snd/system0.ogg" type="AudioStream" id=19]
 [ext_resource path="res://res/snd/horror_atmosphere2.ogg" type="AudioStream" id=20]
+
+[sub_resource type="Shader" id=4]
+
+code = "shader_type canvas_item;
+
+uniform bool enable_scanline = true;
+uniform bool transparency_to_black = true;
+uniform float blur_modifier_one = 0.5;
+uniform float blur_modifier_two = 0.5;
+uniform float blur_modifier_three = 3.0;
+uniform float blur_modifier_four = 0.05;
+uniform float scanline_modifier = 0.04;
+uniform float color_modifier = 0.5;
+
+void fragment(){
+	if(enable_scanline){
+		float a = COLOR.a;
+		float d = length(UV - vec2(0.5,0.5));
+		float blur = 0.0;
+		blur = (1.0 + sin(TIME*6.0)) * blur_modifier_one;
+		blur *= 1.0 + sin(TIME*16.0) * blur_modifier_two;
+		blur = pow(blur, blur_modifier_three);
+		blur *= blur_modifier_four;
+	
+		blur *= d;
+		
+	    vec3 col;
+	    col.r = texture( TEXTURE, vec2(UV.x+blur,UV.y) ).r;
+	    col.g = texture( TEXTURE, UV ).g;
+	    col.b = texture( TEXTURE, vec2(UV.x-blur,UV.y) ).b;
+		
+		float scanline = sin(UV.y*800.0)*scanline_modifier;
+		col -= scanline;
+		
+		col *= 1.0 - d * color_modifier;
+		
+		if(transparency_to_black)
+	    	COLOR = vec4(col,a);
+		else
+			COLOR = vec4(col,texture( TEXTURE, UV ).a);
+	} else {
+		COLOR = texture(TEXTURE, UV);
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id=5]
+
+render_priority = 0
+shader = SubResource( 4 )
+shader_param/enable_scanline = true
+shader_param/transparency_to_black = false
+shader_param/blur_modifier_one = 0.01
+shader_param/blur_modifier_two = 0.01
+shader_param/blur_modifier_three = 0.01
+shader_param/blur_modifier_four = 0.01
+shader_param/scanline_modifier = 0.007
+shader_param/color_modifier = 1.25
+_sections_unfolded = [ "shader_param" ]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -118,6 +177,7 @@ _sections_unfolded = [ "Z", "Z Index" ]
 [node name="Background" parent="TileMap" index="2" instance=ExtResource( 7 )]
 
 show_behind_parent = true
+material = SubResource( 5 )
 position = Vector2( 896, 0 )
 z_index = -10
 z_as_relative = false
@@ -305,7 +365,7 @@ bernkastel = NodePath("../Bernkastel")
 ] instance=ExtResource( 17 )]
 
 position = Vector2( 2208, 438.956 )
-frame = 0
+frame = 2
 bulletmanager = NodePath("../BulletManager")
 textbox = NodePath("../../CanvasLayer3/Textbox")
 background = NodePath("../Background")
