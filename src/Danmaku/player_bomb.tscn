@@ -12,6 +12,7 @@ radius = 64.0
 
 [sub_resource type="ParticlesMaterial" id=2]
 
+render_priority = 0
 trail_divisor = 1
 emission_shape = 1
 emission_sphere_radius = 64.0
@@ -67,11 +68,11 @@ point = ExtResource( 2 )
 beam = ExtResource( 3 )
 ray = ExtResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
 shape = SubResource( 1 )
 
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="Particles2D" type="Particles2D" parent="." index="1"]
 
 emitting = true
 amount = 120

@@ -28,18 +28,18 @@ is_player_bullet = false
 direction_affects_velocity = true
 destroy_if_offscreen = true
 
-[node name="Foreground" type="Sprite" parent="."]
+[node name="Foreground" type="Sprite" parent="." index="0"]
 
+z_index = 1
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Material", "Visibility", "Z" ]
+_sections_unfolded = [ "Material", "Visibility", "Z", "Z Index" ]
 
-[node name="Background" type="Sprite" parent="."]
+[node name="Background" type="Sprite" parent="." index="1"]
 
-z = -1
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Z" ]
+_sections_unfolded = [ "Z", "Z Index" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
 shape = SubResource( 1 )
 

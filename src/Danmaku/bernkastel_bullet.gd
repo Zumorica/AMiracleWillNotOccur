@@ -29,13 +29,15 @@ func _ready():
 func set_foreground_color(color):
 	assert typeof(color) == TYPE_COLOR
 	foreground_color = color
-	$Foreground.set_modulate(color)
+	if has_node("Foreground"):
+		$Foreground.modulate = color
 
 
 func set_background_color(color):
 	assert typeof(color) == TYPE_COLOR
 	background_color = color
-	$Background.set_modulate(color)
+	if has_node("Background"):
+		$Background.modulate = color
 
 func get_angle_to_player(from=null):
 	if from:

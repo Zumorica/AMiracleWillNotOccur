@@ -213,7 +213,7 @@ animations = [ {
 "speed": 60.0
 } ]
 
-[node name="Title" type="TextureRect" index="0"]
+[node name="Title" type="TextureRect"]
 
 material = SubResource( 2 )
 use_parent_material = true
@@ -253,6 +253,7 @@ self_modulate = Color( 1, 1, 1, 0.3 )
 material = SubResource( 5 )
 frames = SubResource( 6 )
 animation = "default"
+frame = 6
 playing = true
 centered = false
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]

@@ -365,7 +365,7 @@ bernkastel = NodePath("../Bernkastel")
 ] instance=ExtResource( 17 )]
 
 position = Vector2( 2208, 438.956 )
-frame = 2
+frame = 6
 bulletmanager = NodePath("../BulletManager")
 textbox = NodePath("../../CanvasLayer3/Textbox")
 background = NodePath("../Background")

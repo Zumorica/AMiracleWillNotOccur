@@ -574,7 +574,7 @@ bernkastel = NodePath("../Sorcerer")
 ] instance=ExtResource( 16 )]
 
 position = Vector2( 2272, 1888 )
-frame = 0
+frame = 2
 _sections_unfolded = [ "Transform", "Visibility", "Z" ]
 bgm = NodePath("../../BGM")
 animationplayer = NodePath("../../AnimationPlayer")

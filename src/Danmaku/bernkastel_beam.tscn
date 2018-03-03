@@ -49,7 +49,7 @@ _sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Flags", "
 custom_solver_bias = 0.0
 radius = 32.0
 
-[node name="Bernkastel_Beam" type="KinematicBody2D" index="0"]
+[node name="Bernkastel_Beam" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 4

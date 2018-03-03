@@ -882,7 +882,6 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 [node name="Bernkastel" parent="HBoxContainer/Game/ViewportContainer/Viewport/SpriteLayer" index="0" instance=ExtResource( 16 )]
 
 position = Vector2( 300, 150 )
-frame = 5
 _sections_unfolded = [ "Animation", "Material", "Offset", "Transform", "Visibility", "Z" ]
 bulletmanager = NodePath("../BulletManager")
 background = NodePath("../../Background")
