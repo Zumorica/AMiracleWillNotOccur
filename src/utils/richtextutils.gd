@@ -52,8 +52,7 @@ func add_to_queue(text):
 func newline():
 	add_to_queue("\n")
 
-func set_shake(vector):
-	assert typeof(vector) == TYPE_VECTOR2
+func set_shake(vector: Vector2):
 	if vector.length() == 0:
 		rect_position = origpos
 	else:

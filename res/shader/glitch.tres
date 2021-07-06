@@ -3,7 +3,6 @@
 [ext_resource path="res://res/spr/static/rgb.png" type="Texture" id=1]
 
 [sub_resource type="Shader" id=1]
-
 code = "shader_type canvas_item;
 
 uniform bool enable_glitch = true;
@@ -68,8 +67,6 @@ void fragment(){
 }"
 
 [resource]
-
-render_priority = 0
 shader = SubResource( 1 )
 shader_param/enable_glitch = true
 shader_param/transparency_to_black = false
@@ -77,5 +74,3 @@ shader_param/block_thresh_modifier = 0.25
 shader_param/line_thresh_modifier = 0.45
 shader_param/block_dist_modifier = 0.35
 shader_param/iChannel1 = ExtResource( 1 )
-_sections_unfolded = [ "shader_param" ]
-

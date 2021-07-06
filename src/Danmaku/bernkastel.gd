@@ -425,12 +425,8 @@ func spellcard_text(text, time_shown=5, color1=Color(1, 0.49, 0.49, 1), color2=C
 	miracle.game_root.misc_text.show()
 	get_tree().create_timer(time_shown).connect("timeout", miracle.game_root.misc_text, "hide")
 
-func get_angle_to_player(from=null):
-	if from:
-		assert typeof(from) == TYPE_VECTOR2
-		return rad2deg(miracle.game_root.player.get_position().angle_to_point(from))
-	else:
-		return rad2deg(miracle.game_root.player.get_position().angle_to_point(get_position()))
+func get_angle_to_player(from: Vector2 = get_position()):
+	return rad2deg(miracle.game_root.player.get_position().angle_to_point(from))
 
 func move(point):
 	is_moving = true

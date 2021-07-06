@@ -13,8 +13,7 @@ func _physics_process(delta):
 func get_speed():
 	return speed
 
-func set_speed(num):
-	assert typeof(num) == TYPE_INT
+func set_speed(num: int):
 	speed = num
 
 func set_shader_enabled(enabled=true):

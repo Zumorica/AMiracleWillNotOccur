@@ -13,40 +13,32 @@ var blips = {"blip60"     : preload("res://res/snd/blip60.wav"),
 func set_shake(vector):
 	label.set_shake(vector)
 
-func set_speed(delay, speed):
-	assert typeof(delay) == TYPE_INT
-	assert typeof(speed) == TYPE_INT
+func set_speed(delay: int, speed: int):
 	label.delay = delay
 	label.speed = speed
 
-func set_random_color(boolean):
-	assert typeof(boolean) == TYPE_BOOL
+func set_random_color(boolean: bool):
 	label.rainbow_color = boolean
 
-func set_color(color):
-	assert typeof(color) == TYPE_COLOR
+func set_color(color: Color):
 	label.push_color(color)
 	label.color = color
 
-func set_blip(stream):
-	if typeof(stream) == TYPE_NIL:
+func set_blip(stream: AudioStream):
+	if stream == null:
 		label.blip = null
 		label.get_node("AudioStreamPlayer").set_stream(null)
 		return
-	assert typeof(stream) == TYPE_OBJECT
-	assert stream is AudioStream
 	label.blip = stream
 	label.get_node("AudioStreamPlayer").set_stream(stream)
 
 func add_to_queue(text):
 	label.add_to_queue(text)
 
-func add_text(text):
-	assert typeof(text) == TYPE_STRING
+func add_text(text: String):
 	label.add_text(text)
 
-func set_name(text):
-	assert typeof(text) == TYPE_STRING
+func set_name(text: String):
 	if text.length():
 		name_panel.show()
 	else:

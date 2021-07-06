@@ -60,7 +60,7 @@ func load_game():
 		if selected <= (saves.size()):
 			miracle.load_game(saves[selected])
 
-func popup():
+func popup(bounds: Rect2 = Rect2(0, 0, 0, 0)):
 	rect_position = initial_position
 	refresh()
-	.popup()
+	.popup(bounds)
