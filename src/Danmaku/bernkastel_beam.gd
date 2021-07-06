@@ -38,16 +38,14 @@ func _ready():
 	else:
 		timer.start()
 
-func set_foreground_color(color):
-	assert typeof(color) == TYPE_COLOR
+func set_foreground_color(color: Color):
 	foreground_color = color
 	if has_node("Foreground"):
 		$Foreground.modulate = foreground_color
 	if has_node("Particles2D"):
 		$Particles2D.modulate = foreground_color
 
-func set_background_color(color):
-	assert typeof(color) == TYPE_COLOR
+func set_background_color(color: Color):
 	background_color = color
 	if has_node("Background"):
 		$Background.modulate = background_color

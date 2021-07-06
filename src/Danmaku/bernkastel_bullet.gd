@@ -26,25 +26,19 @@ func _ready():
 		add_to_group("player_bullets")
 	set_physics_process(true)
 
-func set_foreground_color(color):
-	assert typeof(color) == TYPE_COLOR
+func set_foreground_color(color: Color):
 	foreground_color = color
 	if has_node("Foreground"):
 		$Foreground.modulate = color
 
 
-func set_background_color(color):
-	assert typeof(color) == TYPE_COLOR
+func set_background_color(color: Color):
 	background_color = color
 	if has_node("Background"):
 		$Background.modulate = color
 
-func get_angle_to_player(from=null):
-	if from:
-		assert typeof(from) == TYPE_VECTOR2
-		return rad2deg(miracle.game_root.player.get_position().angle_to_point(from))
-	else:
-		return rad2deg(miracle.game_root.player.get_position().angle_to_point(get_position()))
+func get_angle_to_player(from: Vector2 = get_position()):
+	return rad2deg(miracle.game_root.player.get_position().angle_to_point(from))
 
 func _physics_process(delta):
 	if angular_velocity:

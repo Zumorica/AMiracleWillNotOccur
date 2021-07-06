@@ -71,11 +71,11 @@ func _on_List_item_selected(index):
 	selected = index
 	save_selected(saves[index])
 
-func popup():
+func popup(bounds: Rect2 = Rect2(0, 0, 0, 0)):
 	rect_position = initial_position
 	refresh()
 	emit_signal("about_to_show")
-	.popup()
+	.popup(bounds)
 
 func hide():
 	emit_signal("popup_hide")

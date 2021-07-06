@@ -51,8 +51,8 @@ func _ready():
 		bstatus.append("Lucky")
 	if bmult < 0.75 and mult > 0.75:
 		bstatus.append("Unlucky")
-	assert textbox
-	assert bernkastel_texture
+	assert(textbox)
+	assert(bernkastel_texture)
 	textbox = get_node(textbox)
 	bernkastel_texture = get_node(bernkastel_texture)
 	gamepanel = get_node(gamepanel)
@@ -713,7 +713,7 @@ func _on_MagicMissile_pressed():
 		var dmg = (randi()%15) + 1
 		if bstatus.has("Defending"):
 			dmg = round((dmg * mult) / 2)
-		var missiles = (randi()%3) + 1
+		var missiles: int = (randi()%3) + 1
 		dmg = dmg * missiles
 		match missiles:
 			3:
@@ -723,9 +723,8 @@ func _on_MagicMissile_pressed():
 			1:
 				textbox.add_to_queue("You summon a magic missile.")
 			_:
-				assert typeof(missiles) == TYPE_INT
-				assert missiles <= 3
-				assert missiles > 0
+				assert(missiles <= 3)
+				assert(missiles > 0)
 		yield(textbox.label, "on_queue_end")
 		yield(get_tree().create_timer(2), "timeout")
 		textbox.newline()
@@ -752,7 +751,9 @@ func _on_MagicPunch_pressed():
 		textbox.show()
 		randomize()
 		var dmg = round(((randi()%30) + 1) * mult)
-		var shock = (randi()%5) + 1
+		# this used to be %5 but if it ever got 5 it would assert-fail,
+		# and the code really doesn't like it. - 20kdc
+		var shock: int = (randi()%4) + 1
 		if not (bstatus.has("Shocked....") or bstatus.has("Shocked...") or bstatus.has("Shocked..") or bstatus.has("Shocked.") or bstatus.has("Shocked")):
 			match shock:
 				4:
@@ -764,9 +765,8 @@ func _on_MagicPunch_pressed():
 				1:
 					bstatus.append("Shocked.")
 				_:
-					assert typeof(shock) == TYPE_INT
-					assert shock <= 4
-					assert shock > 0
+					assert(shock <= 4)
+					assert(shock > 0)
 		textbox.add_to_queue("You concentrate all your energy in your fist...")
 		yield(textbox.label, "on_queue_end")
 		yield(get_tree().create_timer(3), "timeout")
